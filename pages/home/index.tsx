@@ -1,3 +1,4 @@
+
 import HomePage from "@/src/components/home";
 import { DefaultLayout } from "@/src/layout/default";
 import { NextPage } from "next";
