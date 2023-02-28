@@ -1,4 +1,4 @@
-import Wrapper from "@/src/widgets/default/wrapper";
+import Wrapper from "@/src/components/ui/wrapper";
 import { ArrowRightIcon, HomeModernIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { FC } from "react";
@@ -10,7 +10,7 @@ import {
   DefaultButton,
   ImageCard,
   ImageButton,
-} from "./components";
+} from "../../components/ui/index";
 
 function HomeContent() {
   return (
