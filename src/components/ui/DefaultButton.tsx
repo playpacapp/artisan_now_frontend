@@ -11,7 +11,7 @@ export const DefaultButton: FC<{
         href="${url}"
         target={target}
         className={
-          "px-4 py-2 text-lg font-medium text-center text-white border-2 border-orange-600/0 bg-orange-600 hover:border-2 hover:border-orange-600 hover:bg-orange-300/[.15] hover:text-orange-600 " +
+          "px-4 py-2 text-lg font-medium text-center text-white border-2 border-brown-600/0 bg-brown-600 hover:border-2 hover:border-brown-600 hover:bg-brown-300/[.15] hover:text-brown-600 " +
           className
         }
       >

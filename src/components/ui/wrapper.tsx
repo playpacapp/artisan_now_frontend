@@ -1,9 +1,9 @@
 import React from "react"
 
-export default function Wrapper(props: any) {
+export function Wrapper(props: any) {
   return (
     <div
-      className={`relative bg-white flex flex-wrap max-w-full ${
+      className={`container relative bg-white mx-auto ${
         props.className ? props.className : ""
       }`}>
       {props.children}

@@ -1,10 +1,15 @@
 /** @type {import('next').NextConfig} */
-const withImages = require('next-images')
 
 const nextConfig = {
-  reactStrictMode: true,
+ reactStrictMode: true,
 }
 
-module.exports = withImages()
+module.exports = {
+  i18n: {
+    locales: ['en-Us', 'es'],
+    defaultLocale: 'es',
+  },
+  withImages: require('next-images'),
+}
 module.exports = nextConfig
 

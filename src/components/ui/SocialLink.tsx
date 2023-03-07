@@ -1,21 +1,21 @@
 import { FC } from "react";
+import Image from "next/image";
 
-export const SocialLink: FC<{ url: string; path: string }> = ({ url, path }) => {
+export const SocialLink: FC<{ href?: string; url: string; size?: number; label: string }> = ({ href="", url, size=64, label }) => {
     return (
       <a
-        href="${url}"
+        href={href}
         target="_blank"
-        className="px-4 py-2 text-lg font-medium text-center text-white bg-orange-600 rounded-xl hover:bg-orange-100 hover:text-orange-600"
+        className="px-2 py-2 text-white hover:opacity-70" rel="noreferrer"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 50 50"
-          width="50px"
-          height="50px"
-          fill="currentColor"
-        >
-          <path d={path} />
-        </svg>
+        <Image
+          src={url}
+          blurDataURL={url}
+          width={size}
+          height={size}
+          alt={label}
+          placeholder="blur"
+        />
       </a>
     );
   };
