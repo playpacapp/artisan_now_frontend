@@ -7,7 +7,7 @@ export const IconInput: FC<{
     path: string;
   }> = ({ type, placeholder, className, path }) => {
     return (
-      <div className={`flex items-center py-7 relative ${className}`}>
+      <div className={`flex items-center relative ${className}`}>
         <svg
           className="absolute left-3 z-10"
           xmlns="http://www.w3.org/2000/svg"
@@ -16,12 +16,12 @@ export const IconInput: FC<{
           width={24}
           height={24}
           strokeWidth="1.5"
-          stroke="currentColor"
+          stroke="#555555"
         >
           <path d={path} />
         </svg>
         <input
-          className="leading-none text-left text-gray-600 px-10 py-3 w-full border border-gray-600 outline-none"
+          className="leading-none rounded-3xl text-left text-gray-600 px-10 py-3 w-full border border-gray-400 outline-none"
           type={type}
           placeholder={placeholder}
         />

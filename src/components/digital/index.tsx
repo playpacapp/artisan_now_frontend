@@ -59,7 +59,7 @@ export default function DigitalPage() {
           <h1 className="w-full text-center text-2xl font-bold leading-snug tracking-tight text-gray-800 lg:text-2xl lg:leading-tight xl:text-4xl xl:leading-tight">
             {t("how-to.title")}
           </h1>
-          <div className="w-full flex flex-cols items-top justify-center lg:px-10 lg:py-20 sm:px-5 sm:py-10">
+          <div className="w-full flex flex-col items-start justify-center lg:px-10 lg:py-20 sm:px-5 sm:py-10">
             <ImageButton
               url="/image/digital/how_to/MUESTRA-10.png"
               size={96}

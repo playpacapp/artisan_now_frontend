@@ -7,18 +7,17 @@ export const ImageButton: FC<{ url: string; label: string; size: number }> = ({
   size,
 }) => {
   return (
-    <div className="w-full justify-center lg:px-3 lg:py-3 cursor-pointer hover:opacity-80">
-      <div className="flex flex-col px-2 py-2 justify-center items-center">
-        <Image
-          src={url}
-          blurDataURL={url}
-          width={size}
-          height={size}
-          alt={label}
-          placeholder="blur"
-        />
-        <span className="text-gray-700 mt-5">{label}</span>
-      </div>
+    <div className="cursor-pointer flex flex-col m-2 p-1 justify-center items-center hover:opacity-80 border-b-2 border-transparent hover:border-b-2 hover:border-brown-900">
+      <Image
+        className="mx-auto"
+        src={url}
+        blurDataURL={url}
+        width={size}
+        height={size}
+        alt={label}
+        placeholder="blur"
+      />
+      <span className="text-sm text-100 text-gray-700 mt-5 text-center hidden sm:block">{label}</span>
     </div>
   );
 };

@@ -1,8 +1,4 @@
-import { FC } from "react";
-
-import { ArrowRightIcon, HomeModernIcon } from "@heroicons/react/24/outline";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 
 import {
   ImageContent,
@@ -10,8 +6,8 @@ import {
   IconInput,
   DefaultButton,
   ImageCard,
-  ImageButton,
   Wrapper,
+  CategoriesBar,
 } from "../../components/ui/index";
 
 function HomeContent() {
@@ -50,7 +46,7 @@ function HomeContent() {
             <h1 className="text-center text-2xl font-bold leading-snug tracking-tight text-gray-800 lg:text-2xl lg:leading-tight xl:text-4xl xl:leading-tight">
               {t("how-work.title")}
             </h1>
-            <div className="flex flex-cols items-center justify-center gap-6">
+            <div className="flex flex-col items-center justify-center gap-6">
               <ImageContent
                 url="/image/home/world.png"
                 size={128}
@@ -96,37 +92,8 @@ function HomeContent() {
       </Wrapper>
 
       <Wrapper>
-        <div className="w-full px-10 py-10 flex flex-cols items-center justify-center">
-          <ImageButton
-            url="/image/home/categories/experiences.png"
-            size={96}
-            label={t("categories.experiences")}
-          />
-          <ImageButton
-            url="/image/home/categories/online_experiences.png"
-            size={96}
-            label={t("categories.online-experiences")}
-          />
-          <ImageButton
-            url="/image/home/categories/wool.png"
-            size={96}
-            label={t("categories.wool")}
-          />
-          <ImageButton
-            url="/image/home/categories/naturally_dyed.png"
-            size={96}
-            label={t("categories.naturally-dyed")}
-          />
-          <ImageButton
-            url="/image/home/categories/natural_cosmetics.png"
-            size={96}
-            label={t("categories.natural-cosmetics")}
-          />
-          <ImageButton
-            url="/image/home/categories/vegetal_fibers.png"
-            size={96}
-            label={t("categories.vegetal-fibers")}
-          />
+        <div className="px-10 py-10">
+          <CategoriesBar />
         </div>
       </Wrapper>
 

@@ -103,5 +103,12 @@
       "title": "5. Do I Have a money-back Guarantee?",
       "content": "All services provided by Artisanow come with a service agreement guarantee. Our goal is not only to co-create new ways of valuing the knowledge of many rural women, but also to focus on technological development to facilitate the connection of many global travelers, provide payment facilities, and mobility in the territories. Our project is the result of transparency and trust that we have built among diverse women, and we aim to replicate this same relationship of trust and transparency with our users."
     }
+  },
+  "course":{
+    "subtitle":{
+      "online-experiences": "Online Experiences",
+      "experiences":"Experiences and Destinations",
+      "artisan-channel": "ArtisanNow Channel"
+    }
   }
 }

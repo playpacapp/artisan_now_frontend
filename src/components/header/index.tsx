@@ -29,6 +29,9 @@ const Header = () => {
             <div className="Logo">
               <Logo link="/" />
             </div>
+            <div>
+              <a href="/course" > test </a>
+            </div>
             <nav className="ml-auto flex items-center lg:space-x-6 space-x-2">
               <NavMenu/>
             </nav>
