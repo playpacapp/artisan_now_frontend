@@ -1,9 +1,8 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 import { FC } from "react";
-import Image from "next/image";
 import ReactCountryFlag from "react-country-flag";
-import ReactFlagsSelect from "react-flags-select";
 import { Fragment, useState } from "react";
+import { useRouter } from "next/router";
 
 import {
   Bars3Icon,
@@ -14,6 +13,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { Popover, Transition } from "@headlessui/react";
 import { useTranslations } from "next-intl";
+import { LinkButton } from "../../ui";
 
 const lang = [
   { lang: "US", country: "US" },
@@ -22,21 +22,18 @@ const lang = [
 
 const avartas = [
   { name: "Login", link: "/login" },
-  { name: "Register", link: "/register"},
+  { name: "Register", link: "/register" },
   { name: "Join as a digital creator", link: "/digital" },
   { name: "Contact us", link: "/contact" },
 ];
 
 export const NavMenu: FC<{ link?: string }> = ({ link = "" }) => {
-  
   const t = useTranslations("header");
-
+  const router = useRouter();
   return (
     <>
       <div className="hidden md:flex md:flex-1 md:items-center md:justify-end md:space-x-6">
-        <a href="/digital" className="px-3 py-2 rounded-3xl text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-brown-100">
-          {t("digital-creator")}
-        </a>
+        <LinkButton label={t("digital-creator")} action={() => router.push("/digital")} />
         <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
       </div>
 
@@ -120,10 +117,17 @@ export const NavMenu: FC<{ link?: string }> = ({ link = "" }) => {
                 {avartas.map((item) => (
                   <div
                     key={item.name}
-                    className={`group relative flex items-center justify-center gap-x-3 py-3 text-sm leading-3 hover:bg-brown-100  ${item.name=='Join as a digital creator'? "md:hidden": ""}`}
+                    className={`group relative flex items-center justify-center gap-x-3 py-3 text-sm leading-3 hover:bg-brown-100  ${
+                      item.name == "Join as a digital creator"
+                        ? "md:hidden"
+                        : ""
+                    }`}
                   >
                     <div className="flex-auto px-3">
-                      <a href={item.link} className="block font-semibold text-gray-900">
+                      <a
+                        href={item.link}
+                        className="block font-semibold text-gray-900"
+                      >
                         {item.name}
                         <span className="absolute inset-0" />
                       </a>

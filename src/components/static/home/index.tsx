@@ -24,15 +24,11 @@ function HomeContent() {
             <p className="text-center py-5 text-xl leading-normal text-white lg:text-xl xl:text-2xl">
               {t("hero-description")}
             </p>
-            <div className="flex justify-center space-x-6">
+            <div className="flex justify-center space-x-6 mt-20">
               <DefaultButton
-                url=""
-                target=""
                 label={t("buttons.experiences")}
               />
               <DefaultButton
-                url=""
-                target=""
                 label={t("buttons.online-experiences")}
               />
             </div>
@@ -81,9 +77,7 @@ function HomeContent() {
             </p>
             <div className="flex justify-center space-x-6">
               <DefaultButton
-                className="rounded-md"
-                url=""
-                target=""
+                className=""
                 label={t("buttons.learn-more")}
               />
             </div>

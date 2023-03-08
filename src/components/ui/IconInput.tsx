@@ -1,10 +1,10 @@
 import { FC } from "react";
 
 export const IconInput: FC<{
-    type: string;
-    placeholder: string;
-    className: string;
-    path: string;
+    type?: string;
+    placeholder?: string;
+    className?: string;
+    path?: string;
   }> = ({ type, placeholder, className, path }) => {
     return (
       <div className={`flex items-center relative ${className}`}>

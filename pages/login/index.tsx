@@ -4,12 +4,8 @@ import { NextPage } from "next";
 
 const Login: NextPage = () => {
 
-  
-
   return (
-    <DefaultLayout>
-      <LoginPage />
-    </DefaultLayout>
+    <LoginPage />
   );
 };
 

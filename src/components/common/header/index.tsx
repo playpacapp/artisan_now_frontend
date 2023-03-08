@@ -13,7 +13,7 @@ import { Popover, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { Wrapper } from "../../ui";
 import { useTranslations } from "next-intl";
-import { Logo } from "./Logo";
+import { Logo } from "../../ui/Logo";
 import { NavMenu } from "./NavMenu";
 
 

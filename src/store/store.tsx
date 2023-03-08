@@ -1,1 +1,4 @@
-export * from "./"
+
+export var auth = {role:undefined, login: false}
+
+ 

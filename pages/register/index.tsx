@@ -4,10 +4,7 @@ import { NextPage } from "next";
 
 const Register: NextPage = () => {
   return (
-    <DefaultLayout>
-      {" "}
       <RegisterPage />
-    </DefaultLayout>
   );
 };
 
