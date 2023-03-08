@@ -1,5 +1,5 @@
 
-import DigitalPage from "@/src/components/digital";
+import DigitalPage from "@/src/components/static/digital";
 import { DefaultLayout } from "@/src/components/layout/default";
 import { NextPage } from "next";
 

@@ -1,5 +1,5 @@
 
-import FAQPage from "@/src/components/faq";
+import FAQPage from "@/src/components/static/faq";
 import { DefaultLayout } from "@/src/components/layout/default";
 import { NextPage } from "next";
 

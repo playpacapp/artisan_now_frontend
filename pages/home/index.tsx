@@ -1,5 +1,5 @@
 
-import HomePage from "@/src/components/home";
+import HomePage from "@/src/components/static/home";
 import { DefaultLayout } from "@/src/components/layout/default";
 import { NextPage } from "next";
 

@@ -1,5 +1,5 @@
 
-import ContactPage from "@/src/components/contact";
+import ContactPage from "@/src/components/static/contact";
 import { DefaultLayout } from "@/src/components/layout/default";
 import { NextPage } from "next";
 

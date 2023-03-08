@@ -1,5 +1,5 @@
 
-import TermsPage from "@/src/components/terms";
+import TermsPage from "@/src/components/static/terms";
 import { DefaultLayout } from "@/src/components/layout/default";
 import { NextPage } from "next";
 

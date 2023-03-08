@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 
-import { IconInput, ImageCard, Wrapper, CategoriesBar } from "../ui/index";
+import { IconInput, ImageCard, Wrapper, CategoriesBar } from "../../common/ui/index";
 
 export default function CoursePage() {
   const t = useTranslations("course");

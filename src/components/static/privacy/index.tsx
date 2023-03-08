@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 
-import { Wrapper } from "../ui/index";
+import { Wrapper } from "../../common/ui/index";
 
 export default function PrivacyPage() {
   const t = useTranslations("commitment");

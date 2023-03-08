@@ -1,16 +1,17 @@
-import CoursePage from "@/src/components/user/course";
+import RegisterPage from "@/src/components/auth/register";
 import { DefaultLayout } from "@/src/components/layout/default";
 import { NextPage } from "next";
 
-const Course: NextPage = () => {
+const Register: NextPage = () => {
   return (
     <DefaultLayout>
-      <CoursePage />
+      {" "}
+      <RegisterPage />
     </DefaultLayout>
   );
 };
 
-export default Course;
+export default Register;
 
 export async function getStaticProps(locale: string) {
   return {
