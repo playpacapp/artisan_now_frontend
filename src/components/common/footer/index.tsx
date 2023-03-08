@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import Image from "next/image";
 
-import { Wrapper } from "../ui";
+import { Wrapper } from "../../ui";
 import { useTranslations } from "next-intl";
 
 

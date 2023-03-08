@@ -8,7 +8,7 @@ import {
   ImageCard,
   Wrapper,
   CategoriesBar,
-} from "../../common/ui/index";
+} from "../../ui/index";
 
 function HomeContent() {
   const t = useTranslations("home");

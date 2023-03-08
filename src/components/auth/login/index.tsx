@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 
-import { Wrapper } from "../../common/ui/index";
+import { Wrapper } from "../../ui/index";
 
 export default function LoginPage() {
   const t = useTranslations("contact");

@@ -11,7 +11,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { Popover, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
-import { Wrapper } from "../ui";
+import { Wrapper } from "../../ui";
 import { useTranslations } from "next-intl";
 import { Logo } from "./Logo";
 import { NavMenu } from "./NavMenu";

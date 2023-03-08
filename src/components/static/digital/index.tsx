@@ -9,7 +9,7 @@ import {
   ImageCard,
   ImageButton,
   Wrapper,
-} from "../../common/ui/index";
+} from "../../ui/index";
 
 export default function DigitalPage() {
   const t = useTranslations("digital");

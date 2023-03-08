@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import { FC } from "react";
 
-import { DefaultButton, Wrapper } from "../../common/ui/index";
+import { DefaultButton, Wrapper } from "../../ui/index";
 
 const FAQ: FC<{ title: string; content: string }> = ({ title, content }) => {
   const t = useTranslations("faq");
