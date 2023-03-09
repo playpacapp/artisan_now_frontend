@@ -1,5 +1,4 @@
 import { FC } from "react";
-import { DefaultButton } from "./DefaultButton";
 import Image from "next/image";
 
 export const ImageCard: FC<{ url: string; label: string }> = ({

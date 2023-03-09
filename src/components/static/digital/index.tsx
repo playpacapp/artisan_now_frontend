@@ -4,12 +4,12 @@ import { useTranslations } from "next-intl";
 import {
   ImageContent,
   SocialLink,
-  IconInput,
-  DefaultButton,
+  Input,
+  Button,
   ImageCard,
   ImageButton,
   Wrapper,
-} from "../../ui/index";
+} from "../../ui";
 
 export default function DigitalPage() {
   const t = useTranslations("digital");

@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 
-import { IconInput, ImageCard, Wrapper, CategoriesBar, CourseContainer } from "../../ui/index";
+import { Input, ImageCard, Wrapper, CategoriesBar, CourseContainer } from "../../ui/index";
 
 export default function CoursePage() {
   const t = useTranslations("course");
@@ -13,7 +13,7 @@ export default function CoursePage() {
       </Wrapper>
       <Wrapper>
         <div className="flex w-full items-center justify-center mx-auto px-5 md:px-10 pb-2 md:pb-5">
-          <IconInput
+          <Input
             className="w-3/4"
             type="text"
             placeholder="Search"

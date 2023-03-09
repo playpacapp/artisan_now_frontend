@@ -1,0 +1,47 @@
+# Query: IconInput
+# ContextLines: 1
+
+11 results - 5 files
+
+src\components\auth\register\index.tsx:
+   3  
+   4: import { DefaultButton, Input, LinkButton, Wrapper } from "../../ui/index";
+   5  import { Logo } from "../../ui/Logo";
+
+  20            <div className="w-full flex flex-col gap-y-5">
+  21:             <Input type="email" placeholder="Enter you Email" path="" />
+  22:             <Input type="password" placeholder="Enter Password" path="" />
+  23:             <Input type="password" placeholder="Confirm Password" path="" />
+  24            </div>
+
+src\components\static\digital\index.tsx:
+  6    SocialLink,
+  7:   Input,
+  8    DefaultButton,
+
+src\components\static\home\index.tsx:
+    6    SocialLink,
+    7:   Input,
+    8    DefaultButton,
+
+   91              <div className="w-full mb-10">
+   92:               <Input
+   93                  className="w-full md:w-3/4 mx-auto"
+
+  139                <div className="flex justify-center">
+  140:                 <Input
+  141                    className="w-3/4"
+
+src\components\ui\index.ts:
+  4  export * from "./ImageCard"
+  5: export * from "./Input"
+  6  export * from "./DefaultButton"
+
+src\components\user\course\index.tsx:
+   2  
+   3: import { Input, ImageCard, Wrapper, CategoriesBar, CourseContainer } from "../../ui/index";
+   4  
+
+  15          <div className="flex w-full items-center justify-center mx-auto px-5 md:px-10 pb-2 md:pb-5">
+  16:           <Input
+  17              className="w-3/4"

@@ -1,11 +1,13 @@
 import { useTranslations } from "next-intl";
 import { Container } from "../../ui/Container";
+import { RiSearchLine } from "react-icons/ri"
+
 
 import {
   ImageContent,
   SocialLink,
-  IconInput,
-  DefaultButton,
+  Input,
+  Button,
   ImageCard,
   Wrapper,
   CategoriesBar,
@@ -26,8 +28,8 @@ const HomeContent = () => {
               {t("hero-description")}
             </p>
             <div className="flex justify-center space-x-6 mt-20">
-              <DefaultButton label={t("buttons.experiences")} />
-              <DefaultButton label={t("buttons.online-experiences")} />
+              <Button label={t("buttons.experiences")} />
+              <Button label={t("buttons.online-experiences")} />
             </div>
           </div>
         </div>
@@ -73,7 +75,7 @@ const HomeContent = () => {
               {t("vision.content-2")}
             </p>
             <div className="flex justify-center space-x-6">
-              <DefaultButton className="" label={t("buttons.learn-more")} />
+              <Button className="" label={t("buttons.learn-more")} />
             </div>
           </div>
         </Container>
@@ -89,11 +91,11 @@ const HomeContent = () => {
         <Container  className="bg-brown-100">
           <div className="w-full flex flex-wrap">
             <div className="w-full mb-10">
-              <IconInput
+              <Input
                 className="w-full md:w-3/4 mx-auto"
                 type="text"
                 placeholder="Search"
-                path="M 9 2 C 5.1458514 2 2 5.1458514 2 9 C 2 12.854149 5.1458514 16 9 16 C 10.747998 16 12.345009 15.348024 13.574219 14.28125 L 14 14.707031 L 14 16 L 20 22 L 22 20 L 16 14 L 14.707031 14 L 14.28125 13.574219 C 15.348024 12.345009 16 10.747998 16 9 C 16 5.1458514 12.854149 2 9 2 z M 9 4 C 11.773268 4 14 6.2267316 14 9 C 14 11.773268 11.773268 14 9 14 C 6.2267316 14 4 11.773268 4 9 C 4 6.2267316 6.2267316 4 9 4 z"
+                icon= {RiSearchLine}
               />
             </div>
             <CourseContainer />
@@ -137,11 +139,10 @@ const HomeContent = () => {
                 {t("dont-miss.content")}
               </p>
               <div className="flex justify-center">
-                <IconInput
+                <Input
                   className="w-3/4"
                   type="mail"
                   placeholder={t("dont-miss.placeholder")}
-                  path="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
                 />
               </div>
             </div>
