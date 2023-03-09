@@ -3,6 +3,7 @@ import Image from "next/image";
 
 import { Wrapper } from "../../ui";
 import { useTranslations } from "next-intl";
+import { Copyright } from "../../ui/Copyright";
 
 const PageLink: FC<{ url: string; label: string }> = ({ url, label }) => {
   return (
@@ -40,7 +41,7 @@ const Footer = () => {
   const t = useTranslations("footer");
   return (
     <Wrapper>
-      <div className="w-full bg-brown-100/[.5] px-10 py-5">
+      <div className="w-full bg-brown-50 px-10 py-5">
         <div className="w-full flex flex-col lg:flex-row justify-between gap-4 lg:gap-20 px-10">
           <div className="w-fit flex flex-col gap-2 md:gap-4">
             <h1 className="text-base font-semibold leading-4 text-gray-600 w-full">
@@ -69,7 +70,7 @@ const Footer = () => {
               <PageLink url="/commitment" label={t("menu.commitment")} />
             </div>
             <div className="w-fit flex flex-col gap-2 md:gap-4 py-2">
-              <PageLink url="/faq" label={t("menu.faq")} />
+              <PageLink url="/FAQ" label={t("menu.faq")} />
               <PageLink url="/news" label={t("menu.news")} />
               <PageLink url="/contact" label={t("menu.contact")} />
               <PageLink url="" label="" />
@@ -82,10 +83,9 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="mx-auto w-full py-8 xl:px-10 lg:px-12 sm:px-6 px-4 text-center bg-brown-100 border-t-1">
-        <span className="text-gray-600 text-center">{t("copyright")}</span>
-      </div>
+        <div className="h-[10vmax] lg:h-[7vmax]"></div>
+      </div>      
+      <Copyright/>
     </Wrapper>
   );
 };

@@ -38,10 +38,10 @@ const HomeContent = () => {
       <Wrapper>
         <Container>
           <div className="">
-            <h1 className="text-center text-2xl font-bold leading-snug tracking-tight text-gray-800 lg:text-2xl lg:leading-tight xl:text-4xl xl:leading-tight">
+            <h1 className="text-center text-2xl font-bold leading-snug tracking-tight text-gray-800 lg:text-2xl lg:leading-tight xl:text-4xl xl:leading-tight mb-10">
               {t("how-work.title")}
             </h1>
-            <div className="grid grid-cols-1 md:grid-cols-3 items-center justify-center gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 items-start justify-center gap-6">
               <ImageContent
                 url="/image/home/world.png"
                 size={128}
@@ -63,12 +63,12 @@ const HomeContent = () => {
       </Wrapper>
 
       <Wrapper>
-        <Container className="bg-brown-100">
-          <div className="">
+        <Container className="bg-brown-50">
+          <div className="px-10 py-10">
             <h1 className="text-center text-2xl font-bold leading-snug tracking-tight text-gray-800 lg:text-2xl lg:leading-tight xl:text-4xl xl:leading-tight">
               {t("vision.title")}
             </h1>
-            <p className="text-center py-5 text-xl leading-normal text-gray-500 lg:text-xl xl:text-2xl">
+            <p className="text-center md py-5 text-xl leading-normal text-gray-500 lg:text-xl xl:text-2xl">
               {t("vision.content-1")}
             </p>
             <p className="text-center py-5 text-xl leading-normal text-gray-500 lg:text-xl xl:text-2xl">
@@ -88,7 +88,7 @@ const HomeContent = () => {
       </Wrapper>
 
       <Wrapper>
-        <Container  className="bg-brown-100">
+        <Container  className="bg-brown-50">
           <div className="w-full flex flex-wrap">
             <div className="w-full mb-10">
               <Input
@@ -105,8 +105,8 @@ const HomeContent = () => {
 
       <Wrapper>
         <Container>
-          <div className="w-full flex flex-wrap gap-10">
-            <div className="w-full flex flex-col">
+          <div className="w-full flex flex-wrap gap-10 md:gap-20 justify-center items-start">
+            <div className="w-fit flex flex-col">
               <h1 className="text-center text-2xl font-bold leading-snug tracking-tight text-gray-800 lg:text-2xl lg:leading-tight xl:text-4xl xl:leading-tight">
                 {t("travel-with-us.title")}
               </h1>
@@ -131,7 +131,7 @@ const HomeContent = () => {
                 />
               </div>
             </div>
-            <div className="w-full flex flex-col">
+            <div className="w-fit flex flex-col">
               <h1 className="text-center text-2xl font-bold leading-snug tracking-tight text-gray-800 lg:text-2xl lg:leading-tight xl:text-4xl xl:leading-tight">
                 {t("dont-miss.title")}
               </h1>

@@ -1,9 +1,9 @@
 
-import React, {FC} from "react";
+import React, {FC, ReactEventHandler} from "react";
 import { HeroIcon } from "./Icons";
 import { IconType } from "react-icons";
 
-type Props = {
+interface Props extends Omit<ReactEventHandler<HTMLInputElement>, ""> {
   type: string;
   placeholder?: string;
   name?: string;

@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/router";
+import { Copyright } from "../../ui/Copyright";
 
 import { Button, Input, LinkButton, Wrapper } from "../../ui/index";
 import { Logo } from "../../ui/Logo";
@@ -18,9 +19,9 @@ export default function RegisterPage() {
               Register
             </h1>
           <div className="w-full flex flex-col gap-y-5">
-            <Input type="email" placeholder="Enter you Email" path="" />
-            <Input type="password" placeholder="Enter Password" path="" />
-            <Input type="password" placeholder="Confirm Password" path="" />
+            <Input type="email" placeholder="Enter you Email"  />
+            <Input type="password" placeholder="Enter Password" />
+            <Input type="password" placeholder="Confirm Password"  />
           </div>
           <div className="w-fit">
             <Button className="w-[150px]" label="Register" />
@@ -30,9 +31,7 @@ export default function RegisterPage() {
             <LinkButton label="Login" action={() => router.push("/login")} />
           </div>          
         </div>
-        <div className="absolute bottom-0 w-full flex flex-wrap justify-center items-center border-t text-gray-400 py-10">
-            <span>All rights reserved&nbsp;&nbsp;&nbsp;&nbsp;Copyright&nbsp;©&nbsp;2023&nbsp;&nbsp;&nbsp;artisanNow</span>
-        </div>
+        <Copyright/>
       </Wrapper>
     </>
   );

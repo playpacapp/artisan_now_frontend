@@ -9,8 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
     "@headlessui/react": "^1.7.11",
     "@heroicons/react": "^2.0.16",
+    "@mui/material": "^5.11.12",
     "@next/font": "13.1.6",
     "@types/node": "18.14.0",
     "@types/react": "18.0.28",
@@ -24,6 +27,7 @@
     "react-country-flag": "^3.0.2",
     "react-dom": "18.2.0",
     "react-flags-select": "^2.2.3",
+    "react-hook-form": "^7.43.5",
     "react-icons": "^4.8.0",
     "typescript": "4.9.5"
   },
