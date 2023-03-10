@@ -1,7 +1,6 @@
 import { useTranslations } from "next-intl";
 import { Container } from "../../ui/Container";
-import { RiSearchLine } from "react-icons/ri"
-
+import { RiSearchLine } from "react-icons/ri";
 
 import {
   ImageContent,
@@ -64,17 +63,17 @@ const HomeContent = () => {
 
       <Wrapper>
         <Container className="bg-brown-50">
-          <div className="px-10 py-10">
-            <h1 className="text-center text-2xl font-bold leading-snug tracking-tight text-gray-800 lg:text-2xl lg:leading-tight xl:text-4xl xl:leading-tight">
+          <div className="px-10 py-10 w-[90%]">
+            <h1 className="text-left text-2xl font-bold leading-snug tracking-tight text-gray-800 lg:text-2xl lg:leading-tight xl:text-4xl xl:leading-tight">
               {t("vision.title")}
             </h1>
-            <p className="text-center md py-5 text-xl leading-normal text-gray-500 lg:text-xl xl:text-2xl">
+            <p className="text-left md py-5 text-xl leading-normal text-gray-500 lg:text-xl xl:text-2xl">
               {t("vision.content-1")}
             </p>
-            <p className="text-center py-5 text-xl leading-normal text-gray-500 lg:text-xl xl:text-2xl">
+            <p className="text-left py-5 text-xl leading-normal text-gray-500 lg:text-xl xl:text-2xl">
               {t("vision.content-2")}
             </p>
-            <div className="flex justify-center space-x-6">
+            <div className="flex justify-left">
               <Button className="" label={t("buttons.learn-more")} />
             </div>
           </div>
@@ -88,14 +87,14 @@ const HomeContent = () => {
       </Wrapper>
 
       <Wrapper>
-        <Container  className="bg-brown-50">
+        <Container className="bg-brown-50">
           <div className="w-full flex flex-wrap">
             <div className="w-full mb-10">
               <Input
                 className="w-full md:w-3/4 mx-auto"
                 type="text"
                 placeholder="Search"
-                icon= {RiSearchLine}
+                icon={RiSearchLine}
               />
             </div>
             <CourseContainer />

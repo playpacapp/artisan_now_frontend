@@ -1,9 +1,13 @@
-import LoginPage from "@/src/components/auth/login";
+import {LoginPage} from "@/src/components/auth";
+import { store } from "@/src/store";
 import { NextPage } from "next";
+import { Provider } from "react-redux";
 
 const Login: NextPage = () => {
   return (
-    <LoginPage />
+    <Provider store={store}>
+      <LoginPage />
+    </Provider>
   );
 };
 

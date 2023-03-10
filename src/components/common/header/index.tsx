@@ -1,16 +1,6 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
-import ReactCountryFlag from "react-country-flag";
-import ReactFlagsSelect from "react-flags-select";
 
-import {
-  Bars3Icon,
-  BellIcon,
-  XMarkIcon,
-  UserCircleIcon,
-  ChevronDownIcon,
-} from "@heroicons/react/24/outline";
-import { Popover, Transition } from "@headlessui/react";
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import { Wrapper } from "../../ui";
 import { useTranslations } from "next-intl";
 import { Logo } from "../../ui/Logo";

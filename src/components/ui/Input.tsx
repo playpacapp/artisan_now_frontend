@@ -9,6 +9,7 @@ interface Props extends Omit<ReactEventHandler<HTMLInputElement>, ""> {
   name?: string;
   className?: string;
   icon?: IconType;
+  register?: any;
 }
 
 export const Input: FC<Props> = (props) => {
@@ -20,6 +21,7 @@ export const Input: FC<Props> = (props) => {
           type={props.type}
           placeholder={props.placeholder}
           name={props.name}
+          // {props.register && <>{...props.register(props.name)}</>}
         />
       </div>
     );

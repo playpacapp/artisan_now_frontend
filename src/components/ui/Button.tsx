@@ -5,11 +5,14 @@ type Props = {
   className?: string;
   label: string;
   action?: any;
+  disabled?: boolean;
+  isSubmitting?: boolean;
 }
 
 export const Button: FC<Props> = (props) => {
     return (
       <button
+        disabled={props.disabled}
         type={props.type}
         onClick = {props.action}
         className={
@@ -17,6 +20,7 @@ export const Button: FC<Props> = (props) => {
           props.className
         }
       >
+        {props.isSubmitting && <span className="spinner-border spinner-border-sm me-1"></span>}
         {props.label}
       </button>
     );
