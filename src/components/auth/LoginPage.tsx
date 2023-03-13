@@ -63,14 +63,14 @@ export const LoginPage = () => {
     setInputs((inputs) => ({ ...inputs, [name]: value }));
   }
   
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-  
     setSubmitted(true);
+    alert(username +", "+password)
     if (username && password) {
       // get return url from location state or default to home page
-      dispatch(userActions.login(username, password));
       
+      dispatch<any>(userActions.login(username, password))
     }
   }
 
@@ -98,7 +98,7 @@ export const LoginPage = () => {
           <Input
             type="password"
             name="password"
-            value={username}
+            value={password}
             onChange={handleChange}
             placeholder="Enter Password"
             icon={RiKey2Line}

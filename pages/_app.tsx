@@ -1,4 +1,5 @@
-import "@/styles/globals.css";
+import "@/styles/globals.scss";
+import "@/styles/component.ui.scss";
 import { NextIntlProvider } from "next-intl";
 import type { AppProps } from "next/app";
 import { Provider } from "react-redux";

@@ -1,5 +1,4 @@
 import { FC } from "react";
-import "@/styles/component.ui.scss"
 
 type Props = {
   loading?: boolean;
