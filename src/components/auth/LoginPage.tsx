@@ -66,16 +66,14 @@ export const LoginPage = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitted(true);
-    alert(username +", "+password)
     if (username && password) {
       // get return url from location state or default to home page
-      
-      dispatch<any>(userActions.login(username, password))
+      await dispatch<any>(userActions.login(username, password))
     }
   }
 
   return (
-    <Wrapper className="flex justify-center items-center w-[100vw] h-[100vh] bg-white mx-auto">
+    <Wrapper className="flex flex-col justify-center items-center w-[100vw] h-[100vh] bg-white mx-auto">
       <form
         className="relative w-full md:w-[70%] lg:w-[60%] xl:w-[50%] 2xl:w-[30%] flex flex-col items-center justify-center px-10 py-10 gap-y-5"
         onSubmit={handleSubmit}
@@ -110,7 +108,7 @@ export const LoginPage = () => {
             action={() => router.push("/")}
           />
         </div>
-        <div className="w-fit">
+        <div className="relative w-fit">
           <Button
             type="submit"
             className="w-[150px]"
@@ -118,15 +116,15 @@ export const LoginPage = () => {
             disabled={loggingIn}
             isSubmitting={loggingIn}
           />
-        </div>
-        <div className="w-full flex flex-wrap justify-center items-center gap-4">
+        </div>        
+      </form>
+      <div className="w-full flex flex-wrap justify-center items-center gap-4">
           <span>Do you have not a account?</span>
           <LinkButton
             label="Create a account"
             action={() => router.push("/register")}
           />
         </div>
-      </form>
       <Copyright />
     </Wrapper>
   );

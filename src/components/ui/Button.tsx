@@ -19,13 +19,13 @@ export const Button: FC<Props> = (props) => {
         type={type}
         onClick = {action}
         className={
-          "rounded-3xl px-5 py-2 md:px-10 md:py-3 text-lg font-medium text-center text-white border-2 border-brown-600/0 bg-brown-600 hover:border-2 hover:border-brown-600 hover:bg-brown-300/[.15] hover:text-brown-600 leading-4 " +
+          "disabled:bg-brown-300 disabled:cursor-not-allowed rounded-3xl px-5 py-2 md:px-10 md:py-3 text-lg font-medium text-center text-white border-2 border-brown-600/0 bg-brown-600 enabled:hover:border-2 enabled:hover:border-brown-600 enabled:hover:bg-brown-300/[.15] enabled:hover:text-brown-600 enabled:cursor-pointer leading-4 " +
           className
         }
       >
         {isSubmitting && 
         <>
-          <Spinner />
+          <Spinner size={32} left={11} top={5} className="" />
         </>}
         {label}
       </button>

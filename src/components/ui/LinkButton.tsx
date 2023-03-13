@@ -7,6 +7,7 @@ export const LinkButton: FC<{
   }> = ({ className, label, action }) => {
     return (
       <button
+        type="button"
         onClick = {action}
         className={
           "px-4 py-1 rounded-3xl text-sm font-medium text-blue-500 hover:text-gray-900 hover:bg-brown-100 " +

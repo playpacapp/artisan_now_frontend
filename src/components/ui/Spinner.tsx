@@ -5,7 +5,10 @@ type Props = {
   text?: string;
   color?: string;
   size?: string | number;
+  left?: string | number;
+  top?: string | number;
   fullscreen?: boolean;
+  className?: string;
 };
 
 export const Spinner: FC<Props> = ({
@@ -14,13 +17,18 @@ export const Spinner: FC<Props> = ({
   size = 40,
   loading = true,
   fullscreen = true,
+  className = "",
+  left = 0,
+  top = 0
 }) =>
   loading ? (
     <div
-      className={`mtrade-loading ${fullscreen ? "fullscreen" : ""}`}
+      className={`mtrade-loading ${fullscreen ? "fullscreen" : ""} ${className}`}
       style={{
-        width: '30px',
-        height: '20px'
+        width: size,
+        height: size,
+        left: left,
+        top: top 
       }}
     >
       <span className="spinner"></span>

@@ -1,4 +1,3 @@
-import { ActionTypes } from '@mui/base';
 import { userConstants } from '../constants';
 
 let user = undefined;
@@ -7,8 +6,8 @@ const initialState = user ? { loggedIn: true, user } : {};
 export function authentication(state = initialState, action) {
 
     return {
-        userStatus: action.type,
-        user: ActionTypes.user 
+        logStatus: action.type,
+        user: action?.user 
     }
     
     switch (action.type) {
