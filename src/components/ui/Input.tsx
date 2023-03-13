@@ -1,6 +1,5 @@
-
-import React, {FC, ReactEventHandler} from "react";
-import { HeroIcon } from "./Icons";
+import React, { FC, ReactEventHandler } from "react";
+import { Icon } from "./Icons";
 import { IconType } from "react-icons";
 
 interface Props extends Omit<ReactEventHandler<HTMLInputElement>, ""> {
@@ -10,19 +9,26 @@ interface Props extends Omit<ReactEventHandler<HTMLInputElement>, ""> {
   className?: string;
   icon?: IconType;
   register?: any;
+  value?: string;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const Input: FC<Props> = (props) => {
-    return (
-      <div className={`flex items-center relative ${props.className}`}>
-        {props.icon && <HeroIcon className="absolute left-4 z-10" icon={props.icon} />}
-        <input
-          className="leading-none rounded-3xl text-left text-gray-600 px-10 py-3 w-full border border-gray-400 outline-none"
-          type={props.type}
-          placeholder={props.placeholder}
-          name={props.name}
-          // {props.register && <>{...props.register(props.name)}</>}
-        />
-      </div>
-    );
-  };
+  const {type, icon, className, placeholder, name, value, onChange} = props
+  return (
+    <div className={`flex items-center relative ${className}`}>
+      {icon && (
+        <Icon className="absolute left-4 z-10" icon={icon} />
+      )}
+      <input
+        className="leading-none rounded-3xl text-left text-gray-600 px-10 py-3 w-full border border-gray-400 outline-none"
+        type={type}
+        placeholder={placeholder}
+        name={name}
+        value={value}
+        onChange={onChange}
+        // {props.register && <>{...props.register(props.name)}</>}
+      />
+    </div>
+  );
+};

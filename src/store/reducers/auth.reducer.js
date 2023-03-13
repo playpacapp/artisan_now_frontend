@@ -1,25 +1,37 @@
+import { ActionTypes } from '@mui/base';
 import { userConstants } from '../constants';
 
-let user;
+let user = undefined;
 const initialState = user ? { loggedIn: true, user } : {};
 
 export function authentication(state = initialState, action) {
-    //user = JSON.parse(localStorage.getItem('user'));
+
+    return {
+        userStatus: action.type,
+        user: ActionTypes.user 
+    }
+    
     switch (action.type) {
         case userConstants.LOGIN_REQUEST:
             return {
-                loggingIn: true,
+                logStatus: action.type,
                 user: action.user
             };
         case userConstants.LOGIN_SUCCESS:
             return {
-                loggedIn: true,
+                logStatus: action.type,
                 user: action.user
             };
         case userConstants.LOGIN_FAILURE:
-            return {};
+            return {
+                logStatus: action.type,
+                user: null
+            };
         case userConstants.LOGOUT:
-            return {};
+            return {
+                logStatus: action.type,
+                user: null
+            };
         default:
             return state
     }

@@ -1,15 +1,8 @@
-import {RegisterPage} from "@/src/components/auth";
-import { DefaultLayout } from "@/src/components/layout/default";
+import { RegisterPage } from "@/src/components/auth";
 import { NextPage } from "next";
-import { Provider } from "react-redux";
-import { store } from "@/src/store";
 
 const Register: NextPage = () => {
-  return (
-    <Provider store={store}>
-      <RegisterPage />
-    </Provider>
-  );
+  return <RegisterPage />;
 };
 
 export default Register;

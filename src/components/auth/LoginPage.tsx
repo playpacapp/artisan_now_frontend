@@ -1,68 +1,84 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useTranslations } from "next-intl";
 import router, { useRouter } from "next/router";
-import { Logo } from "../ui/Logo";
 import { Button, Input, LinkButton, Wrapper } from "../ui";
 import { RiKey2Line, RiUserLine } from "react-icons/ri";
+
 import { Copyright } from "../ui/Copyright";
-import { useForm } from "react-hook-form";
-import * as Yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { authActions } from "@/src/store"
-import { useDispatch } from "react-redux";
+import { Logo } from "../ui/Logo";
+import { userActions } from "@/src/store/actions";
+import { userConstants } from '@/src/store/constants';
 
 type authPermision = "user" | "artisan" | "admin";
 
 type userData = {
   username: string | null;
   password: string | null;
-  login: boolean;
-  permission: authPermision | "undefined";
+  login?: boolean;
+  permission?: authPermision | "undefined";
 };
 
-export function LoginPage() {
-  // const t = useTranslations("login");
+const initialUser: userData = {
+  username: "",
+  password: "",
+};
 
+interface Inputs {
+  username: string;
+  password: string;
+}
+
+interface RootState {
+  authentication: {
+    userStatus: string;
+  };
+}
+
+export const LoginPage = () => {
+
+  const t = useTranslations("login");
+  
+  // State
+  const [inputs, setInputs] = useState<Inputs>({username:'', password:''});
+
+  const [submitted, setSubmitted] = useState<boolean>(false);
+  const { username, password } = inputs;
+  const { userStatus } = useSelector((state:RootState) => state.authentication);
+
+
+  // Dispatch
   const dispatch = useDispatch();
 
-  // form validation rules
-  const validationSchema = Yup.object().shape({
-    username: Yup.string().required("Username is required"),
-    password: Yup.string().required("Password is required"),
-  });
-  const formOptions = { resolver: yupResolver(validationSchema) };
+  // reset login status
+  useEffect(() => {
+    dispatch(userActions.logout());
+  }, []);
 
-  // get functions to build form with useForm() hook
-  const { register, handleSubmit, formState } = useForm(formOptions);
-  const { errors, isSubmitting } = formState;
+  const loggingIn = userStatus === userConstants.LOGIN_REQUEST;
 
-  const loginAndDispatch = (data: any) => {
-    return async (dispatch: any) => {
-      try {
-        await dispatch(authActions.login());
-        // Handle success, e.g. redirect to dashboard
-        alert("SUCCESS")
-        router.push("/course")
-      } catch (error) {
-        // Handle error, e.g. show error message
-      }
-    };
-  };
-
-
-  //Then in your onSubmit() function, call loginAndDispatch() instead of authActions.login():
-  const onSubmit = (data: any) => {
-    return loginAndDispatch(data);
-  };
-
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const { name, value } = e.target;
+    setInputs((inputs) => ({ ...inputs, [name]: value }));
+  }
   
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  
+    setSubmitted(true);
+    if (username && password) {
+      // get return url from location state or default to home page
+      dispatch(userActions.login(username, password));
+      
+    }
+  }
 
   return (
     <Wrapper className="flex justify-center items-center w-[100vw] h-[100vh] bg-white mx-auto">
       <form
         className="relative w-full md:w-[70%] lg:w-[60%] xl:w-[50%] 2xl:w-[30%] flex flex-col items-center justify-center px-10 py-10 gap-y-5"
-        onSubmit={onSubmit}
+        onSubmit={handleSubmit}
       >
         <div className="w-full h-[30px] mb-5 flex justify-center">
           <Logo link="../" width={200} />
@@ -74,12 +90,16 @@ export function LoginPage() {
           <Input
             type="email"
             name="username"
+            value={username}
+            onChange={handleChange}
             placeholder="Enter you Email"
             icon={RiUserLine}
           />
           <Input
             type="password"
             name="password"
+            value={username}
+            onChange={handleChange}
             placeholder="Enter Password"
             icon={RiKey2Line}
           />
@@ -95,8 +115,8 @@ export function LoginPage() {
             type="submit"
             className="w-[150px]"
             label="Login"
-            disabled={isSubmitting}
-            isSubmitting={isSubmitting}
+            disabled={loggingIn}
+            isSubmitting={loggingIn}
           />
         </div>
         <div className="w-full flex flex-wrap justify-center items-center gap-4">

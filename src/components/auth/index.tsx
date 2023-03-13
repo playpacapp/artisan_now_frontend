@@ -1,3 +1,3 @@
-export * from "./LoginPage2"
+export * from "./LoginPage"
 export * from "./RegisterPage2"
 

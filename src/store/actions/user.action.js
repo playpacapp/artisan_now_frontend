@@ -17,7 +17,7 @@ function login(username, password) {
 
         userService.login(username, password)
             .then(
-                user => { 
+                user => {
                     dispatch(success(user));
                 },
                 error => {
@@ -27,9 +27,17 @@ function login(username, password) {
             );
     };
 
-    function request(user) { return { type: userConstants.LOGIN_REQUEST, user } }
-    function success(user) { return { type: userConstants.LOGIN_SUCCESS, user } }
-    function failure(error) { return { type: userConstants.LOGIN_FAILURE, error } }
+    function request(user) { 
+        return {type: userConstants.LOGIN_REQUEST, user } 
+    }
+
+    function success(user) {
+        return { type: userConstants.LOGIN_SUCCESS, user }
+    }
+    
+    function failure(error) { 
+        return { type: userConstants.LOGIN_FAILURE, error } 
+    }
 }
 
 function logout() {
@@ -43,7 +51,7 @@ function register(user) {
 
         userService.register(user)
             .then(
-                user => { 
+                user => {
                     dispatch(success());
                     history.push('/login');
                     dispatch(alertActions.success('Registration successful'));

@@ -1,13 +1,13 @@
 
 import {IconType} from 'react-icons'
 
-interface HeroIconProps {
+interface IconProps {
   icon: IconType;
   size?: number;
   color?: string;
   className?: string;
 }
 
-export const HeroIcon = ({ icon: Icon, size=20, color="currentColor", className="" }: HeroIconProps) => {
+export const Icon = ({ icon: Icon, size=20, color="currentColor", className="" }: IconProps) => {
   return <Icon className={className} size={size} color={color} />;
 };

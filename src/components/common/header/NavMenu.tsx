@@ -3,17 +3,10 @@ import { FC } from "react";
 import ReactCountryFlag from "react-country-flag";
 import { Fragment, useState } from "react";
 import { useRouter } from "next/router";
-
-import {
-  Bars3Icon,
-  BellIcon,
-  XMarkIcon,
-  UserCircleIcon,
-  ChevronDownIcon,
-} from "@heroicons/react/24/outline";
+import {VscAccount, VscChevronDown, VscMenu} from "react-icons/vsc";
 import { Popover, Transition } from "@headlessui/react";
 import { useTranslations } from "next-intl";
-import { LinkButton } from "../../ui";
+import { Icon, LinkButton } from "../../ui";
 
 const lang = [
   { lang: "US", country: "US" },
@@ -47,10 +40,7 @@ export const NavMenu: FC<{ link?: string }> = ({ link = "" }) => {
               title="US"
             />
             En
-            <ChevronDownIcon
-              className="h-5 w-5 flex-none text-gray-400"
-              aria-hidden="true"
-            />
+            <Icon className="h-5 w-5 flex-none text-gray-400" icon={VscChevronDown}/>
           </Popover.Button>
 
           <Transition
@@ -95,10 +85,10 @@ export const NavMenu: FC<{ link?: string }> = ({ link = "" }) => {
         <Popover className="relative">
           <Popover.Button className="flex lg:space-x-1 ml:space-x-1 px-2 py-1 rounded-3xl border-2 border-gray-500 cursor-pointer hover:border-brown-600 hover:bg-brown-100">
             <div className="flex items-center justify-between">
-              <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+              <Icon className="block h-6 w-6" icon={VscMenu}/>
             </div>
             <div className="flex items-center justify-between">
-              <UserCircleIcon className="block h-6 w-6" aria-hidden="true" />
+              <Icon className="block h-6 w-6" icon={VscAccount}/>
               <div className="absolute inline-flex items-center justify-center w-3 h-3 bg-red-500 border-2 border-white rounded-full top-2 right-2"></div>
             </div>
           </Popover.Button>

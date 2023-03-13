@@ -19,6 +19,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/auth/LoginPage2.js2.jssrc/components/auth/LoginPage2.jsPage2.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/auth/LoginPage2.js2.jssrc/components/auth/LoginPage2.jsPage2.js", "src/components/auth/LoginPage.tsx", "src/components/auth/LoginPage.tsx"],
   "exclude": ["node_modules"],
 }
