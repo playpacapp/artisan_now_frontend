@@ -4,17 +4,8 @@ import Image from "next/image";
 import { Wrapper } from "../../ui";
 import { useTranslations } from "next-intl";
 import { Copyright } from "../../ui/Copyright";
-
-const PageLink: FC<{ url: string; label: string }> = ({ url, label }) => {
-  return (
-    <a
-      href={url}
-      className="block text-base font-semibold  text-gray-800 hover:text-brown-600 leading-4"
-    >
-      {label}
-    </a>
-  );
-};
+import { commitmentUrl, contactUrl, FAQUrl, newsUrl, privacyUrl, termsUrl } from "@/src/functions";
+import { PageLink } from "../../ui/PageLink";
 
 const ImageLink: FC<{
   url: string;
@@ -64,22 +55,22 @@ const Footer = () => {
           </div>
           <div className="w-full flex flex-wrap gap-2 md:gap-4 justify-between lg:px-20">
             <div className="w-fit flex flex-col gap-2 md:gap-4 py-2">
-              <PageLink url="" label={t("menu.experiences")} />
-              <PageLink url="" label={t("menu.online-experiences")} />
-              <PageLink url="" label={t("menu.solidarity")} />
-              <PageLink url="/commitment" label={t("menu.commitment")} />
+              <PageLink actionLink="" label={t("menu.experiences")} />
+              <PageLink actionLink="" label={t("menu.online-experiences")} />
+              <PageLink actionLink="" label={t("menu.solidarity")} />
+              <PageLink actionLink={commitmentUrl} label={t("menu.commitment")} />
             </div>
             <div className="w-fit flex flex-col gap-2 md:gap-4 py-2">
-              <PageLink url="/FAQ" label={t("menu.faq")} />
-              <PageLink url="/news" label={t("menu.news")} />
-              <PageLink url="/contact" label={t("menu.contact")} />
-              <PageLink url="" label="" />
+              <PageLink actionLink={FAQUrl} label={t("menu.faq")} />
+              <PageLink actionLink={newsUrl} label={t("menu.news")} />
+              <PageLink actionLink={contactUrl} label={t("menu.contact")} />
+              <PageLink actionLink="" label="" />
             </div>
             <div className="w-fit flex flex-col gap-2 md:gap-4 py-2">
-              <PageLink url="/terms" label={t("menu.terms")} />
-              <PageLink url="/privacy" label={t("menu.privacy")} />
-              <PageLink url="" label="" />
-              <PageLink url="" label="" />
+              <PageLink actionLink={termsUrl} label={t("menu.terms")} />
+              <PageLink actionLink={privacyUrl} label={t("menu.privacy")} />
+              <PageLink actionLink="" label="" />
+              <PageLink actionLink="" label="" />
             </div>
           </div>
         </div>

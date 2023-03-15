@@ -1,19 +1,15 @@
 
 /* eslint-disable @next/next/no-html-link-for-pages */
-import { userState } from "@/src/functions";
+import { contactUrl, digitalUrl, DropdownItem, loginUrl, registerUrl, userState } from "@/src/functions";
 import { FC } from "react";
 import { useSelector } from "react-redux";
-
-interface DropdownItem {
-  name: string;
-  link: string;
-}
+import { PageLink } from "../../ui/PageLink";
 
 const dropdownItems: DropdownItem[] = [
-  { name: "Login", link: "/login" },
-  { name: "Register", link: "/register" },
-  { name: "Join as a digital creator", link: "/digital" },
-  { name: "Contact us", link: "/contact" },
+  { name: "Login", link: `${loginUrl}` },
+  { name: "Register", link: `${registerUrl}` },
+  { name: "Join as a digital creator", link: `${digitalUrl}` },
+  { name: "Contact us", link: `${contactUrl}` },
 ];
 
 export const HomeMenu: FC = () => {
@@ -34,10 +30,7 @@ export const HomeMenu: FC = () => {
           }`}
         >
           <div className="flex-auto px-3">
-            <a href={link} className="block font-semibold text-gray-900">
-              {name}
-              <span className="absolute inset-0" />
-            </a>
+            <PageLink label={name} actionLink={link} />
           </div>
         </div>
       ))}

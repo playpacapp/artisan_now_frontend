@@ -1,3 +1,4 @@
+import { homeUrl } from "@/src/functions";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { FC } from "react";
@@ -14,7 +15,7 @@ export const Copyright: FC = (props: any) => {
         {...props}
       >
         {t("copyright")}
-        <Link href="/" className="text-400">ArtisanNow</Link> {new Date().getFullYear()}
+        <Link href={homeUrl} className="text-400">ArtisanNow</Link> {new Date().getFullYear()}
         {"."}
       </p>
     </div>

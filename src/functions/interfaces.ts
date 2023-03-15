@@ -6,3 +6,8 @@ export interface userState {
         user: any;
     };
 }
+
+export interface DropdownItem {
+    name: string;
+    link: string;
+}

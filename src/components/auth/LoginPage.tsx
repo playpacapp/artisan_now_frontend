@@ -9,7 +9,7 @@ import { RiKey2Line, RiUserLine } from "react-icons/ri";
 import { Copyright } from "../ui/Copyright";
 import { Logo } from "../ui/Logo";
 import { userActions } from "@/src/store/actions";
-import { userState } from "@/src/functions";
+import { homeUrl, registerUrl, userCourseUrl, userState } from "@/src/functions";
 
 type authPermision = "user" | "artisan" | "admin";
 
@@ -46,7 +46,7 @@ export const LoginPage = () => {
   }, []);
 
   useEffect(() => {
-    loggedIn && router.push("/course")
+    loggedIn && router.push(userCourseUrl)
   }, [loggedIn])
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -70,7 +70,7 @@ export const LoginPage = () => {
         onSubmit={handleSubmit}
       >
         <div className="w-full h-[30px] mb-5 flex justify-center">
-          <Logo link="../" width={200} />
+          <Logo width={200} />
         </div>
         <h1 className="text-center text-x text-900 leading-snug tracking-tight text-gray-600 lg:text-2xl lg:leading-tight xl:text-4xl xl:leading-tight">
           Login
@@ -94,7 +94,7 @@ export const LoginPage = () => {
           />
         </div>
         <div className="w-full flex flex-row-reverse">
-          <LinkButton label="Forgot Password?" action={() => router.push("/")} />
+          <LinkButton label="Forgot Password?" action={() => router.push(homeUrl)} />
         </div>
         <div className="relative w-fit">
           <Button
@@ -110,7 +110,7 @@ export const LoginPage = () => {
         <span>Do you have not a account?</span>
         <LinkButton
           label="Create a account"
-          action={() => router.push("/register")}
+          action={() => router.push(registerUrl)}
         />
       </div>
       <Copyright />

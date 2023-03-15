@@ -15,7 +15,7 @@ export const Header = () => {
         <div className="w-full border-b bg-white">
           <div className="flex w-full h-full justify-content items-center relative px-10 py-5">
             <div className="Logo">
-              <Logo link="/" />
+              <Logo />
             </div>
             <div>
             </div>

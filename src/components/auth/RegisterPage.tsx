@@ -7,6 +7,7 @@ import { Logo } from "../ui/Logo";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { userActions } from "@/src/store/actions";
+import { loginUrl } from "@/src/functions";
 
 interface User {
   username: string;
@@ -49,7 +50,7 @@ export function RegisterPage() {
   }, []);
 
   useEffect(() => {    
-    registered && router.push("/login")
+    registered && router.push(loginUrl)
   }, [registered]);
 
   
@@ -77,7 +78,7 @@ export function RegisterPage() {
           className="relative w-full md:w-[70%] lg:w-[60%] xl:w-[50%] 2xl:w-[30%] flex flex-col items-center justify-center px-10 py-10 gap-y-5"
         >
           <div className="w-full h-[30px] mb-5 flex justify-center">
-            <Logo link="../" width={200} />
+            <Logo width={200} />
           </div>
           <h1 className="text-center text-x text-900 leading-snug tracking-tight text-gray-600 lg:text-2xl lg:leading-tight xl:text-4xl xl:leading-tight">
             Register
@@ -109,7 +110,7 @@ export function RegisterPage() {
           </div>
           <div className="w-full flex flex-wrap justify-center items-center gap-4">
             <span>Do you have a account?</span>
-            <LinkButton label="Login" action={() => router.push("/login")} />
+            <LinkButton label="Login" action={() => router.push(loginUrl)} />
           </div>
         </form>
         <Copyright />
