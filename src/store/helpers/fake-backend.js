@@ -3,6 +3,7 @@
 export function configureFakeBackend() {
 
     // array in local storage for registered users
+
     let users = JSON.parse(localStorage.getItem('users')) || [];
 
     let realFetch = window.fetch;
@@ -43,6 +44,7 @@ export function configureFakeBackend() {
                     username: user.username,
                     firstName: user.firstName,
                     lastName: user.lastName,
+                    permission: user.permission,
                     token: 'fake-jwt-token'
                 });
             }

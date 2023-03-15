@@ -1,32 +1,67 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import ReactCountryFlag from "react-country-flag";
 import { Fragment, useState } from "react";
 import { useRouter } from "next/router";
-import {VscAccount, VscChevronDown, VscMenu} from "react-icons/vsc";
+import { VscAccount, VscChevronDown, VscMenu } from "react-icons/vsc";
 import { Popover, Transition } from "@headlessui/react";
 import { useTranslations } from "next-intl";
 import { Icon, LinkButton } from "../../ui";
+import { useSelect } from "@mui/base";
+import { userState, menuItemType } from "@/src/functions";
+import { useSelector } from "react-redux";
 
 const lang = [
   { lang: "US", country: "US" },
   { lang: "ES", country: "Chile" },
 ];
 
-const avartas = [
+const homeMenu = [
   { name: "Login", link: "/login" },
   { name: "Register", link: "/register" },
   { name: "Join as a digital creator", link: "/digital" },
   { name: "Contact us", link: "/contact" },
 ];
 
+const userMenu = [
+  { name: "Messages", link: "" },
+  { name: "Online Experiences", link: "" },
+  { name: "Trips", link: "/digital" },
+  { name: "Favorites List", link: "/contact" },
+  { name: "Manage Experiences", link: "/contact" },
+  { name: "Account Settings", link: "/contact" },
+  { name: "Logout", link: "/" },
+];
+
 export const NavMenu: FC<{ link?: string }> = ({ link = "" }) => {
   const t = useTranslations("header");
   const router = useRouter();
+
+  const auth = useSelector((state: userState) => state.authentication);
+
+  let navMenu = [{name:"", link:""}];
+
+  if (auth.loggedIn) {
+    switch (auth.user?.permission) {
+      case "user":
+        navMenu=userMenu;
+        break;
+      case "artisan":
+        break;
+      default: // admin
+        break;
+    }
+  } else {
+    navMenu=homeMenu
+  }
+
   return (
     <>
       <div className="hidden md:flex md:flex-1 md:items-center md:justify-end md:space-x-6">
-        <LinkButton label={t("digital-creator")} action={() => router.push("/digital")} />
+        <LinkButton
+          label={t("digital-creator")}
+          action={() => router.push("/digital")}
+        />
         <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
       </div>
 
@@ -40,7 +75,10 @@ export const NavMenu: FC<{ link?: string }> = ({ link = "" }) => {
               title="US"
             />
             En
-            <Icon className="h-5 w-5 flex-none text-gray-400" icon={VscChevronDown}/>
+            <Icon
+              className="h-5 w-5 flex-none text-gray-400"
+              icon={VscChevronDown}
+            />
           </Popover.Button>
 
           <Transition
@@ -85,10 +123,10 @@ export const NavMenu: FC<{ link?: string }> = ({ link = "" }) => {
         <Popover className="relative">
           <Popover.Button className="flex lg:space-x-1 ml:space-x-1 px-2 py-1 rounded-3xl border-2 border-gray-500 cursor-pointer hover:border-brown-600 hover:bg-brown-100">
             <div className="flex items-center justify-between">
-              <Icon className="block h-6 w-6" icon={VscMenu}/>
+              <Icon className="block h-6 w-6" icon={VscMenu} />
             </div>
             <div className="flex items-center justify-between">
-              <Icon className="block h-6 w-6" icon={VscAccount}/>
+              <Icon className="block h-6 w-6" icon={VscAccount} />
               <div className="absolute inline-flex items-center justify-center w-3 h-3 bg-red-500 border-2 border-white rounded-full top-2 right-2"></div>
             </div>
           </Popover.Button>
@@ -104,7 +142,7 @@ export const NavMenu: FC<{ link?: string }> = ({ link = "" }) => {
           >
             <Popover.Panel className="absolute w-[180px] px-0 py-2 right-0 top-full z-10 mt-3 overflow-hidden bg-white shadow-lg">
               <div className="">
-                {avartas.map((item) => (
+                {navMenu.map((item) => (
                   <div
                     key={item.name}
                     className={`group relative flex items-center justify-center gap-x-3 py-3 text-sm leading-3 hover:bg-brown-100  ${
