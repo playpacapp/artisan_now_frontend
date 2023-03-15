@@ -10,50 +10,18 @@ import { Icon, LinkButton } from "../../ui";
 import { useSelect } from "@mui/base";
 import { userState, menuItemType } from "@/src/functions";
 import { useSelector } from "react-redux";
+import { HomeMenu, UserMenu, ArtisanMenu, AdminMenu } from "../header";
 
 const lang = [
   { lang: "US", country: "US" },
   { lang: "ES", country: "Chile" },
 ];
 
-const homeMenu = [
-  { name: "Login", link: "/login" },
-  { name: "Register", link: "/register" },
-  { name: "Join as a digital creator", link: "/digital" },
-  { name: "Contact us", link: "/contact" },
-];
-
-const userMenu = [
-  { name: "Messages", link: "" },
-  { name: "Online Experiences", link: "" },
-  { name: "Trips", link: "/digital" },
-  { name: "Favorites List", link: "/contact" },
-  { name: "Manage Experiences", link: "/contact" },
-  { name: "Account Settings", link: "/contact" },
-  { name: "Logout", link: "/" },
-];
-
-export const NavMenu: FC<{ link?: string }> = ({ link = "" }) => {
+export const NavMenu: FC = () => {
   const t = useTranslations("header");
   const router = useRouter();
 
   const auth = useSelector((state: userState) => state.authentication);
-
-  let navMenu = [{name:"", link:""}];
-
-  if (auth.loggedIn) {
-    switch (auth.user?.permission) {
-      case "user":
-        navMenu=userMenu;
-        break;
-      case "artisan":
-        break;
-      default: // admin
-        break;
-    }
-  } else {
-    navMenu=homeMenu
-  }
 
   return (
     <>
@@ -141,28 +109,10 @@ export const NavMenu: FC<{ link?: string }> = ({ link = "" }) => {
             leaveTo="opacity-0 translate-y-1"
           >
             <Popover.Panel className="absolute w-[180px] px-0 py-2 right-0 top-full z-10 mt-3 overflow-hidden bg-white shadow-lg">
-              <div className="">
-                {navMenu.map((item) => (
-                  <div
-                    key={item.name}
-                    className={`group relative flex items-center justify-center gap-x-3 py-3 text-sm leading-3 hover:bg-brown-100  ${
-                      item.name == "Join as a digital creator"
-                        ? "md:hidden"
-                        : ""
-                    }`}
-                  >
-                    <div className="flex-auto px-3">
-                      <a
-                        href={item.link}
-                        className="block font-semibold text-gray-900"
-                      >
-                        {item.name}
-                        <span className="absolute inset-0" />
-                      </a>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <HomeMenu />
+              <UserMenu />
+              <ArtisanMenu />
+              <AdminMenu />
             </Popover.Panel>
           </Transition>
         </Popover>

@@ -1,5 +1,5 @@
 import React from "react"
-import Header from "../../common/header"
+import { Header } from "../../common"
 import Footer from "../../common/footer"
 
 export const DefaultLayout:React.FC<React.PropsWithChildren>=({children})=>{
