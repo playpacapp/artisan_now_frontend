@@ -8,11 +8,3 @@ const Digital:NextPage=()=>{
 }
 
 export default Digital
-
-export async function getStaticProps(locale: string) {
-  return {    
-    props: {
-      messages: (await import(`@/message/en-Us.json`)).default
-    }
-  };
-}

@@ -1,10 +1,10 @@
 import { useTranslations } from "next-intl";
 import { FC } from "react";
 
-import { Wrapper } from "../../ui/index";
+import { Wrapper } from "../../ui";
 
 const FAQ: FC<{ title: string; content: string }> = ({ title, content }) => {
-  const t = useTranslations("faq");
+  const t = useTranslations("host.faq");
 
   return (
     <Wrapper>

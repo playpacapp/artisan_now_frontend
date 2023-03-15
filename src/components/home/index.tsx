@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import { Container } from "../../ui/Container";
+import { Container } from "../ui/Container";
 import { RiSearchLine } from "react-icons/ri";
 
 import {
@@ -11,7 +11,7 @@ import {
   Wrapper,
   CategoriesBar,
   CourseContainer,
-} from "../../ui/index";
+} from "../ui/index";
 
 const HomeContent = () => {
   const t = useTranslations("home");

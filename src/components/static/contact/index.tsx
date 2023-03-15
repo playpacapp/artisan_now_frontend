@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl";
 import { Wrapper } from "../../ui/index";
 
 export default function ContactPage() {
-  const t = useTranslations("contact");
+  const t = useTranslations("host.contact");
 
   return (
     <>

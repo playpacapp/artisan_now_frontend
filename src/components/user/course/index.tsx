@@ -4,7 +4,7 @@ import { RiSearchLine } from "react-icons/ri";
 import { Input, ImageCard, Wrapper, CategoriesBar, CourseContainer } from "../../ui/index";
 
 export default function CoursePage() {
-  const t = useTranslations("course");
+  const t = useTranslations("user.course");
   return (
     <>
       <Wrapper>

@@ -59,56 +59,81 @@
       "learn-more": "Learn More"
     }
   },
-  "digital": {
-    "title": "Easily become a digital creator and make an impact with artisanNow",
-    "block": {
-      "left": {
-        "title": "Are you passionate about the digital world and love to travel?",
-        "content": "We are looking for digital content creators (photographers, videographers, influencers, bloggers) who are passionate about connecting with different cultures in a respectful way, who are traveling or living in tourist destinations and want to join this positive impact project that seeks to generate new and innovative channels of commercialization, visibility, and valorization for rural artisans from all over Latin America."
+  "auth":{
+    "login":{},
+    "register":{}
+  },
+  "host":{
+    "digital": {
+      "title": "Easily become a digital creator and make an impact with artisanNow",
+      "block": {
+        "left": {
+          "title": "Are you passionate about the digital world and love to travel?",
+          "content": "We are looking for digital content creators (photographers, videographers, influencers, bloggers) who are passionate about connecting with different cultures in a respectful way, who are traveling or living in tourist destinations and want to join this positive impact project that seeks to generate new and innovative channels of commercialization, visibility, and valorization for rural artisans from all over Latin America."
+        },
+        "right": {
+          "title": "Join, connect, and capture the knowledge of the artisans",
+          "content-1": "It contributes to boosting the local economy and the preservation of our cultural expressions.",
+          "content-2": "You don't need a great video or audio equipment to be part of this project, you just need a camera or a cell phone to record the stories and knowledge of the artisans."
+        }
       },
-      "right": {
-        "title": "Join, connect, and capture the knowledge of the artisans",
-        "content-1": "It contributes to boosting the local economy and the preservation of our cultural expressions.",
-        "content-2": "You don't need a great video or audio equipment to be part of this project, you just need a camera or a cell phone to record the stories and knowledge of the artisans."
+      "how-to": {
+        "title": "How to become part of it?",
+        "part-1": "Send us an email and tell us about yourself, what you're passionate about, and why you'd like to be part of ArtisanNow.",
+        "part-2": "We will schedule a video call to get to know each other and tell you more about how you can add an additional source of income for your travels while contributing to a greater purpose.",
+        "part-3": "We will start collaborating based on trust, transparency, and a commitment to building a more fair, equitable, and sustainable tourism."
+      },
+      "buttons": {
+        "are-you-in": "Are you in?"
       }
     },
-    "how-to": {
-      "title": "How to become part of it?",
-      "part-1": "Send us an email and tell us about yourself, what you're passionate about, and why you'd like to be part of ArtisanNow.",
-      "part-2": "We will schedule a video call to get to know each other and tell you more about how you can add an additional source of income for your travels while contributing to a greater purpose.",
-      "part-3": "We will start collaborating based on trust, transparency, and a commitment to building a more fair, equitable, and sustainable tourism."
+    "faq": {
+      "faq-1": {
+        "title": "1. What is this project about?",
+        "content": "Artisanow is a collaborative platform created by technological and artisanal women with the objective of showcasing the knowledge of our Latin American cultures and generating fair opportunities for everyone, driven by the belief that tourism is a transformative force. Through the platform, you can access in-person experiences and online courses."
+      },
+      "faq-2": {
+        "title": "2. What kind of experiences are available?",
+        "content": "There are different workshops available, including Mapuche loom weaving, maria loom weaving, crochet, finger knitting with wool, natural dyeing, weaving with natural fibers, forest basketry, natural cosmetics, and more."
+      },
+      "faq-3": {
+        "title": "3. How can I access these workshops?",
+        "content": "It 's Very easy! You can buy an online course and have access from the comfort of your home to a unique moment or you can travel and experience them directly in the houses and workshops of the artisans. In both cases, whether for an online course or experience in artisan workshops, accessibility and booking is through our platform."
+      },
+      "faq-4": {
+        "title": "4. Where can I get the materials for the online courses?",
+        "content": "Our objective is that you can apply the knowledge acquired using materials that you have at your disposal or that are easy to obtain. The artisans work consciously and respectfully with their environment, and in our courses we will show you the local materials they propose. In addition, our creative team has created a support document that will help you replace some materials with others, so that you can put your skills into practice and create unique pieces with the resources you have."
+      },
+      "faq-5": {
+        "title": "5. Do I Have a money-back Guarantee?",
+        "content": "All services provided by Artisanow come with a service agreement guarantee. Our goal is not only to co-create new ways of valuing the knowledge of many rural women, but also to focus on technological development to facilitate the connection of many global travelers, provide payment facilities, and mobility in the territories. Our project is the result of transparency and trust that we have built among diverse women, and we aim to replicate this same relationship of trust and transparency with our users."
+      }
     },
-    "buttons": {
-      "are-you-in": "Are you in?"
-    }
+    "commitment":{},
+    "privacy":{},
+    "terms":{},
+    "contact":{}
   },
-  "faq": {
-    "faq-1": {
-      "title": "1. What is this project about?",
-      "content": "Artisanow is a collaborative platform created by technological and artisanal women with the objective of showcasing the knowledge of our Latin American cultures and generating fair opportunities for everyone, driven by the belief that tourism is a transformative force. Through the platform, you can access in-person experiences and online courses."
+  "user": {
+    "course":{
+      "subtitle":{
+        "online-experiences": "Online Experiences",
+        "experiences":"Experiences and Destinations",
+        "artisan-channel": "ArtisanNow Channel"
+      }
     },
-    "faq-2": {
-      "title": "2. What kind of experiences are available?",
-      "content": "There are different workshops available, including Mapuche loom weaving, maria loom weaving, crochet, finger knitting with wool, natural dyeing, weaving with natural fibers, forest basketry, natural cosmetics, and more."
+    "messages":{
     },
-    "faq-3": {
-      "title": "3. How can I access these workshops?",
-      "content": "It 's Very easy! You can buy an online course and have access from the comfort of your home to a unique moment or you can travel and experience them directly in the houses and workshops of the artisans. In both cases, whether for an online course or experience in artisan workshops, accessibility and booking is through our platform."
+    "online-ex":{
+
     },
-    "faq-4": {
-      "title": "4. Where can I get the materials for the online courses?",
-      "content": "Our objective is that you can apply the knowledge acquired using materials that you have at your disposal or that are easy to obtain. The artisans work consciously and respectfully with their environment, and in our courses we will show you the local materials they propose. In addition, our creative team has created a support document that will help you replace some materials with others, so that you can put your skills into practice and create unique pieces with the resources you have."
+    "trips":{
+
     },
-    "faq-5": {
-      "title": "5. Do I Have a money-back Guarantee?",
-      "content": "All services provided by Artisanow come with a service agreement guarantee. Our goal is not only to co-create new ways of valuing the knowledge of many rural women, but also to focus on technological development to facilitate the connection of many global travelers, provide payment facilities, and mobility in the territories. Our project is the result of transparency and trust that we have built among diverse women, and we aim to replicate this same relationship of trust and transparency with our users."
+    "manage-ex":{
+      
     }
-  },
-  "course":{
-    "subtitle":{
-      "online-experiences": "Online Experiences",
-      "experiences":"Experiences and Destinations",
-      "artisan-channel": "ArtisanNow Channel"
-    }
+
   }
+  
 }

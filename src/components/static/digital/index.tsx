@@ -12,7 +12,7 @@ import {
 } from "../../ui";
 
 export default function DigitalPage() {
-  const t = useTranslations("digital");
+  const t = useTranslations("host.digital");
 
   const parts = [
     {

@@ -10,12 +10,5 @@ const Course: NextPage = () => {
   );
 };
 
-export default Course;
+export default Course
 
-export async function getStaticProps(locale: string) {
-  return {
-    props: {
-      messages: (await import(`@/message/en-Us.json`)).default,
-    },
-  };
-}

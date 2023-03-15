@@ -14,6 +14,8 @@ export const logoutUrl: string = "/logout"
 export const registerUrl: string = "/register"
 
 export const userCourseUrl: string = "/user/course"
+export const userMessagesUrl: string = "/user/messages"
+
 
 
 

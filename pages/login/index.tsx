@@ -6,11 +6,3 @@ const Login: NextPage = () => {
 };
 
 export default Login;
-
-export async function getStaticProps(locale: string) {
-  return {
-    props: {
-      messages: (await import(`@/message/en-Us.json`)).default,
-    },
-  };
-}

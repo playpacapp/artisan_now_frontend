@@ -1,12 +1,12 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
-import { DropdownItem, homeUrl, logoutUrl, userState } from "@/src/functions";
+import { DropdownItem, homeUrl, logoutUrl, userMessagesUrl, userState } from "@/src/functions";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import { useSelector } from "react-redux";
 import { PageLink } from "../../ui/PageLink";
 
 const dropdownItems: DropdownItem[] = [
-  { name: "Messages", link: "/user/message" },
+  { name: "Messages", link: userMessagesUrl },
   { name: "Online Experiences", link: "user/online" },
   { name: "Trips", link: "/user/trips" },
   { name: "Favorites List", link: "/user/favorlist" },

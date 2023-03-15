@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl";
 import { Wrapper } from "../../ui/index";
 
 export default function CommitmentPage() {
-  const t = useTranslations("commitment");
+  const t = useTranslations("host.commitment");
 
   return (
     <>
