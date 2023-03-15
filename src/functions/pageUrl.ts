@@ -15,6 +15,11 @@ export const registerUrl: string = "/register"
 
 export const userCourseUrl: string = "/user/course"
 export const userMessagesUrl: string = "/user/messages"
+export const userOnlineUrl: string = "/user/online"
+export const userTripsUrl: string = "/user/trips"
+export const userFavoriteUrl: string = "/user/favorite"
+export const userManageUrl: string = "/user/manage"
+export const userSettingUrl: string = "/user/setting"
 
 
 

@@ -1,1 +1,1 @@
-export * from "./ManageEx"
+export * from "./ManageExPage"

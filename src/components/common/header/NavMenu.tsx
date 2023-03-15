@@ -7,11 +7,10 @@ import { VscAccount, VscChevronDown, VscMenu } from "react-icons/vsc";
 import { Popover, Transition } from "@headlessui/react";
 import { useTranslations } from "next-intl";
 import { Icon, LinkButton } from "../../ui";
-import { useSelect } from "@mui/base";
 import { userState, menuItemType, digitalUrl } from "@/src/functions";
 import { useSelector } from "react-redux";
 import { HomeMenu, UserMenu, ArtisanMenu, AdminMenu } from "../header";
-import Link from "next/link";
+import Image from "next/image";
 
 const lang = [
   { lang: "US", country: "US" },
@@ -29,7 +28,7 @@ export const NavMenu: FC = () => {
       <div className="hidden md:flex md:flex-1 md:items-center md:justify-end md:space-x-6">
         <LinkButton
           label={t("digital-creator")}
-          action={() => router.asPath !== digitalUrl && router.push(digitalUrl)}
+          action={() => router.push(digitalUrl)}
         />
         <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
       </div>
@@ -110,6 +109,16 @@ export const NavMenu: FC = () => {
             leaveTo="opacity-0 translate-y-1"
           >
             <Popover.Panel className="absolute w-[180px] px-0 py-2 right-0 top-full z-10 mt-3 overflow-hidden bg-white shadow-lg">
+              <div className="relative group bg-gray-100 grid items-center justify-center gap-x-3 px-3 py-1 text-sm text-gray-600 border-b">
+                <div className="w-full py-1">
+                  <div className="text-lg text-400 text-gray-900 py-1">
+                    John Ford
+                  </div>
+                  <p className="text-gray-400 w-[150px] whitespace-nowrap text-ellipsis overflow-hidden">
+                    johnford9159@gmail.com
+                  </p>
+                </div>
+              </div>
               <HomeMenu />
               <UserMenu />
               <ArtisanMenu />

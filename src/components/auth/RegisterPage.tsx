@@ -7,13 +7,7 @@ import { Logo } from "../ui/Logo";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { userActions } from "@/src/store/actions";
-import { loginUrl } from "@/src/functions";
-
-interface User {
-  username: string;
-  password: string;
-  permission: "user" | "artisan" | "admin" | undefined;
-}
+import { AuthInfo, loginUrl } from "@/src/functions";
 
 interface RootState {
   registration: {
@@ -31,7 +25,7 @@ const initUserState = {
 export function RegisterPage() {
   const router = useRouter()
   const permission = "user"
-  const [user, setUser] = useState<User>(initUserState)
+  const [user, setUser] = useState<AuthInfo>(initUserState)
   const [submitted, setSubmitted] = useState<boolean>(false)
 
   const registering = useSelector(

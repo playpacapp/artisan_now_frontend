@@ -11,15 +11,6 @@ import { Logo } from "../ui/Logo";
 import { userActions } from "@/src/store/actions";
 import { homeUrl, registerUrl, userCourseUrl, userState } from "@/src/functions";
 
-type authPermision = "user" | "artisan" | "admin";
-
-type userData = {
-  username: string | null;
-  password: string | null;
-  login?: boolean;
-  permission?: authPermision | "undefined";
-};
-
 interface Inputs {
   username: string;
   password: string;

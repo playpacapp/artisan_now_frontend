@@ -130,8 +130,14 @@
     "trips":{
 
     },
+    "favorite":{
+
+    },
     "manage-ex":{
       
+    },
+    "setting":{
+
     }
 
   }
