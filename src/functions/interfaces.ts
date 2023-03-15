@@ -1,7 +1,7 @@
 
 export interface AuthInfo {
-    firstName?: string;
-    lastName?: string;
+    firstname?: string;
+    lastname?: string;
     username: string;
     password: string;
     permission: "user" | "artisan" | "admin" | undefined;

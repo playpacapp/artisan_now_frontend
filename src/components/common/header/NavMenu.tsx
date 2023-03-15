@@ -109,16 +109,18 @@ export const NavMenu: FC = () => {
             leaveTo="opacity-0 translate-y-1"
           >
             <Popover.Panel className="absolute w-[180px] px-0 py-2 right-0 top-full z-10 mt-3 overflow-hidden bg-white shadow-lg">
-              <div className="relative group bg-gray-100 grid items-center justify-center gap-x-3 px-3 py-1 text-sm text-gray-600 border-b">
-                <div className="w-full py-1">
-                  <div className="text-lg text-400 text-gray-900 py-1">
-                    John Ford
+              {auth.loggedIn && (
+                <div className="cursor-default relative group bg-gray-100 grid items-center justify-center gap-x-3 px-3 py-1 text-sm text-gray-600 border-b">
+                  <div className="w-full py-1">
+                    <div className="text-lg text-400 text-gray-900 py-1">
+                      {auth.user?.firstname}
+                    </div>
+                    <p className="text-gray-400 w-[150px] whitespace-nowrap text-ellipsis overflow-hidden">
+                      {auth.user?.username}
+                    </p>
                   </div>
-                  <p className="text-gray-400 w-[150px] whitespace-nowrap text-ellipsis overflow-hidden">
-                    johnford9159@gmail.com
-                  </p>
                 </div>
-              </div>
+              )}
               <HomeMenu />
               <UserMenu />
               <ArtisanMenu />
