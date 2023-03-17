@@ -9,7 +9,7 @@ import { useTranslations } from "next-intl";
 import { Icon, LinkButton } from "../../ui";
 import { userState, menuItemType, digitalUrl } from "@/src/functions";
 import { useSelector } from "react-redux";
-import { HomeMenu, UserMenu, ArtisanMenu, AdminMenu } from "../header";
+import { HomeMenu, UserMenu, ArtisanMenu, AdminMenu } from ".";
 import Image from "next/image";
 
 const lang = [
