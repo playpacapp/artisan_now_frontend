@@ -19,7 +19,7 @@ export const userOnlineUrl: string = "/user/online"
 export const userTripsUrl: string = "/user/trips"
 export const userFavoriteUrl: string = "/user/favorite"
 export const userManageUrl: string = "/user/manage"
-export const userSettingUrl: string = "/user/setting"
+export const userSettingUrl: string = "/user/account"
 
 
 

@@ -4,4 +4,4 @@ export * from "./online";
 export * from "./trips";
 export * from "./favorite";
 export * from "./manage";
-export * from "./setting";
+export * from "./account";

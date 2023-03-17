@@ -1,11 +1,11 @@
 import { DefaultLayout } from "@/src/components/layout/default";
-import { SettingPage } from "@/src/components/user";
+import { AccountPage } from "@/src/components/user";
 import { NextPage } from "next";
 
 const Account: NextPage = () => {
   return (
     <DefaultLayout>
-      <SettingPage />
+      <AccountPage />
     </DefaultLayout>
   );
 };

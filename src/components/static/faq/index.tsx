@@ -1,23 +1,23 @@
 import { useTranslations } from "next-intl";
 import { FC } from "react";
 
-import { Wrapper } from "../../ui";
+import { Container, Wrapper } from "../../ui";
 
 const FAQ: FC<{ title: string; content: string }> = ({ title, content }) => {
   const t = useTranslations("host.faq");
 
   return (
     <Wrapper>
-      <div className="w-full px-10 py-10">
-        <div className="w-full px-20 py-10 flex flex-wrap justify-center">
-          <h1 className="text-center text-2xl font-bold leading-snug tracking-tight text-gray-800 lg:text-2xl lg:leading-tight xl:text-4xl xl:leading-tight">
+      <Container>
+        <div className="flex flex-wrap justify-center">
+          <h1 className="">
             {t(title)}
           </h1>
-          <p className="text-justify py-5 text-xl leading-normal text-gray-500 lg:text-xl xl:text-2xl">
+          <p>
             {t(content)}
           </p>
         </div>
-      </div>
+      </Container>
     </Wrapper>
   );
 };

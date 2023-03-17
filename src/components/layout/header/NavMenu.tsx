@@ -115,7 +115,7 @@ export const NavMenu: FC = () => {
                     <div className="text-lg text-400 text-gray-900 py-1">
                       {auth.user?.firstname}
                     </div>
-                    <p className="text-gray-400 w-[150px] whitespace-nowrap text-ellipsis overflow-hidden">
+                    <p className="user-info">
                       {auth.user?.username}
                     </p>
                   </div>
