@@ -34,7 +34,7 @@ const Footer = () => {
     <Wrapper>
       <div className="w-full h-[50px]"></div>
       <div className="w-full px-10 py-5 border-t">
-        <div className="w-full flex flex-col lg:flex-row justify-between gap-4 lg:gap-20 px-10">
+        <div className="w-full flex flex-col lg:flex-row justify-between items-start gap-4 lg:gap-20 px-10">
           <div className="w-fit flex flex-col gap-2 md:gap-4">
             <h1 className="text-base font-semibold leading-4 text-gray-600 w-full">
               {t("supported-by")}
