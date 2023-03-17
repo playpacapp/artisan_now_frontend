@@ -12,9 +12,28 @@ import {
   CategoriesBar,
   CourseContainer,
 } from "../ui/index";
+import { useSelector } from "react-redux";
+import { userCourseUrl, userState } from "@/src/functions";
+import { useRouter } from "next/router";
 
 const HomeContent = () => {
   const t = useTranslations("home");
+  const router = useRouter();
+  const authUser = useSelector((state: userState) => state.authentication);
+
+  if (authUser.loggedIn) {
+    switch (authUser.user?.permission) {
+      case "user":
+        if (router.asPath !== userCourseUrl) router.push(userCourseUrl);
+        break;
+      case "artisan":
+        break;
+      case "admin":
+        break;
+    }
+    
+  }
+
   return (
     <>
       <Wrapper className="inset-0 p-0">

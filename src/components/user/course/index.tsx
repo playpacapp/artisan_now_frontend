@@ -23,19 +23,19 @@ export default function CoursePage() {
         </div>
       </Wrapper>
       <Wrapper>
-        <h1 className="w-full text-xl text-600 px-5 md:px-10 my-5 pt-5 border-b">
+        <h1 className="w-full subtitle">
           {t('subtitle.online-experiences')}
         </h1>
         <CourseContainer/>
       </Wrapper>
       <Wrapper>
-        <h1 className="w-full text-xl text-600 px-5 md:px-10 my-5 pt-5 border-b">
+        <h1 className="w-full subtitle">
         {t('subtitle.experiences')}
         </h1>
         <CourseContainer />
       </Wrapper>
       <Wrapper>
-        <h1 className="w-full text-xl text-600 px-5 md:px-10 my-5 pt-5 border-b">
+        <h1 className="w-full subtitle">
         {t('subtitle.artisan-channel')}
         </h1>
         <CourseContainer />

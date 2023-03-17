@@ -124,8 +124,12 @@
     },
     "messages":{
     },
-    "online-ex":{
-
+    "online":{
+      "subtitle":{
+        "my-online-experiences": "My Online Experiences",
+        "recommended-for-you": "Recommended for You",
+        "upcoming-live-experiences": "Upcoming Live Experiences"
+      }
     },
     "trips":{
 
@@ -133,7 +137,7 @@
     "favorite":{
 
     },
-    "manage-ex":{
+    "manage":{
       
     },
     "setting":{
