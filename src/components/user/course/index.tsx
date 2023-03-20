@@ -8,7 +8,7 @@ import {
   CategoriesBar,
   CourseContainer,
   Container,
-} from "../../ui/index";
+} from "../../ui";
 
 export default function CoursePage() {
   const t = useTranslations("user.course");

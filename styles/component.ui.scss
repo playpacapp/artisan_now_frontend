@@ -74,3 +74,25 @@ p.user-info {
   overflow: hidden;
   margin: 0px;
 }
+
+div.user-image {
+  width: 128px;
+  height: 128px;
+  border-radius: 100px;
+  border: dotted 1px var(--color-gray-900);
+  background-color: var(--color-gray-200);
+  padding:2px;
+}
+
+input {
+  outline: none;
+  padding: 3px 5px 3px 5px;
+  border-bottom: solid 1px var(--color-gray-400);
+}
+
+textarea {
+  outline: none;
+  padding: 5px;
+  border: solid 1px var(--color-gray-400);
+  border-radius: 5px;
+}

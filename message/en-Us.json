@@ -59,11 +59,11 @@
       "learn-more": "Learn More"
     }
   },
-  "auth":{
-    "login":{},
-    "register":{}
+  "auth": {
+    "login": {},
+    "register": {}
   },
-  "host":{
+  "host": {
     "digital": {
       "title": "Easily become a digital creator and make an impact with artisanNow",
       "block": {
@@ -109,41 +109,34 @@
         "content": "All services provided by Artisanow come with a service agreement guarantee. Our goal is not only to co-create new ways of valuing the knowledge of many rural women, but also to focus on technological development to facilitate the connection of many global travelers, provide payment facilities, and mobility in the territories. Our project is the result of transparency and trust that we have built among diverse women, and we aim to replicate this same relationship of trust and transparency with our users."
       }
     },
-    "commitment":{},
-    "privacy":{},
-    "terms":{},
-    "contact":{}
+    "commitment": {},
+    "privacy": {},
+    "terms": {},
+    "contact": {}
   },
   "user": {
-    "course":{
-      "subtitle":{
+    "course": {
+      "subtitle": {
         "online-experiences": "Online Experiences",
-        "experiences":"Experiences and Destinations",
+        "experiences": "Experiences and Destinations",
         "artisan-channel": "ArtisanNow Channel"
       }
     },
-    "messages":{
-    },
-    "online":{
-      "subtitle":{
+    "messages": {},
+    "online": {
+      "subtitle": {
         "my-online-experiences": "My Online Experiences",
         "recommended-for-you": "Recommended for You",
         "upcoming-live-experiences": "Upcoming Live Experiences"
       }
     },
-    "trips":{
-
-    },
-    "favorite":{
-
-    },
-    "manage":{
-      
-    },
-    "account":{
-
+    "trips": {},
+    "favorite": {},
+    "manage": {},
+    "account": {
+      "profile-settings": "Profile Settings",
+      "save-profile": "Save Profile",
+      "account-settings": "Account Settings"
     }
-
   }
-  
 }

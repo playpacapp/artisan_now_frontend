@@ -1,28 +1,34 @@
 import { useTranslations } from "next-intl";
 
-import { Wrapper, CourseContainer } from "../../ui/index";
+import { Wrapper, CourseContainer, Container } from "../../ui";
 
 export function OnlineExPage() {
   const t = useTranslations("user.online");
   return (
-    <>   
+    <>
       <Wrapper>
-        <h1 className="w-full subtitle">
-          {t('subtitle.my-online-experiences')}
-        </h1>
-        <CourseContainer/>
+        <Container>
+          <h3 className="w-full subtitle">
+            {t("subtitle.my-online-experiences")}
+          </h3>
+          <CourseContainer />
+        </Container>
       </Wrapper>
       <Wrapper>
-        <h1 className="w-full subtitle">
-        {t('subtitle.recommended-for-you')}
-        </h1>
-        <CourseContainer />
+        <Container>
+          <h3 className="w-full subtitle">
+            {t("subtitle.recommended-for-you")}
+          </h3>
+          <CourseContainer />
+        </Container>
       </Wrapper>
       <Wrapper>
-        <h1 className="w-full subtitle">
-        {t('subtitle.upcoming-live-experiences')}
-        </h1>
-        <CourseContainer />
+        <Container>
+          <h3 className="w-full subtitle">
+            {t("subtitle.upcoming-live-experiences")}
+          </h3>
+          <CourseContainer />
+        </Container>
       </Wrapper>
     </>
   );
