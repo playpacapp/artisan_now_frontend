@@ -1,6 +1,7 @@
 import { userConstants } from '../constants';
 
-var initialState = {}
+var initialState = {
+}
 var user = {}
 
 if (typeof window !== 'undefined' && window.localStorage) {

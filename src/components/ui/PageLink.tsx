@@ -32,7 +32,11 @@ export const PageLink: FC<Props> = (props) => {
   return (
     <button
       type="button"
-      onClick={() => goPage(actionLink)}
+      onClick={(e) => {
+        e.preventDefault();
+        console.log("ehre")
+        goPage(actionLink);
+      }}
       className={
         "block font-semibold text-gray-900 w-full text-left " + className
       }

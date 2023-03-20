@@ -5,6 +5,6 @@ export const localeActions = {
 
 function setLocale(locale) {
     return dispatch => {
-        return {locale: locale}
+        return {type: `LOCALE_CHANGE_REQUEST`, payload: locale}
     };
 }

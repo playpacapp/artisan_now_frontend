@@ -9,7 +9,8 @@ import { RiKey2Line, RiUserLine } from "react-icons/ri";
 import { Copyright } from "../ui/Copyright";
 import { Logo } from "../ui/Logo";
 import { userActions } from "@/src/store/actions";
-import { homeUrl, registerUrl, userCourseUrl, userState } from "@/src/functions";
+import { homeUrl, localeState, registerUrl, userCourseUrl, userState } from "@/src/functions";
+import { locales } from "@/src/store/reducers/locale.reducer";
 
 interface Inputs {
   username: string;
@@ -27,7 +28,8 @@ export const LoginPage = () => {
 
   const loggingIn = useSelector((state: userState) => state.authentication.loggingIn)
   const loggedIn = useSelector((state: userState)=>state.authentication.loggedIn)
-  
+  const { locale, messages } = useSelector(locales);
+  console.log({locale})
   // Dispatch
   const dispatch = useDispatch()
 
@@ -85,7 +87,7 @@ export const LoginPage = () => {
           />
         </div>
         <div className="w-full flex flex-row-reverse">
-          <LinkButton label="Forgot Password?" action={() => router.push(homeUrl)} />
+          <LinkButton label="Forgot Password?" link={homeUrl} />
         </div>
         <div className="relative w-fit">
           <Button
@@ -101,7 +103,7 @@ export const LoginPage = () => {
         <span>Do you have not a account?</span>
         <LinkButton
           label="Create a account"
-          action={() => router.push(registerUrl)}
+          link={registerUrl}
         />
       </div>
       <Copyright />

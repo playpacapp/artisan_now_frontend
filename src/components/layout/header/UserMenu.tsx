@@ -10,7 +10,6 @@ import {
   userState,
   userTripsUrl,
 } from "@/src/functions";
-import { useRouter } from "next/router";
 import { FC } from "react";
 import { useSelector } from "react-redux";
 import { PageLink } from "../../ui/PageLink";

@@ -104,7 +104,7 @@ export function RegisterPage() {
           </div>
           <div className="w-full flex flex-wrap justify-center items-center gap-4">
             <span>Do you have a account?</span>
-            <LinkButton label="Login" action={() => router.push(loginUrl)} />
+            <LinkButton label="Login" link={loginUrl} />
           </div>
         </form>
         <Copyright />

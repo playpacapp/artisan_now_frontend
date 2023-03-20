@@ -8,27 +8,32 @@ import { Popover, Transition } from "@headlessui/react";
 import { useTranslations } from "next-intl";
 import { Icon, LinkButton } from "../../ui";
 import { userState, menuItemType, digitalUrl } from "@/src/functions";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { HomeMenu, UserMenu, ArtisanMenu, AdminMenu } from ".";
-import Image from "next/image";
+import { setLocale } from "@/src/store/reducers/locale.reducer";
 
-const lang = [
-  { lang: "US", country: "US" },
-  { lang: "ES", country: "Chile" },
-];
+type CountryCode = {
+  [key: string]: string;
+};
+
+const countryCode: CountryCode = { 
+  "en": "us", 
+  "es": "cl"
+};
 
 export const NavMenu: FC = () => {
   const t = useTranslations("header");
   const router = useRouter();
-
+  const dispatch = useDispatch();
   const auth = useSelector((state: userState) => state.authentication);
+  const { locale } = useSelector((state: any) => state.localeSlice)
 
   return (
     <>
       <div className="hidden md:flex md:flex-1 md:items-center md:justify-end md:space-x-6">
         <LinkButton
+          link={digitalUrl}
           label={t("digital-creator")}
-          action={() => router.push(digitalUrl)}
         />
         <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
       </div>
@@ -37,12 +42,12 @@ export const NavMenu: FC = () => {
         <Popover className="relative">
           <Popover.Button className="px-2 py-1 flex items-center gap-x-2 text-sm font-semibold rounded-3xl leading-6 text-gray-900 hover:text-gray-900 hover:bg-brown-100">
             <ReactCountryFlag
-              countryCode="US"
+              countryCode={countryCode[locale]}
               svg
               style={{ width: "1em", height: "1em" }}
-              title="US"
+              title={countryCode[locale]}
             />
-            En
+            {countryCode[locale]?.toUpperCase()}
             <Icon
               className="h-5 w-5 flex-none text-gray-400"
               icon={VscChevronDown}
@@ -60,24 +65,24 @@ export const NavMenu: FC = () => {
           >
             <Popover.Panel className="absolute px-0 py-2 right-0 top-full z-10 mt-3 overflow-hidden bg-white shadow-lg">
               <div className="">
-                {lang.map((item) => (
+                {Object.keys(countryCode).map((item, value) => ( 
                   <div
-                    key={item.lang}
+                    key={countryCode[item]}
                     className="group relative flex items-center gap-x-3 py-2 text-sm leading-3 hover:bg-brown-100"
                   >
                     <div className="flex h-5 w-5 ml-2 flex-none items-center justify-center">
                       <ReactCountryFlag
-                        countryCode={item.lang}
+                        countryCode={countryCode[item]}
                         svg
                         style={{ width: "1em", height: "1em" }}
-                        title={item.lang}
+                        title={countryCode[item].toUpperCase()}
                       />
                     </div>
                     <div className="flex-auto px-3">
-                      <a href="" className="block font-semibold text-gray-900">
-                        {item.country}
+                      <button onClick={()=>dispatch<any>(setLocale(countryCode[item]))} className="block font-semibold text-gray-900">
+                        {countryCode[item].toUpperCase()}
                         <span className="absolute inset-0" />
-                      </a>
+                      </button>
                     </div>
                   </div>
                 ))}
