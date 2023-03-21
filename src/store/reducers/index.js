@@ -13,7 +13,6 @@ const rootReducer = combineReducers({
     users,
     localeSlice,
     alert,
-    toast
 });
 
 export default rootReducer;

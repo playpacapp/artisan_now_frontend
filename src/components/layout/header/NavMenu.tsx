@@ -27,7 +27,6 @@ export const NavMenu: FC = () => {
   const dispatch = useDispatch();
   const auth = useSelector((state: userState) => state.authentication);
   const { locale } = useSelector((state: any) => state.localeSlice)
-
   return (
     <>
       <div className="hidden md:flex md:flex-1 md:items-center md:justify-end md:space-x-6">
@@ -79,7 +78,7 @@ export const NavMenu: FC = () => {
                       />
                     </div>
                     <div className="flex-auto px-3">
-                      <button onClick={()=>dispatch<any>(setLocale(countryCode[item]))} className="block font-semibold text-gray-900">
+                      <button onClick={()=>dispatch<any>(setLocale(item))} className="block font-semibold text-gray-900">
                         {countryCode[item].toUpperCase()}
                         <span className="absolute inset-0" />
                       </button>

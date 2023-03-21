@@ -7,7 +7,7 @@ import { Wrapper } from "./Wrapper";
 export const Copyright: FC = (props: any) => {
   const t = useTranslations("footer");
   return (
-    <div className="absolute h-[10vmax] lg:h-[7vmax] bottom-0 border-t px-5 py-3 w-full bg-white flex items-center justify-center">
+    <div className="absolute h-[8vmax] lg:h-[5vmax] bottom-0 border-t px-5 py-3 w-full bg-white flex items-center justify-center">
       <p
         className="text-sm"
         {...props}

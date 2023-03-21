@@ -17,7 +17,6 @@ export interface userState {
 
 export interface localeState {
     locale: string;
-    messages: any;
 }
 
 export interface DropdownItem {

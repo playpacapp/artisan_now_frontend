@@ -10,9 +10,21 @@ import { configureFakeBackend } from "@/src/store/helpers";
 import "@/styles/globals.scss";
 import "@/styles/component.ui.scss";
 
+// language files, containing translations for each message key
+import enUSMessages from '@/message/en.json';
+import esMessages from '@/message/es.json';
+
+// A map of supported locales to their corresponding language files
+const LOCALES_MAP = {
+  'en': enUSMessages,
+  'es': esMessages
+};
+
+
 function MyApp({ Component, pageProps }: AppProps) {
 
-  const { locale, messages } = useSelector((state:any) => state.localeSlice);
+  const { locale } = useSelector((state: any) => state.localeSlice);
+  const messages = LOCALES_MAP[locale as "en" | "es"]
   
   useEffect(() => {
     configureFakeBackend();
