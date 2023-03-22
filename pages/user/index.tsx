@@ -1,7 +1,13 @@
-export * from "./course";
-export * from "./messages";
-export * from "./online";
-export * from "./trips";
-export * from "./favorite";
-export * from "./manage";
-export * from "./account";
+import {CoursePage} from "@/src/components/user/course";
+import { DefaultLayout } from "@/src/components/layout/default";
+import { NextPage } from "next";
+
+const Course: NextPage = () => {
+  return (
+    <DefaultLayout>
+      <CoursePage />
+    </DefaultLayout>
+  );
+};
+
+export default Course

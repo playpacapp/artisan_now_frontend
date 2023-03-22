@@ -8,9 +8,9 @@ export type courseInfo = {
     imageUrl: string;
     courseName: string;
     destination: string;
-    artisanName: string;
+    artisanName?: string;
     episode?: number;
     duration?: number;
     categories?: string[];
-    price: string;
+    price?: string;
 }

@@ -1,8 +1,9 @@
+import { courseInfo } from "@/src/functions";
 import { FC } from "react";
-import { TouristCard } from "./TouristCard";
+import { CourseCard } from "./CourseCard";
 
-export const TouristContainer: FC = () => {
-  
+export const TouristContainer: FC<{courses:courseInfo[]}> = ({courses}) => {
+
   const className = `w-full grid place-items-stretch 
                       grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 
                       gap-5 lg:gap-10  
@@ -10,11 +11,10 @@ export const TouristContainer: FC = () => {
 
   return (
     <div className={`${className}`}>
-      <TouristCard url="/image/card/sea.webp" label="Natural" />
-      <TouristCard url="/image/card/5043-original.jpg" label="Natural" />
-      <TouristCard url="/image/card/sea.webp" label="Natural" />
-      <TouristCard url="/image/card/5043-original.jpg" label="Natural" />
-      <TouristCard url="/image/card/sea.webp" label="Natural" />
+      {courses && courses.map((item: courseInfo) => (
+        // eslint-disable-next-line react/jsx-key
+        <CourseCard className="course-card" kind="tourist" course={item} />
+      ))}
     </div>
   );
 };

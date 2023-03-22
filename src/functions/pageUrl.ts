@@ -13,7 +13,7 @@ export const loginUrl: string = "/login"
 export const logoutUrl: string = "/logout"
 export const registerUrl: string = "/register"
 
-export const userCourseUrl: string = "/user/course"
+export const userCourseUrl: string = "/user"
 export const userMessagesUrl: string = "/user/messages"
 export const userOnlineUrl: string = "/user/online"
 export const userTripsUrl: string = "/user/trips"

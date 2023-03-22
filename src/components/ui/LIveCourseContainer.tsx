@@ -2,7 +2,7 @@ import { courseInfo } from "@/src/functions";
 import { FC } from "react";
 import { CourseCard } from "./CourseCard";
 
-export const CourseContainer: FC<{courses:courseInfo[]}> = ({courses}) => {
+export const LiveCourseContainer: FC<{courses:courseInfo[]}> = ({courses}) => {
 
   const className = `w-full grid place-items-stretch 
                     grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 
@@ -14,7 +14,7 @@ export const CourseContainer: FC<{courses:courseInfo[]}> = ({courses}) => {
     <div className={`${className}`}>
       {courses && courses.map((item: courseInfo)=>(
         // eslint-disable-next-line react/jsx-key
-        <CourseCard className="course-card" kind="course" course={item} />    
+        <CourseCard className="course-card" kind="live" course={item} />    
       ))}      
     </div>
   );

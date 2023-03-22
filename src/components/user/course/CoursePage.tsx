@@ -1,5 +1,7 @@
+import { courseInfo } from "@/src/functions";
 import { useTranslations } from "next-intl";
 import { RiSearchLine } from "react-icons/ri";
+import { useSelector } from "react-redux";
 
 import {
   Input,
@@ -8,11 +10,18 @@ import {
   CourseContainer,
   Container,
   TouristContainer,
-  OnlineCourseContainer,
+  LiveCourseContainer,
 } from "../../ui";
+
+const touristes: courseInfo[] = [{
+  imageUrl: "/fiowjfow.jpg",
+  courseName: "Tourist Name",
+  destination: "destination, Chile"
+}]
 
 export function CoursePage() {
   const t = useTranslations("user.course");
+  const { courses } = useSelector((state:any) => state.courseSlice)
   return (
     <>
       <Wrapper>
@@ -35,20 +44,20 @@ export function CoursePage() {
           <h3 className="w-full subtitle">
             {t("subtitle.online-experiences")}
           </h3>
-          <CourseContainer />
+          <CourseContainer courses={courses}/>
         </Container>
       </Wrapper>
       <Wrapper>
         <Container>
           <h3 className="w-full subtitle">{t("subtitle.experiences")}</h3>
-          <TouristContainer />
+          <TouristContainer courses={courses}/>
         </Container>
       </Wrapper>
       <Wrapper>
         <Container>
           <h3 className="w-full subtitle">{t("subtitle.artisan-channel")}</h3>
           <span className="mb-5">Próximas experiencias en artisanNowLIVE</span>
-          <OnlineCourseContainer />
+          <LiveCourseContainer courses={courses} />
         </Container>
       </Wrapper>
     </>
