@@ -1,4 +1,4 @@
-import CoursePage from "@/src/components/user/course";
+import {CoursePage} from "@/src/components/user/course";
 import { DefaultLayout } from "@/src/components/layout/default";
 import { NextPage } from "next";
 

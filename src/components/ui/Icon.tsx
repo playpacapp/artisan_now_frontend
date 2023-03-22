@@ -1,5 +1,5 @@
 
-import {IconType} from 'react-icons'
+import { IconType } from 'react-icons'
 
 interface IconProps {
   icon: IconType;
@@ -8,6 +8,6 @@ interface IconProps {
   className?: string;
 }
 
-export const Icon = ({ icon: Icon, size=20, color="currentColor", className="" }: IconProps) => {
+export const Icon = ({ icon: Icon, size = 20, color, className = "" }: IconProps) => {
   return <Icon className={className} size={size} color={color} />;
 };

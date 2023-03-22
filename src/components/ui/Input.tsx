@@ -1,5 +1,5 @@
 import React, { FC, ReactEventHandler } from "react";
-import { Icon } from "./Icons";
+import { Icon } from "./Icon";
 import { IconType } from "react-icons";
 
 interface Props extends Omit<ReactEventHandler<HTMLInputElement>, ""> {

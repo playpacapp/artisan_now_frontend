@@ -10,7 +10,6 @@ import { Copyright } from "../ui/Copyright";
 import { Logo } from "../ui/Logo";
 import { userActions } from "@/src/store/actions";
 import { homeUrl, localeState, registerUrl, userCourseUrl, userState } from "@/src/functions";
-import { locales } from "@/src/store/reducers/locale.reducer";
 
 interface Inputs {
   username: string;
@@ -28,8 +27,7 @@ export const LoginPage = () => {
 
   const loggingIn = useSelector((state: userState) => state.authentication.loggingIn)
   const loggedIn = useSelector((state: userState)=>state.authentication.loggedIn)
-  const { locale, messages } = useSelector(locales);
-  console.log({locale})
+
   // Dispatch
   const dispatch = useDispatch()
 

@@ -24,7 +24,8 @@ export const PageLink: FC<Props> = (props) => {
       case "":
         break;
       default:
-        router.asPath !== actionLink && router.push(actionLink);
+        //router.asPath !== actionLink && router.push(actionLink);
+        location.href = actionLink;
         break;
     }
   };
