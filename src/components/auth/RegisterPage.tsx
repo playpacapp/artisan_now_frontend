@@ -7,7 +7,9 @@ import { Logo } from "../ui/Logo";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { userActions } from "@/src/store/actions";
-import { AuthInfo, loginUrl } from "@/src/functions";
+import { AuthInfo, loginUrl, VAR_STR_ARTISAN, VAR_STR_USER } from "@/src/functions";
+import { Checkbox } from "@nextui-org/react";
+import Link from "next/link";
 
 interface RootState {
   registration: {
@@ -20,11 +22,12 @@ const initUserState = {
   username: "",
   password: "",
   permission: undefined,
+  currentRole: undefined,
 };
 
 export function RegisterPage() {
   const router = useRouter()
-  const permission = "user"
+  const permission = VAR_STR_USER + "|" + VAR_STR_ARTISAN
   const [user, setUser] = useState<AuthInfo>(initUserState)
   const [submitted, setSubmitted] = useState<boolean>(false)
 
@@ -39,15 +42,15 @@ export function RegisterPage() {
   const dispatch = useDispatch();
 
   // reset login status
-  useEffect(() => {    
+  useEffect(() => {
     dispatch(userActions.logout())
   }, []);
 
-  useEffect(() => {    
+  useEffect(() => {
     registered && router.push(loginUrl)
   }, [registered]);
 
-  
+
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = e.target;
@@ -94,6 +97,28 @@ export function RegisterPage() {
             />
             <Input type="password" placeholder="Confirm Password" />
           </div>
+          <div className="w-full flex flex-col px-5">
+            <div className="w-full flex flex-row space-x-3 items-start">
+              <input
+                id="user-mode"
+                name="usermode" 
+                type="checkbox"
+                //value={user.usermode}
+                onChange={handleChange}
+              />
+              <label className="-mt-[6px]" htmlFor="user-mode">Allow users to purchase online courses through the platform</label>
+            </div>
+            <div className="w-full flex flex-row space-x-3 items-start mt-4">
+              <input
+                id="artisan-mode"
+                name="artisanmode" 
+                type="checkbox"
+                //value={user.artisanmode}
+                onChange={handleChange}
+              />
+              <label className="-mt-[6px]" htmlFor="artisan-mode">Allow artisan to upload and manage online courses through the platform</label>
+            </div>
+          </div>
           <div className="w-fit">
             <Button
               className="w-[150px]"
@@ -102,9 +127,10 @@ export function RegisterPage() {
               isSubmitting={registering}
             />
           </div>
+
           <div className="w-full flex flex-wrap justify-center items-center gap-4">
             <span>Do you have a account?</span>
-            <LinkButton label="Login" link={loginUrl} />
+            <Link href={loginUrl}>Login</Link>
           </div>
         </form>
         <Copyright />

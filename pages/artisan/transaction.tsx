@@ -1,13 +1,13 @@
-import {UserDashboardPage} from "@/src/components/user/dashboard";
 import { DefaultLayout } from "@/src/components/layout/default";
+import { TransactionPage } from "@/src/components/artisan";
 import { NextPage } from "next";
 
-const Course: NextPage = () => {
+const Transaction: NextPage = () => {
   return (
     <DefaultLayout>
-      <UserDashboardPage />
+      <TransactionPage />
     </DefaultLayout>
   );
 };
 
-export default Course
+export default Transaction

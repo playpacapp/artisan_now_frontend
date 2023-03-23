@@ -9,6 +9,7 @@ import {
   userSettingUrl,
   userState,
   userTripsUrl,
+  VAR_STR_USER,
 } from "@/src/functions";
 import { FC } from "react";
 import { useSelector } from "react-redux";
@@ -27,7 +28,7 @@ const dropdownItems: DropdownItem[] = [
 export const UserMenu: FC = () => {
   const authUser = useSelector((state: userState) => state.authentication);
 
-  if (!authUser.loggedIn || authUser.user?.permission !== "user") {
+  if (!authUser.loggedIn || !authUser.user?.currentRole.includes(VAR_STR_USER)) {
     return null;
   }
 

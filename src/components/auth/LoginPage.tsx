@@ -9,7 +9,8 @@ import { RiKey2Line, RiUserLine } from "react-icons/ri";
 import { Copyright } from "../ui/Copyright";
 import { Logo } from "../ui/Logo";
 import { userActions } from "@/src/store/actions";
-import { homeUrl, localeState, registerUrl, userCourseUrl, userState } from "@/src/functions";
+import { homeUrl, localeState, registerUrl, userDashboardUrl, userState, VAR_STR_USER } from "@/src/functions";
+import Link from "next/link";
 
 interface Inputs {
   username: string;
@@ -37,7 +38,7 @@ export const LoginPage = () => {
   }, []);
 
   useEffect(() => {
-    loggedIn && router.push(userCourseUrl)
+    loggedIn && router.push(userDashboardUrl)
   }, [loggedIn])
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -48,9 +49,10 @@ export const LoginPage = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setSubmitted(true)
+    const currentRole = VAR_STR_USER
     if (username && password) {
       // get return url from location state or default to home page
-      dispatch<any>(userActions.login(username, password))
+      dispatch<any>(userActions.login(username, password, currentRole))
     }
   };
 
@@ -85,8 +87,8 @@ export const LoginPage = () => {
           />
         </div>
         <div className="w-full flex flex-row-reverse">
-          <LinkButton label="Forgot Password?" link={homeUrl} />
-        </div>
+          <Link href={homeUrl} >Forgot Password?</Link>
+        </div>        
         <div className="relative w-fit">
           <Button
             type="submit"
@@ -99,10 +101,7 @@ export const LoginPage = () => {
       </form>
       <div className="w-full flex flex-wrap justify-center items-center gap-4">
         <span>Do you have not a account?</span>
-        <LinkButton
-          label="Create a account"
-          link={registerUrl}
-        />
+        <Link href={registerUrl}>Create a account</Link>
       </div>
       <Copyright />
     </Wrapper>

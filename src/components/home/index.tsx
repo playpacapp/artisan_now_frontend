@@ -7,13 +7,12 @@ import {
   SocialLink,
   Input,
   Button,
-  ImageCard,
   Wrapper,
   CategoriesBar,
   CourseContainer,
 } from "../ui/index";
 import { useSelector } from "react-redux";
-import { userCourseUrl, userState } from "@/src/functions";
+import { userDashboardUrl, userState, VAR_STR_ADMIN, VAR_STR_ARTISAN, VAR_STR_USER } from "@/src/functions";
 import { useRouter } from "next/router";
 
 const HomeContent = () => {
@@ -23,12 +22,12 @@ const HomeContent = () => {
 
   if (authUser.loggedIn) {
     switch (authUser.user?.permission) {
-      case "user":
-        if (router.asPath !== userCourseUrl) router.push(userCourseUrl);
+      case VAR_STR_USER:
+        if (router.asPath !== userDashboardUrl) router.push(userDashboardUrl);
         break;
-      case "artisan":
+      case VAR_STR_ARTISAN:
         break;
-      case "admin":
+      case VAR_STR_ADMIN:
         break;
     }
   }
@@ -105,7 +104,7 @@ const HomeContent = () => {
                 icon={RiSearchLine}
               />
             </div>
-            <CourseContainer />
+            <CourseContainer courses={[]} />
           </div>
         </Container>
       </Wrapper>

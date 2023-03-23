@@ -13,13 +13,20 @@ export const loginUrl: string = "/login"
 export const logoutUrl: string = "/logout"
 export const registerUrl: string = "/register"
 
-export const userCourseUrl: string = "/user"
+export const userDashboardUrl: string = "/user"
 export const userMessagesUrl: string = "/user/messages"
 export const userOnlineUrl: string = "/user/online"
 export const userTripsUrl: string = "/user/trips"
 export const userFavoriteUrl: string = "/user/favorite"
-export const userManageUrl: string = "/user/manage"
+export const userManageUrl: string = "/user/switchartisan"
 export const userSettingUrl: string = "/user/account"
+
+export const artisanDashboardUrl: string = "/artisan"
+export const artisanMessagesUrl: string = "/atrisan/messages"
+export const artisanManageUrl: string = "/artisan/manage"
+export const artisanTransactionUrl: string = "/artisan/transaction"
+export const artisanSettingUrl: string = "/artisan/account"
+export const artisanToUserUrl: string = "/artisan/switchuser"
 
 
 

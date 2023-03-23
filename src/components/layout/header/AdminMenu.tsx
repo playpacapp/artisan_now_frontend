@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
-import { digitalUrl, DropdownItem, homeUrl, userState } from "@/src/functions";
+import { digitalUrl, DropdownItem, homeUrl, userState, VAR_STR_ADMIN } from "@/src/functions";
 import { FC } from "react";
 import { useSelector } from "react-redux";
 import { PageLink } from "../../ui/PageLink";
@@ -17,7 +17,7 @@ const dropdownItems: DropdownItem[] = [
 export const AdminMenu: FC = () => {
   const authUser = useSelector((state: userState) => state.authentication);
 
-  if (!authUser.loggedIn || authUser.user?.permission !== "admin") {
+  if (!authUser.loggedIn || !authUser.user?.currentRole.includes(VAR_STR_ADMIN)) {
     return null;
   }
 

@@ -1,13 +1,13 @@
-import {UserDashboardPage} from "@/src/components/user/dashboard";
 import { DefaultLayout } from "@/src/components/layout/default";
+import { MessagesPage } from "@/src/components/artisan";
 import { NextPage } from "next";
 
-const Course: NextPage = () => {
+const Messages: NextPage = () => {
   return (
     <DefaultLayout>
-      <UserDashboardPage />
+      <MessagesPage />
     </DefaultLayout>
   );
 };
 
-export default Course
+export default Messages

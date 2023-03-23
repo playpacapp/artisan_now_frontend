@@ -19,7 +19,7 @@ const touristes: courseInfo[] = [{
   destination: "destination, Chile"
 }]
 
-export function CoursePage() {
+export function UserDashboardPage() {
   const t = useTranslations("user.course");
   const { courses } = useSelector((state:any) => state.courseSlice)
   return (

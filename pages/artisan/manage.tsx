@@ -1,13 +1,13 @@
-import {UserDashboardPage} from "@/src/components/user/dashboard";
 import { DefaultLayout } from "@/src/components/layout/default";
+import { ManageExPage } from "@/src/components/artisan";
 import { NextPage } from "next";
 
-const Course: NextPage = () => {
+const Manage: NextPage = () => {
   return (
     <DefaultLayout>
-      <UserDashboardPage />
+      <ManageExPage />
     </DefaultLayout>
   );
 };
 
-export default Course
+export default Manage

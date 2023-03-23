@@ -10,7 +10,7 @@ export const userService = {
     delete: _delete
 };
 
-function login(username, password) {
+function login(username, password, currentRole) {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -21,6 +21,7 @@ function login(username, password) {
         .then(handleResponse)
         .then(user => {
             // store user details and jwt token in local storage to keep user logged in between page refreshes
+            user.currentRole = currentRole;
             localStorage.setItem('user', JSON.stringify(user));
 
             return user;
