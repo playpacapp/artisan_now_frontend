@@ -12,9 +12,9 @@ export const CourseContainer: FC<{courses:courseInfo[]}> = ({courses}) => {
  
   return (
     <div className={`${className}`}>
-      {courses && courses.map((item: courseInfo)=>(
+      {courses && courses.map((item: courseInfo, index)=>(
         // eslint-disable-next-line react/jsx-key
-        <CourseCard className="course-card" kind="course" course={item} />    
+        <CourseCard key={index} className="course-card" kind="course" course={item} />    
       ))}      
     </div>
   );

@@ -12,12 +12,12 @@ export const CourseCard: FC<{ course: courseInfo, className?: string, kind: stri
       <div className={`flex flex-col max-w-sm h-fit shadow-sm hover:shadow-lg ${props.className}`}>
         <div className="relative w-full h-[200px] overflow-hidden">
           <Image
-            className="course-image"
+            className="object-cover course-image"
             src={imageUrl}
             blurDataURL={imageUrl}
             width="250"
             height="150"
-            style={{ width: "100%" }}
+            style={{ width: "100%", height: "100%" }}
             alt="Vision"
             loading="eager"
             placeholder="blur"
@@ -43,18 +43,31 @@ export const CourseCard: FC<{ course: courseInfo, className?: string, kind: stri
             <span className="">{destination}</span>
 
             {kind == "course" &&
-              <div className="flex flex-row gap-1 items-center mt-2">
-                <Image
-                  src="/image/icon/experiences.png"
-                  blurDataURL={"/image/icon/experiences.png"}
-                  width="24"
-                  height="24"
-                  alt="ICON"
-                  placeholder="blur"
-                />
-                <span className="">{artisanName}</span>
-                <span className="ml-[2rem] text-600 text-gray-900">${price} USD</span>
-              </div>
+              <>
+                <div className="flex flex-row gap-1 items-center mt-2">
+                  <Image
+                    src="/image/icon/experiences.png"
+                    blurDataURL={"/image/icon/experiences.png"}
+                    width="24"
+                    height="24"
+                    alt="ICON"
+                    placeholder="blur"
+                  />
+                  <span className="">{artisanName}</span>
+                  <span className="ml-[2rem] text-600 text-gray-900">${price} USD</span>
+                </div>
+                <div className="flex flex-row gap-10">
+                  <span>episode {episode}</span>
+                  <span>duration {duration}</span>
+                </div>
+                <div className="flex flex-row gap-3">
+                  {categories && categories.map((item, key) => (
+                    <>
+                      <span key={key}>{item}</span>
+                    </>
+                  ))}
+                </div>
+              </>
             }
           </div>
         }

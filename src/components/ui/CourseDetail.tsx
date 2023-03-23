@@ -17,7 +17,7 @@ export const CourseDetail: FC<Props> = ({
       <div className="flex flex-col md:flex-row w-full gap-10 items-start course-detail">
         <div className="relative">
           <Image
-            className="course-image"
+            className="course-image rounded-md"
             src={url}
             blurDataURL={url}
             width="640"

@@ -26,7 +26,7 @@ export const LoginPage = () => {
   const { username, password } = inputs
 
   const loggingIn = useSelector((state: userState) => state.authentication.loggingIn)
-  const loggedIn = useSelector((state: userState)=>state.authentication.loggedIn)
+  const loggedIn = useSelector((state: userState) => state.authentication.loggedIn)
 
   // Dispatch
   const dispatch = useDispatch()
