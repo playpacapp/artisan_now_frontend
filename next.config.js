@@ -1,13 +1,14 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
- reactStrictMode: true,
+ reactStrictMode: false,
 }
 
 module.exports = {
-  i18n: {
-    locales: ['en-Us', 'es'],
-    defaultLocale: 'es',
+  locale: {
+    locales: ['en-US', 'es'],
+    locale:'en-US',
+    defaultLocale: 'en-US',
   },
   withImages: require('next-images'),
 }

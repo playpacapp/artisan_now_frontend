@@ -1,0 +1,7 @@
+export * from "./commitment"
+export * from "./contact"
+export * from "./digital"
+export * from "./faq"
+export * from "../home"
+export * from "./privacy"
+export * from "./terms"

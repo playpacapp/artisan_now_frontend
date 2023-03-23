@@ -1,12 +1,47 @@
-import "@/styles/globals.css";
+import React, { useEffect } from "react";
 import { NextIntlProvider } from "next-intl";
 import type { AppProps } from "next/app";
+import { Provider, useSelector } from "react-redux";
+import { store } from "@/src/store";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { configureFakeBackend } from "@/src/store/helpers";
 
-export default function App({ Component, pageProps }: AppProps) {
-  const local = 'en-Us'
+import "@/styles/globals.scss";
+import "@/styles/component.ui.scss";
+
+// language files, containing translations for each message key
+import enUSMessages from '@/message/en.json';
+import esMessages from '@/message/es.json';
+
+// A map of supported locales to their corresponding language files
+const LOCALES_MAP = {
+  'en': enUSMessages,
+  'es': esMessages
+};
+
+
+function MyApp({ Component, pageProps }: AppProps) {
+
+  const { locale } = useSelector((state: any) => state.localeSlice);
+  const messages = LOCALES_MAP[locale as "en" | "es"]
+  
+  useEffect(() => {
+    configureFakeBackend();
+  }, []);
+
   return (
-    <NextIntlProvider locale={local} messages={pageProps.messages}>
+    <NextIntlProvider locale={locale} messages={messages}>
       <Component {...pageProps} />
+      <ToastContainer />
     </NextIntlProvider>
   );
+}
+
+export default function App(props: AppProps) {
+  return (
+    <Provider store={store}>
+      <MyApp {...props} />
+    </Provider>
+  )
 }

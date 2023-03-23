@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-color: rgb(190, 190, 190);
+
+    --color-gray-100: #00000010;
+    --color-gray-300: #00000030;
+    --color-gray-500: #00000050;
+    --color-gray-700: #00000070;
+    --color-gray-900: #000000ab;
+    --color-gray    : #000000;
+
+    --color-white: #FFFFFF;
+    --color-white-100: #FFFFFF10;
+    --color-white-300: #FFFFFF30;
+    --color-white-500: #FFFFFF50;
+    --color-white-700: #FFFFFF70;
+    --color-white-900: #FFFFFF90;
+}
+
+//text-center text-4xl font-bold leading-snug tracking-tight text-white lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight
+h1 {
+    font-size    : 2.5rem;
+    line-height  : 3rem;
+    font-weight  : 700;
+    text-align   : center;
+    color        : var(--color-gray);
+    margin-bottom: 1.5rem;
+    padding: 2px 0px 2px 0px;
+}
+
+h2 {
+    font-size    : 2rem;
+    font-weight  : 600;
+    text-align   : center;
+    line-height  : 2rem;
+    color        : var(--color-gray);
+    margin-bottom: 1.2rem;
+    padding: 2px 0px 2px 0px;
+}
+
+h3 {
+    font-size  : 1.5rem;
+    font-weight: 600;
+    text-align : left;
+    line-height: 2rem;
+    color      : var(--color-gray);
+    padding: 2px 0px 2px 0px;
+}
+
+h4 {
+    font-size  : 1.25rem;
+    font-weight: 400;
+    text-align : left;
+    line-height: 2rem;
+    color      : var(--color-gray);
+    padding: 2px 0px 2px 0px;
+}
+
+span {
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: left;
+    // line-height: 1.2rem;
+    color: var(--color-gray-900);
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+p {
+    font-size    : 1.5rem;
+    line-height  : 2rem;
+    text-align   : left;
+    color        : var(--color-gray);
+    margin-bottom: 1rem;
+}
+
+input {
+    outline      : none;
+    padding      : 3px 5px 3px 5px;
+    border-bottom: solid 1px var(--color-gray-500);
+    
+    &:focus {
+        border-bottom: solid 1px var(--color-gray-900);
+    }
+}
+
+textarea {
+    outline      : none;
+    padding      : 5px;
+    border       : solid 1px var(--color-gray-500);
+    border-radius: 5px;
+
+    &:focus {
+        border: solid 1px var(--color-gray-900);
+    }
+}

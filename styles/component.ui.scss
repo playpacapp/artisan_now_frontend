@@ -1,0 +1,112 @@
+.mtrade-loading {
+
+  &.fullscreen {
+    position       : absolute;
+    inset          : 0;
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
+    align-items    : center;
+    backdrop-filter: blur(1px);
+    top            : 0;
+    right          : 0;
+    left           : 0;
+    bottom         : 0;
+    z-index        : 99999;
+  }
+
+  &>.spinner {
+    @extend .mtrade-spinner;
+  }
+
+  &>.text {
+    margin-top : 10px;
+    white-space: nowrap;
+  }
+}
+
+@keyframes loading-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.mtrade-spinner {
+  width            : 32px;
+  height           : 32px;
+  border-top-color : #ffffff;
+  border-left-color: #ffffff;
+
+  animation          : loading-spinner 1s linear infinite;
+  border-bottom-color: transparent;
+  border-right-color : transparent;
+  border-style       : solid;
+  border-width       : 2px;
+  border-radius      : 50%;
+  box-sizing         : border-box;
+  display            : inline-block;
+  vertical-align     : middle;
+}
+
+.subtitle {
+  font-size       : 1.5rem;
+  // border-bottom: solid 1px var(--color-gray-100);
+}
+
+@media (max-width: 767px) {
+  .subtitle {}
+}
+
+p.user-info {
+  font-size    : 1rem;
+  color        : var(--color-gray-900);
+  width        : 150px;
+  white-space  : nowrap;
+  text-overflow: ellipsis;
+  overflow     : hidden;
+  margin       : 0px;
+}
+
+div.user-image {
+  width           : 128px;
+  height          : 128px;
+  border-radius   : 100px;
+  border          : dotted 1px var(--color-gray-900);
+  background-color: var(--color-gray-100);
+  padding         : 2px;
+}
+
+.course-card {
+  border-radius   : 3px;
+  cursor          : pointer;
+  background-color: var(--color-white);
+
+  .course-image {
+    border-radius: 7px 7px 0px 0px;
+  }
+
+  .course-title {
+    font-size  : large;
+    font-weight: 600;
+  }
+  
+}
+
+.course-detail {
+  span {
+    font-size: 1.2rem;
+    color:var(--color-gray);
+  }
+}
+
+.play {
+  color: var(--color-white-700);
+  cursor: pointer;
+  &:hover {
+    color: var(--color-white);
+  }
+}
