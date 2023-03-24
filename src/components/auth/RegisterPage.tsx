@@ -6,10 +6,10 @@ import { Button, Input, LinkButton, Wrapper } from "../ui/index";
 import { Logo } from "../ui/Logo";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { userActions } from "@/src/store/actions";
-import { AuthInfo, loginUrl, VAR_STR_ARTISAN, VAR_STR_USER } from "@/src/functions";
+import { AlertState, AuthInfo, loginUrl, User, VAR_STR_ARTISAN, VAR_STR_USER } from "@/src/functions";
 import { Checkbox } from "@nextui-org/react";
 import Link from "next/link";
+import { clear, error, register, success } from "@/src/store";
 
 interface RootState {
   registration: {
@@ -18,52 +18,45 @@ interface RootState {
   };
 }
 
-const initUserState = {
-  username: "",
+const initUserState: User = {
+  email: "",
   password: "",
-  permission: undefined,
-  currentRole: undefined,
+  permission: [],
+  role: "",
 };
 
-export function RegisterPage() {
+
+export const RegisterPage = () => {
+
   const router = useRouter()
-  const permission = VAR_STR_USER + "|" + VAR_STR_ARTISAN
-  const [user, setUser] = useState<AuthInfo>(initUserState)
-  const [submitted, setSubmitted] = useState<boolean>(false)
-
-  const registering = useSelector(
-    (state: RootState) => state.registration.registering
-  );
-
-  const registered = useSelector(
-    (state: RootState) => state.registration.registered
-  );
-
   const dispatch = useDispatch();
 
-  // reset login status
-  useEffect(() => {
-    dispatch(userActions.logout())
-  }, []);
+  const [user, setUser] = useState<User>(initUserState)
+  const [submitted, setSubmitted] = useState<boolean>(false)
 
-  useEffect(() => {
-    registered && router.push(loginUrl)
-  }, [registered]);
-
-
-
-  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setUser((user) => ({ ...user, [name]: value }))
   }
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     setSubmitted(true)
-    user.permission = permission
-    if (user.username && user.password && user.permission) {
-      dispatch<any>(userActions.register(user))
+    user.permission = [VAR_STR_USER, VAR_STR_ARTISAN]
+    if (user.email && user.password && user.permission) {
+
+      dispatch(clear());
+      
+      try {
+        await dispatch<any>(register(user));
+
+        // redirect to login page and display success alert
+        location.href = loginUrl;
+        dispatch(success('Registration successful'));
+      } catch (err: any) {
+        dispatch(error(err));
+      }
     }
   }
 
@@ -84,8 +77,8 @@ export function RegisterPage() {
             <Input
               type="email"
               placeholder="Enter you Email"
-              name="username"
-              value={user.username}
+              name="email"
+              value={user.email}
               onChange={handleChange}
             />
             <Input
@@ -101,7 +94,7 @@ export function RegisterPage() {
             <div className="w-full flex flex-row space-x-3 items-start">
               <input
                 id="user-mode"
-                name="usermode" 
+                name="usermode"
                 type="checkbox"
                 //value={user.usermode}
                 onChange={handleChange}
@@ -111,7 +104,7 @@ export function RegisterPage() {
             <div className="w-full flex flex-row space-x-3 items-start mt-4">
               <input
                 id="artisan-mode"
-                name="artisanmode" 
+                name="artisanmode"
                 type="checkbox"
                 //value={user.artisanmode}
                 onChange={handleChange}
@@ -123,8 +116,8 @@ export function RegisterPage() {
             <Button
               className="w-[150px]"
               label="Register"
-              disabled={registering}
-              isSubmitting={registering}
+              disabled={submitted}
+              isSubmitting={submitted}
             />
           </div>
 

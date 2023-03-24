@@ -1,6 +1,7 @@
 
 /* eslint-disable @next/next/no-html-link-for-pages */
-import { contactUrl, digitalUrl, DropdownItem, loginUrl, registerUrl, userState } from "@/src/functions";
+import { AuthState, contactUrl, digitalUrl, DropdownItem, loginUrl, registerUrl, userState } from "@/src/functions";
+import { authSelector } from "@/src/store";
 import { FC } from "react";
 import { useSelector } from "react-redux";
 import { PageLink } from "../../ui/PageLink";
@@ -14,9 +15,9 @@ const dropdownItems: DropdownItem[] = [
 
 export const HomeMenu: FC = () => {
 
-  const authUser = useSelector((state: userState) => state.authentication);
-  
-  if (authUser.loggedIn) {
+  const auth: AuthState = useSelector(authSelector);
+
+  if (auth.loggedIn) {
     return null;
   }
 

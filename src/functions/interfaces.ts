@@ -6,7 +6,7 @@ export const VAR_STR_ADMIN = "admin"
 export interface AuthInfo {
     firstname?: string;
     lastname?: string;
-    username: string;
+    email: string;
     password: string;
     permission: string | undefined;
     currentRole: string | undefined;
@@ -18,6 +18,11 @@ export interface userState {
         loggedIn: boolean;
         user: any;
     };
+}
+
+export interface AlertState {
+    message: string;
+    showAfterRedirect: boolean;
 }
 
 export interface localeState {

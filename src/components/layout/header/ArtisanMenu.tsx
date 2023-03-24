@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
-import { artisanManageUrl, artisanMessagesUrl, artisanSettingUrl, artisanTransactionUrl, DropdownItem, userState, VAR_STR_ARTISAN } from "@/src/functions";
+import { artisanManageUrl, artisanMessagesUrl, artisanSettingUrl, artisanToUserUrl, artisanTransactionUrl, AuthState, DropdownItem, userState, VAR_STR_ARTISAN } from "@/src/functions";
 import { homeUrl } from "@/src/functions";
+import { authSelector } from "@/src/store";
 import { FC } from "react";
 import { useSelector } from "react-redux";
 import { PageLink } from "../../ui/PageLink";
@@ -10,14 +11,15 @@ const dropdownItems: DropdownItem[] = [
   { name: "Manage Experiences", link: artisanManageUrl },
   { name: "Transaction History", link: artisanTransactionUrl },
   { name: "Account Settings", link: artisanSettingUrl },
-  { name: "Switch to User Mode", link: arti },
+  { name: "Switch to User Mode", link: artisanToUserUrl },
   { name: "Logout", link: `${homeUrl}` },
 ];
 
-export const ArtisanMenu: FC = () => {
-  const authUser = useSelector((state: userState) => state.authentication);
-
-  if (!authUser.loggedIn || !authUser.user?.currentRole.includes(VAR_STR_ARTISAN)) {
+export const ArtisanMenu: FC = (state) => {
+  
+  const auth: AuthState = useSelector(authSelector);
+  
+  if (!auth.loggedIn || auth.user?.role !== VAR_STR_ARTISAN ) {
     return null;
   }
 

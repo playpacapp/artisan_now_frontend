@@ -4,11 +4,10 @@ import type { AppProps } from "next/app";
 import { Provider, useSelector } from "react-redux";
 import { store } from "@/src/store";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { configureFakeBackend } from "@/src/store/helpers";
 
 import "@/styles/globals.scss";
 import "@/styles/component.ui.scss";
+import "react-toastify/dist/ReactToastify.css";
 
 // language files, containing translations for each message key
 import enUSMessages from '@/message/en.json';
@@ -20,21 +19,17 @@ const LOCALES_MAP = {
   'es': esMessages
 };
 
-
 function MyApp({ Component, pageProps }: AppProps) {
 
-  const { locale } = useSelector((state: any) => state.localeSlice);
+  // const { locale } = useSelector((state: any) => state.localeSlice);
+  const locale = "en"
   const messages = LOCALES_MAP[locale as "en" | "es"]
-  
-  useEffect(() => {
-    configureFakeBackend();
-  }, []);
 
   return (
-    <NextIntlProvider locale={locale} messages={messages}>
+     <NextIntlProvider locale={locale} messages={messages}>
       <Component {...pageProps} />
-      <ToastContainer />
-    </NextIntlProvider>
+       <ToastContainer />
+     </NextIntlProvider>
   );
 }
 

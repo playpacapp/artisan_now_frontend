@@ -61,10 +61,8 @@ export const CourseCard: FC<{ course: courseInfo, className?: string, kind: stri
                   <span>duration {duration}</span>
                 </div>
                 <div className="flex flex-row gap-3">
-                  {categories && categories.map((item, key) => (
-                    <>
-                      <span key={key}>{item}</span>
-                    </>
+                  {categories && categories.map((item, index) => (
+                    <span key={index}>{item}</span>
                   ))}
                 </div>
               </>

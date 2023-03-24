@@ -10,22 +10,24 @@ import {
   Wrapper,
   CategoriesBar,
   CourseContainer,
-} from "../ui/index";
+} from "../ui";
 import { useSelector } from "react-redux";
-import { userDashboardUrl, userState, VAR_STR_ADMIN, VAR_STR_ARTISAN, VAR_STR_USER } from "@/src/functions";
+import { artisanDashboardUrl, userDashboardUrl, userState, VAR_STR_ADMIN, VAR_STR_ARTISAN, VAR_STR_USER } from "@/src/functions";
 import { useRouter } from "next/router";
+import { authSelector } from "@/src/store";
 
 const HomeContent = () => {
   const t = useTranslations("home");
   const router = useRouter();
-  const authUser = useSelector((state: userState) => state.authentication);
+  const auth = useSelector(authSelector);
 
-  if (authUser.loggedIn) {
-    switch (authUser.user?.permission) {
+  if (auth.loggedIn) {
+    switch (auth.user?.role) {
       case VAR_STR_USER:
         if (router.asPath !== userDashboardUrl) router.push(userDashboardUrl);
         break;
       case VAR_STR_ARTISAN:
+        if (router.asPath !== artisanDashboardUrl) router.push(artisanDashboardUrl);
         break;
       case VAR_STR_ADMIN:
         break;

@@ -17,6 +17,7 @@ export const localeSlice = createSlice({
         }
     }
 })
+export const localeSelector = (state: localeState) => state
 
 export const {setLocale} = localeSlice.actions;
 export default localeSlice.reducer

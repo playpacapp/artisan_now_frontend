@@ -8,40 +8,37 @@ import { RiKey2Line, RiUserLine } from "react-icons/ri";
 
 import { Copyright } from "../ui/Copyright";
 import { Logo } from "../ui/Logo";
-import { userActions } from "@/src/store/actions";
 import { homeUrl, localeState, registerUrl, userDashboardUrl, userState, VAR_STR_USER } from "@/src/functions";
 import Link from "next/link";
+import { authLoggingIn, login, logout } from "@/src/store";
 
 interface Inputs {
-  username: string;
+  email: string;
   password: string;
 }
 
 export const LoginPage = () => {
+  
   //const t = useTranslations("login")
   const router = useRouter()
+  
   // State
-  const [inputs, setInputs] = useState<Inputs>({ username: "", password: "" })
+  const [inputs, setInputs] = useState<Inputs>({ email: "", password: "" })
 
   const [submitted, setSubmitted] = useState<boolean>(false)
-  const { username, password } = inputs
-
-  const loggingIn = useSelector((state: userState) => state.authentication.loggingIn)
-  const loggedIn = useSelector((state: userState) => state.authentication.loggedIn)
+  const { email, password } = inputs
+  const loggingIn = useSelector(authLoggingIn)
 
   // Dispatch
   const dispatch = useDispatch()
 
   // reset login status
   useEffect(() => {
-    dispatch(userActions.logout())
+    dispatch(logout())
   }, []);
 
-  useEffect(() => {
-    loggedIn && router.push(userDashboardUrl)
-  }, [loggedIn])
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
     setInputs((inputs) => ({ ...inputs, [name]: value }))
   }
@@ -49,10 +46,10 @@ export const LoginPage = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setSubmitted(true)
-    const currentRole = VAR_STR_USER
-    if (username && password) {
+    const role = VAR_STR_USER
+    if (email && password) {
       // get return url from location state or default to home page
-      dispatch<any>(userActions.login(username, password, currentRole))
+      dispatch<any>(login(email, password, role))
     }
   };
 
@@ -71,8 +68,8 @@ export const LoginPage = () => {
         <div className="w-full flex flex-col gap-y-5">
           <Input
             type="email"
-            name="username"
-            value={username}
+            name="email"
+            value={email}
             onChange={handleChange}
             placeholder="Enter you Email"
             icon={RiUserLine}

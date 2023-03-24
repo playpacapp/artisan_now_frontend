@@ -3,14 +3,16 @@ import {
   DropdownItem,
   logoutUrl,
   userFavoriteUrl,
-  userManageUrl,
+  userToArtisanUrl,
   userMessagesUrl,
   userOnlineUrl,
   userSettingUrl,
   userState,
   userTripsUrl,
   VAR_STR_USER,
+  AuthState,
 } from "@/src/functions";
+import { authSelector } from "@/src/store";
 import { FC } from "react";
 import { useSelector } from "react-redux";
 import { PageLink } from "../../ui/PageLink";
@@ -20,15 +22,16 @@ const dropdownItems: DropdownItem[] = [
   { name: "Online Experiences", link: userOnlineUrl },
   { name: "Trips", link: userTripsUrl },
   { name: "Favorites List", link: userFavoriteUrl },
-  { name: "Manage Experiences", link: userManageUrl },
+  { name: "Manage Experiences", link: userToArtisanUrl },
   { name: "Account Settings", link: userSettingUrl },
   { name: "Logout", link: logoutUrl },
 ];
 
 export const UserMenu: FC = () => {
-  const authUser = useSelector((state: userState) => state.authentication);
 
-  if (!authUser.loggedIn || !authUser.user?.currentRole.includes(VAR_STR_USER)) {
+  const auth: AuthState = useSelector(authSelector);
+
+  if (!auth.loggedIn || auth.user?.role !== VAR_STR_USER ) {
     return null;
   }
 

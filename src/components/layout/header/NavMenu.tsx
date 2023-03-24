@@ -7,10 +7,11 @@ import { VscAccount, VscChevronDown, VscMenu } from "react-icons/vsc";
 import { Popover, Transition } from "@headlessui/react";
 import { useTranslations } from "next-intl";
 import { Icon, LinkButton } from "../../ui";
-import { userState, menuItemType, digitalUrl } from "@/src/functions";
+import { userState, menuItemType, digitalUrl, AuthState } from "@/src/functions";
 import { useDispatch, useSelector } from "react-redux";
 import { HomeMenu, UserMenu, ArtisanMenu, AdminMenu } from ".";
-import { setLocale } from "@/src/store/reducers/locale.reducer";
+import { localeSelector, setLocale } from "@/src/store";
+import { authSelector } from "@/src/store";
 
 type CountryCode = {
   [key: string]: string;
@@ -25,8 +26,10 @@ export const NavMenu: FC = () => {
   const t = useTranslations("header");
   const router = useRouter();
   const dispatch = useDispatch();
-  const auth = useSelector((state: userState) => state.authentication);
-  const { locale } = useSelector((state: any) => state.localeSlice)
+  
+  const auth: AuthState = useSelector(authSelector);
+  const { locale } = useSelector(localeSelector)
+
   return (
     <>
       <div className="hidden md:flex md:flex-1 md:items-center md:justify-end md:space-x-6">
@@ -120,7 +123,7 @@ export const NavMenu: FC = () => {
                       {auth.user?.firstname}
                     </div>
                     <p className="user-info">
-                      {auth.user?.username}
+                      {auth.user?.email}
                     </p>
                   </div>
                 </div>

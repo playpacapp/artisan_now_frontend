@@ -51,14 +51,12 @@ export default function DigitalPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 items-start justify-center gap-6">
             {parts.map((item, key) => {
               return (
-                <>
                   <ImageContent
                     url={item.url}
                     size={128}
                     key={key}
                     label={t(item.description)}
                   />
-                </>
               );
             })}
           </div>

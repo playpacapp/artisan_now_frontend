@@ -1,8 +1,6 @@
 import { FC } from "react";
-import { homeUrl, logoutUrl } from "@/src/functions";
+import { artisanDashboardUrl, artisanToUserUrl, homeUrl, logoutUrl, userDashboardUrl, userToArtisanUrl, VAR_STR_ARTISAN, VAR_STR_USER } from "@/src/functions";
 import { useRouter } from "next/router";
-import { useDispatch } from "react-redux";
-import { userActions } from "@/src/store/actions";
 
 type Props = {
   className?: string;
@@ -13,15 +11,17 @@ type Props = {
 export const PageLink: FC<Props> = (props) => {
   const { label, actionLink = "", className } = props;
   const router = useRouter();
-  const dispatch = useDispatch()
 
   const goPage = async (actionLink: string) => {
     switch (actionLink) {
       case logoutUrl:
-        await dispatch(userActions.logout())
         router.asPath !== homeUrl && router.push(homeUrl);
         break;
-      case "":
+      case userToArtisanUrl:
+        router.asPath !== artisanDashboardUrl && router.push(artisanDashboardUrl);
+        break;
+      case artisanToUserUrl:
+        router.asPath !== userDashboardUrl && router.push(userDashboardUrl);
         break;
       default:
         //router.asPath !== actionLink && router.push(actionLink);
