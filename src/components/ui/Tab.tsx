@@ -7,8 +7,8 @@ type Props = {
 };
 
 const getClasses = (selected: boolean) =>
-  `w-fit border-b-2 border-gray-100 hover:border-gray-600 text-600 text-lg text-600 px-3 py-2 ${
-    selected ? "border-gray-600" : "border-gray-100"
+  `w-fit border-b-2 border-brown-200 hover:border-brown-600 text-2xl px-3 py-2 ${
+    selected ? "border-brown-600" : "border-brown-100"
 }`;
 
 export const Tab: React.FC<Props> = ({ label, action, isSelected }) => (

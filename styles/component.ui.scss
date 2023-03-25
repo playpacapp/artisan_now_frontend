@@ -109,3 +109,10 @@ div.user-image {
     color: var(--color-white);
   }
 }
+
+.underline {
+  text-decoration: underline;
+  &:hover {
+   color: var(--color-brown-900);
+  }
+}
