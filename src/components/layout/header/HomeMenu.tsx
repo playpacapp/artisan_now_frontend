@@ -15,8 +15,8 @@ const dropdownItems: DropdownItem[] = [
 
 export const HomeMenu: FC = () => {
 
-  const auth: AuthState = useSelector(authSelector);
-
+  const auth: AuthState = useSelector((state: any) => state.auth);  
+  
   if (auth.loggedIn) {
     return null;
   }

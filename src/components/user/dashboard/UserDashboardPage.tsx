@@ -1,7 +1,7 @@
-import { courseInfo } from "@/src/functions";
+import { AuthState, courseInfo, homeUrl } from "@/src/functions";
 import { useTranslations } from "next-intl";
 import { RiSearchLine } from "react-icons/ri";
-import { useSelector } from "react-redux";
+import courses from "@/public/course.json"
 
 import {
   Input,
@@ -12,16 +12,19 @@ import {
   TouristContainer,
   LiveCourseContainer,
 } from "../../ui";
-
-const touristes: courseInfo[] = [{
-  imageUrl: "/fiowjfow.jpg",
-  courseName: "Tourist Name",
-  destination: "destination, Chile"
-}]
+import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 export function UserDashboardPage() {
+
   const t = useTranslations("user.course");
-  const { courses } = useSelector((state:any) => state.courseSlice)
+  const router = useRouter()
+
+  const auth: AuthState = useSelector((state: any) => state.auth);
+
+  //if (auth.token === null) router.push(homeUrl)
+
   return (
     <>
       <Wrapper>

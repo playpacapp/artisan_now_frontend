@@ -1,7 +1,5 @@
-import { courseInfo } from "@/src/functions";
 import { useTranslations } from "next-intl";
-import { useSelector } from "react-redux";
-
+import courses from "@/public/course.json"
 import {
   Wrapper,
   CourseContainer,
@@ -11,7 +9,6 @@ import {
   
 export function TouristDetailPage() {
   const t = useTranslations("user.course");
-  const { courses } = useSelector((state:any) => state.courseSlice)
   return (
     <>
       <Wrapper>

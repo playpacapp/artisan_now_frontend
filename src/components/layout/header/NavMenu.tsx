@@ -10,7 +10,7 @@ import { Icon, LinkButton } from "../../ui";
 import { userState, menuItemType, digitalUrl, AuthState } from "@/src/functions";
 import { useDispatch, useSelector } from "react-redux";
 import { HomeMenu, UserMenu, ArtisanMenu, AdminMenu } from ".";
-import { localeSelector, setLocale } from "@/src/store";
+import { setLocale } from "@/src/store";
 import { authSelector } from "@/src/store";
 
 type CountryCode = {
@@ -27,8 +27,9 @@ export const NavMenu: FC = () => {
   const router = useRouter();
   const dispatch = useDispatch();
   
-  const auth: AuthState = useSelector(authSelector);
-  const { locale } = useSelector(localeSelector)
+  const auth: AuthState = useSelector((state: any) => state.auth);
+  console.log({auth})
+  const { locale } = useSelector((state:any)=>state.locales)
 
   return (
     <>

@@ -1,13 +1,12 @@
 import { courseInfo } from "@/src/functions";
 import { useTranslations } from "next-intl";
-import { useSelector } from "react-redux";
+import lives from "@/public/course.json"
 
 import { Wrapper, CourseContainer, Container, LiveCourseContainer, Button } from "../../ui";
 
 export function OnlineExPage() {
   const t = useTranslations("user.online");
   const courses: courseInfo[] = [];
-  const lives= useSelector((state:any) => state.courseSlice.courses as courseInfo[]);
   return (
     <>
       <Wrapper>

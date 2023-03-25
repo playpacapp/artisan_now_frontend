@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AlertState } from "@/src/functions/types";
+import { toast } from "react-toastify";
 
 const initialState: AlertState = {
   type: null,
@@ -10,21 +11,23 @@ const alertSlice = createSlice({
   name: "alert",
   initialState,
   reducers: {
-    success(state, action: PayloadAction<string>) {
+    successAlert(state, action: PayloadAction<string>) {
+      toast.success(action.payload)
       state.type = "success";
       state.message = action.payload;
     },
-    error(state, action: PayloadAction<string>) {
+    errorAlert(state, action: PayloadAction<string>) {
+      toast.error(action.payload)
       state.type = "error";
       state.message = action.payload;
     },
-    clear(state) {
+    clearAlert(state) {
       state.type = null;
       state.message = null;
     },
   },
 });
 
-export const { success, error, clear } = alertSlice.actions;
+export const { successAlert, errorAlert, clearAlert } = alertSlice.actions;
 
 export default alertSlice.reducer;

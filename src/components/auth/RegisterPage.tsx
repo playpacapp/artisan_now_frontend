@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import { AlertState, AuthInfo, loginUrl, User, VAR_STR_ARTISAN, VAR_STR_USER } from "@/src/functions";
 import { Checkbox } from "@nextui-org/react";
 import Link from "next/link";
-import { clear, error, register, success } from "@/src/store";
+import { errorAlert, register } from "@/src/store";
 
 interface RootState {
   registration: {
@@ -22,7 +22,6 @@ const initUserState: User = {
   email: "",
   password: "",
   permission: [],
-  role: "",
 };
 
 
@@ -33,6 +32,13 @@ export const RegisterPage = () => {
 
   const [user, setUser] = useState<User>(initUserState)
   const [submitted, setSubmitted] = useState<boolean>(false)
+
+  const registering = useSelector((state:any) => state.auth.registering)
+  const registered = useSelector((state:any) => state.auth.registered)
+
+  useEffect(() => {
+    if (registered) router.push(loginUrl)
+  }, [registered])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -46,16 +52,11 @@ export const RegisterPage = () => {
     user.permission = [VAR_STR_USER, VAR_STR_ARTISAN]
     if (user.email && user.password && user.permission) {
 
-      dispatch(clear());
-      
       try {
         await dispatch<any>(register(user));
 
-        // redirect to login page and display success alert
-        location.href = loginUrl;
-        dispatch(success('Registration successful'));
       } catch (err: any) {
-        dispatch(error(err));
+        errorAlert(err);
       }
     }
   }
@@ -114,10 +115,10 @@ export const RegisterPage = () => {
           </div>
           <div className="w-fit">
             <Button
-              className="w-[150px]"
+              className="w-[150px] relative"
               label="Register"
-              disabled={submitted}
-              isSubmitting={submitted}
+              disabled={registering}
+              isSubmitting={registering}
             />
           </div>
 

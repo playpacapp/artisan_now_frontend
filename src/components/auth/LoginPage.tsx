@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, use } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/router";
@@ -8,14 +8,16 @@ import { RiKey2Line, RiUserLine } from "react-icons/ri";
 
 import { Copyright } from "../ui/Copyright";
 import { Logo } from "../ui/Logo";
-import { homeUrl, localeState, registerUrl, userDashboardUrl, userState, VAR_STR_USER } from "@/src/functions";
+import { artisanDashboardUrl, homeUrl, localeState, registerUrl, userDashboardUrl, userState, VAR_STR_USER } from "@/src/functions";
 import Link from "next/link";
-import { authLoggingIn, login, logout } from "@/src/store";
+import { login, logout } from "@/src/store";
 
 interface Inputs {
   email: string;
   password: string;
 }
+
+const role = VAR_STR_USER
 
 export const LoginPage = () => {
   
@@ -25,9 +27,9 @@ export const LoginPage = () => {
   // State
   const [inputs, setInputs] = useState<Inputs>({ email: "", password: "" })
 
-  const [submitted, setSubmitted] = useState<boolean>(false)
   const { email, password } = inputs
-  const loggingIn = useSelector(authLoggingIn)
+  const loggingIn = useSelector((state:any) => state.auth.loggingIn)
+  const loggedIn = useSelector((state:any) => state.auth.loggedIn)
 
   // Dispatch
   const dispatch = useDispatch()
@@ -37,6 +39,10 @@ export const LoginPage = () => {
     dispatch(logout())
   }, []);
 
+  useEffect(() => {
+    if (loggedIn) (role === VAR_STR_USER)? router.push(userDashboardUrl): router.push(artisanDashboardUrl)
+  }, [loggedIn])
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
@@ -45,8 +51,7 @@ export const LoginPage = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setSubmitted(true)
-    const role = VAR_STR_USER
+    
     if (email && password) {
       // get return url from location state or default to home page
       dispatch<any>(login(email, password, role))

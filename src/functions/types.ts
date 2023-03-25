@@ -16,6 +16,9 @@ export type courseInfo = {
 }
 
 // Define interfaces that represent data in your app's state
+
+export type PERMISSION_TYPE = 'user' | 'artisan' | 'admin' | "" | null;
+
 export interface User {
     id?: string;
     firstname?: string;
@@ -23,7 +26,6 @@ export interface User {
     email: string;
     password: string;
     permission?: string[];
-    role?: 'user' | 'artisan' | 'admin' | "" | null;
 }
 
 export interface AuthState {
@@ -32,6 +34,8 @@ export interface AuthState {
     loggingIn: boolean;
     loggedIn: boolean;
     registering: boolean;
+    registered: boolean;
+    role?: PERMISSION_TYPE
 }
 
 export interface AlertState {

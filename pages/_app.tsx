@@ -21,8 +21,7 @@ const LOCALES_MAP = {
 
 function MyApp({ Component, pageProps }: AppProps) {
 
-  // const { locale } = useSelector((state: any) => state.localeSlice);
-  const locale = "en"
+  const {locale} = useSelector((state:any)=>state.locales);
   const messages = LOCALES_MAP[locale as "en" | "es"]
 
   return (

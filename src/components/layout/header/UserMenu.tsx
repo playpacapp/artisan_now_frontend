@@ -29,9 +29,9 @@ const dropdownItems: DropdownItem[] = [
 
 export const UserMenu: FC = () => {
 
-  const auth: AuthState = useSelector(authSelector);
-
-  if (!auth.loggedIn || auth.user?.role !== VAR_STR_USER ) {
+  const auth: AuthState = useSelector((state: any) => state.auth);
+  
+  if (!auth.loggedIn || auth.role !== VAR_STR_USER ) {
     return null;
   }
 

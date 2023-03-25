@@ -2,6 +2,8 @@
 
 import { authHeader } from '../helpers/auth-header';
 import { User } from '@/src/functions/types';
+import { errorAlert } from '../alert.slice';
+import { toast } from 'react-toastify';
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -15,23 +17,22 @@ export const authService = {
   delete: _delete
 };
 
-function login(email: string, password: string, role: string) {
+function login(email: string, password: string) {
   const requestOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email, password, role })
+    body: JSON.stringify({ email, password })
   };
 
   return fetch(`/api/auth/login`, requestOptions)
     .then(handleResponse)
-    .then((user) => {
+    .then((response) => {
       // login successful if there's a jwt token in the response
-      if (user.token) {
+      if (response.token) {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
-        localStorage.setItem('user', JSON.stringify(user));
+        localStorage.setItem('user', JSON.stringify(response));
       }
-
-      return user;
+      return response;
     });
 }
 
@@ -47,7 +48,10 @@ function register(user: User) {
     body: JSON.stringify(user)
   };
 
-  return fetch(`${apiUrl}/auth/register`, requestOptions).then(handleResponse);
+  return fetch(`/api/auth/register`, requestOptions).then(handleResponse).then( newUser => {
+    toast.success("Register successful")
+    return newUser 
+  });
 }
 
 function getAll() {
@@ -92,15 +96,16 @@ async function handleResponse(response: Response) {
 
   const isJson = response.headers?.get('content-type')?.includes('application/json');
   const data = isJson ? await response.json() : null;
-
   if (!response.ok) {
-    if ([401, 403].includes(response.status)) {
+    if ([500, 401, 403, 400].includes(response.status)) {
       // auto logout if 401 response returned from api
-      logout();
-      location.reload();
+      //logout();
+      //location.reload();
     }
-    const error = (data && data.message) || response.statusText;
-    return Promise.reject(error);
+    
+    const err = data? data.message : response.statusText;  
+    toast.error(err)  
+    return Promise.reject(err);
   }
 
   return data;

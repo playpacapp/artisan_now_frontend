@@ -24,7 +24,7 @@ export const Button: FC<Props> = (props) => {
     >
       {isSubmitting && 
           // <svg className="animate-spin h-5 w-5 mr-3 z-20" viewBox="0 0 24 24"></svg>
-          <Spinner size={32} left={11} top={5} className="" /> 
+          <Spinner size={28} left={7} top={5} className="" /> 
       }
       {label}
     </button>

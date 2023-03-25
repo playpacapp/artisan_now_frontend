@@ -17,9 +17,9 @@ const dropdownItems: DropdownItem[] = [
 
 export const ArtisanMenu: FC = (state) => {
   
-  const auth: AuthState = useSelector(authSelector);
+  const auth: AuthState = useSelector((state: any) => state.auth);
   
-  if (!auth.loggedIn || auth.user?.role !== VAR_STR_ARTISAN ) {
+  if (!auth.loggedIn || auth.role !== VAR_STR_ARTISAN ) {
     return null;
   }
 

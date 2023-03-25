@@ -18,7 +18,7 @@ const dropdownItems: DropdownItem[] = [
 export const AdminMenu: FC = () => {
   const auth: AuthState = useSelector(authSelector);
 
-  if (!auth.loggedIn || auth.user?.role !== VAR_STR_ADMIN) {
+  if (!auth.loggedIn || auth.role !== VAR_STR_ADMIN) {
     return null;
   }
 

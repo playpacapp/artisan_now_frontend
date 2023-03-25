@@ -22,7 +22,7 @@ export const deleteUser = createAsyncThunk("users/delete", async (id: number) =>
   return id;
 });
 
-const usersSlice = createSlice({
+export const usersSlice = createSlice({
   name: "users",
   initialState,
   reducers: {},

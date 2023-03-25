@@ -12,17 +12,17 @@ import {
   CourseContainer,
 } from "../ui";
 import { useSelector } from "react-redux";
-import { artisanDashboardUrl, userDashboardUrl, userState, VAR_STR_ADMIN, VAR_STR_ARTISAN, VAR_STR_USER } from "@/src/functions";
+import { artisanDashboardUrl, AuthState, userDashboardUrl, VAR_STR_ADMIN, VAR_STR_ARTISAN, VAR_STR_USER } from "@/src/functions";
 import { useRouter } from "next/router";
 import { authSelector } from "@/src/store";
 
 const HomeContent = () => {
   const t = useTranslations("home");
   const router = useRouter();
-  const auth = useSelector(authSelector);
+  const auth: AuthState = useSelector((state: any) => state.auth);
 
   if (auth.loggedIn) {
-    switch (auth.user?.role) {
+    switch (auth.role) {
       case VAR_STR_USER:
         if (router.asPath !== userDashboardUrl) router.push(userDashboardUrl);
         break;
