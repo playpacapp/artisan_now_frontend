@@ -26,9 +26,6 @@ export function CourseDetailPage() {
                 loop={true}
                 controls={true}
               />
-              <div className="absolute left-[calc(50%-24px)] top-[calc(50%-24px)]">
-                <Icon className="play" icon={IoPlayCircleOutline} size={48} />
-              </div>
             </div>
             <div className="flex flex-col h-fit gap-5">
               <h4 className="">

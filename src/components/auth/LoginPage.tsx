@@ -3,7 +3,7 @@ import React, { useState, useEffect, use } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/router";
-import { Button, Input, LinkButton, Wrapper } from "../ui";
+import { Button, Input, LinkButton, PageLink, Wrapper } from "../ui";
 import { RiKey2Line, RiUserLine } from "react-icons/ri";
 
 import { Copyright } from "../ui/Copyright";
@@ -89,7 +89,7 @@ export const LoginPage = () => {
           />
         </div>
         <div className="w-full flex flex-row-reverse">
-          <Link href={homeUrl} >Forgot Password?</Link>
+          <Link className="underline" href={homeUrl} >Forgot Password?</Link>
         </div>        
         <div className="relative w-fit">
           <Button
@@ -103,8 +103,8 @@ export const LoginPage = () => {
       </form>
       <div className="w-full flex flex-wrap justify-center items-center gap-4">
         <span>Do you have not a account?</span>
-        <Link href={registerUrl}>Create a account</Link>
-      </div>
+        <Link className="underline" href={registerUrl} >Create a account</Link>
+      </div>      
       <Copyright />
     </Wrapper>
   );

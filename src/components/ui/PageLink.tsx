@@ -18,7 +18,7 @@ export const PageLink: FC<Props> = (props) => {
   const goPage = async (actionLink: string) => {
     switch (actionLink) {
       case logoutUrl:
-        logout()
+        dispatch(logout())
         router.asPath !== homeUrl && router.push(homeUrl);
         break;
       case userToArtisanUrl:
@@ -44,7 +44,7 @@ export const PageLink: FC<Props> = (props) => {
         goPage(actionLink);
       }}
       className={
-        "block font-semibold text-gray-900 w-full text-left " + className
+        "block font-semibold text-gray-900 w-full text-left hover:text-brown-600 focus:text-brown-900 leading-4 " + className
       }
     >
       {label}

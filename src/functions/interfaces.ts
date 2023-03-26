@@ -3,6 +3,13 @@ export const VAR_STR_ARTISAN = "artisan"
 export const VAR_STR_USER = "user"
 export const VAR_STR_ADMIN = "admin"
 
+///// Tab Names
+export const VAR_STR_EXPERIENCE = "experience"
+
+export const VAR_STR_RESERVATIONS = "reservation"
+export const VAR_STR_TRANSACTION_HISTORY = "transaction-history"
+
+
 export interface AuthInfo {
     firstname?: string;
     lastname?: string;

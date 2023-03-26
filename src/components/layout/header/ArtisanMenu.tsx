@@ -1,22 +1,26 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
-import { artisanManageUrl, artisanMessagesUrl, artisanSettingUrl, artisanToUserUrl, artisanTransactionUrl, AuthState, DropdownItem, userState, VAR_STR_ARTISAN } from "@/src/functions";
+import { artisanManageUrl, artisanMessagesUrl, artisanSettingUrl, artisanToUserUrl, artisanTransactionUrl, AuthState, DropdownItem, logoutUrl, userState, VAR_STR_ARTISAN } from "@/src/functions";
 import { homeUrl } from "@/src/functions";
 import { authSelector } from "@/src/store";
+import { useTranslations } from "next-intl";
 import { FC } from "react";
 import { useSelector } from "react-redux";
 import { PageLink } from "../../ui/PageLink";
 
-const dropdownItems: DropdownItem[] = [
-  { name: "Messages", link: artisanMessagesUrl },
-  { name: "Manage Experiences", link: artisanManageUrl },
-  { name: "Transaction History", link: artisanTransactionUrl },
-  { name: "Account Settings", link: artisanSettingUrl },
-  { name: "Switch to User Mode", link: artisanToUserUrl },
-  { name: "Logout", link: `${homeUrl}` },
-];
+
 
 export const ArtisanMenu: FC = (state) => {
-  
+  const t = useTranslations("menu");
+
+  const dropdownItems: DropdownItem[] = [
+    { name: t("messages"), link: artisanMessagesUrl },
+    { name: t("artisan.manage"), link: artisanManageUrl },
+    { name: t("artisan.transaction"), link: artisanTransactionUrl },
+    { name: t("setting"), link: artisanSettingUrl },
+    { name: t("artisan.usermode"), link: artisanToUserUrl },
+    { name: t("logout"), link: logoutUrl },
+  ];
+
   const auth: AuthState = useSelector((state: any) => state.auth);
   
   if (!auth.loggedIn || auth.role !== VAR_STR_ARTISAN ) {

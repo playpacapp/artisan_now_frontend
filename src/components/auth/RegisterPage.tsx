@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "next/router";
 import { Copyright } from "../ui/Copyright";
 
-import { Button, Input, LinkButton, Wrapper } from "../ui/index";
+import { Button, Input, LinkButton, PageLink, Wrapper } from "../ui/index";
 import { Logo } from "../ui/Logo";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
@@ -124,9 +124,10 @@ export const RegisterPage = () => {
 
           <div className="w-full flex flex-wrap justify-center items-center gap-4">
             <span>Do you have a account?</span>
-            <Link href={loginUrl}>Login</Link>
+            <Link className="underline" href={loginUrl}> Login </Link>
           </div>
         </form>
+        
         <Copyright />
       </Wrapper>
     </>

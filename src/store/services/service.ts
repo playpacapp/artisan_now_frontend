@@ -99,10 +99,9 @@ async function handleResponse(response: Response) {
   if (!response.ok) {
     if ([500, 401, 403, 400].includes(response.status)) {
       // auto logout if 401 response returned from api
-      //logout();
-      //location.reload();
-    }
-    
+      logout();
+      location.reload();
+    }    
     const err = data? data.message : response.statusText;  
     toast.error(err)  
     return Promise.reject(err);

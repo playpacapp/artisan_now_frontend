@@ -2,18 +2,22 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 import { AuthState, contactUrl, digitalUrl, DropdownItem, loginUrl, registerUrl, userState } from "@/src/functions";
 import { authSelector } from "@/src/store";
+import { useTranslations } from "next-intl";
 import { FC } from "react";
 import { useSelector } from "react-redux";
 import { PageLink } from "../../ui/PageLink";
 
-const dropdownItems: DropdownItem[] = [
-  { name: "Login", link: `${loginUrl}` },
-  { name: "Register", link: `${registerUrl}` },
-  { name: "Join as a digital creator", link: `${digitalUrl}` },
-  { name: "Contact us", link: `${contactUrl}` },
-];
+
 
 export const HomeMenu: FC = () => {
+  const t = useTranslations("menu.home");
+
+  const dropdownItems: DropdownItem[] = [
+    { name: t("login"), link: `${loginUrl}` },
+    { name: t("register"), link: `${registerUrl}` },
+    { name: t("digital"), link: `${digitalUrl}` },
+    { name: t("contact"), link: `${contactUrl}` },
+  ];
 
   const auth: AuthState = useSelector((state: any) => state.auth);  
   

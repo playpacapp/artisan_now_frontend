@@ -120,7 +120,7 @@ export function AccountPage() {
     <>
       <Wrapper className="w-full flex justify-center">
         <div className="w-[90%] lg:w-[70%]">
-          <Container className="flex gap-x-4 items-center justify-end">
+          <Container className="flex gap-x-5 items-center justify-end">
             <Tab label={t("profile-settings")} action={() => setProfile(true)} isSelected={isProfile} />
             <Tab label={t("account-settings")} action={() => setProfile(false)} isSelected={!isProfile} />
           </Container>

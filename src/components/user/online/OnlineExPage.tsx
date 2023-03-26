@@ -17,9 +17,9 @@ export function OnlineExPage() {
           {courses.length ? <CourseContainer courses={courses} /> :
             <div className="flex flex-col max-w-md">
               <h4 className="mt-10">Todavía no tienes ninguna experiencia comprada</h4>
-              <span className="my-5">
+              <label className="my-5">
                 Conéctate, impacta positivamente en la economía de artesanas de Latinoamérica y aprende viviendo una experiencia auténtica 
-              </span>
+              </label>
               <Button label="Comienza a buscar"/>
             </div>
           }

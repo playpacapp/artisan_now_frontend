@@ -22,6 +22,28 @@
       "privacy": "Privacy policy"
     }
   },
+  "menu":{
+    "home":{
+      "login": "Login",
+      "register": "Register",
+      "digital": "Join as a digital creator",
+      "contact":"Contact us"
+    },
+    "user":{
+      "online": "My Online Experiences",
+      "trips": "My Trips",
+      "favorite": "My Favorites List",
+      "manage": "Manage Experiences"
+    },
+    "artisan": {
+      "manage": "Manage Experiences",
+      "transaction": "Transaction History",
+      "usermode": "Switch to User Mode"
+    },
+    "messages": "Messages",
+    "logout": "Logout",
+    "setting": "Account Settings"
+  },
   "home": {
     "hero-title": "Travel or learn online with impact",
     "hero-description": "Discover the richness of Latin America through the eyes and hands of its artisans, travel and learn with them!",
@@ -137,6 +159,26 @@
       "profile-settings": "Profile Settings",
       "save-profile": "Save Profile",
       "account-settings": "Account Settings"
+    }    
+  },
+  "artisan": {
+    "transaction": {
+      "tab-reservations": "Reservations",
+      "tab-history": "Transaction History",
+      "reservations": {
+        "confirm-title": "Your confirmed reservations",
+        "share-table": "Shall we share the table?",
+        "share-table-description": "It sounds like your experience doesn't meet our standards. Consult our quality standards and send us a new idea.",
+        "see": "See",
+        "confirmed-title": "Your reservations to be confirmed",
+        "confirmed-description": "It sounds like your experience doesn't meet our standards. Consult our quality standards and send us a new idea.",
+        "accept": "Accept",
+        "decline": "Decline"
+      },
+      "history": {
+
+      }
     }
   }
+
 }

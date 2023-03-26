@@ -9,8 +9,8 @@ export const CourseCard: FC<{ course: courseInfo, className?: string, kind: stri
   const kind: string = props.kind
   return (
     <a href={`/user/course/detail?kind=${kind}`} aria-hidden={true}>
-      <div className={`flex flex-col max-w-sm h-fit shadow-sm hover:shadow-lg ${props.className}`}>
-        <div className="relative w-full h-[200px] overflow-hidden">
+      <div className={`flex flex-col max-w-sm h-fit rounded-[lg] border shadow-lg hover:shadow-xl hover:opacity-[0.9] ${props.className}`}>
+        <div className="relative w-[320] h-[240] overflow-hidden">
           <Image
             className="object-cover course-image"
             src={imageUrl}
@@ -22,14 +22,16 @@ export const CourseCard: FC<{ course: courseInfo, className?: string, kind: stri
             loading="eager"
             placeholder="blur"
           />
-          <div className="absolute left-[calc(50%-24px)] top-[calc(50%-24px)]">
+          {kind != "tourist" && 
+            <div className="absolute left-[calc(50%-24px)] top-[calc(50%-24px)] z-[50]">
             <Icon className="play" icon={IoPlayCircleOutline} size={48} />
           </div>
+          }          
           {kind == "live" &&
             <div className="flex flex-col px-2 py-1 absolute left-0 bottom-0">
-              <h4 className="text-white">
+              <h5 className="text-white">
                 {courseName}
-              </h4>
+              </h5>
               <span className="text-white">{destination}</span>
               <span className="text-white text-600">$7.30 USD</span>
             </div>
@@ -37,9 +39,9 @@ export const CourseCard: FC<{ course: courseInfo, className?: string, kind: stri
         </div>
         {kind != "live" &&
           <div className="flex flex-col h-fit p-2">
-            <h4 className="truncate">
+            <h5 className="truncate">
               {courseName}
-            </h4>
+            </h5>
             <span className="">{destination}</span>
 
             {kind == "course" &&

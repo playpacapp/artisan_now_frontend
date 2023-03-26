@@ -116,3 +116,18 @@ div.user-image {
    color: var(--color-brown-900);
   }
 }
+
+.custom-date-picker {
+  &>div {
+    &>input, &>button {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    &>div:last-child {
+      opacity: 1 !important;
+      display: block !important;
+      position: relative !important;
+    }
+  }
+}
