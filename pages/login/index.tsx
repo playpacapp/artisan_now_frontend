@@ -1,8 +1,15 @@
 import { LoginPage } from "@/src/components/auth";
+import { Header } from "@/src/components/layout/header";
 import { NextPage } from "next";
 
 const Login: NextPage = () => {
-  return <LoginPage />;
+  return (
+    <>
+      <Header />
+      <LoginPage />
+    </>
+  )
+
 };
 
 export default Login;

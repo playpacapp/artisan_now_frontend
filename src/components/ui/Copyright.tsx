@@ -13,7 +13,7 @@ export const Copyright: FC = (props: any) => {
         {...props}
       >
         {t("copyright")}
-        <Link href={homeUrl} className="text-400">ArtisanNow</Link> {new Date().getFullYear()}
+        <Link href={homeUrl} className="text-400">artisanNow</Link> {new Date().getFullYear()}
         {"."}
       </span>
     </div>

@@ -32,12 +32,13 @@ export function ArtisanDashboardPage() {
                 </div>
                 <div className="w-fit">
                   <div className="border-2 w-[250px] h-[150px] rounded-lg">
-                  <Image className=""  src="/test.webp" alt="" width={100} height={100} style={{width:"100%", height:"100%"}} />
+                    <Image className="" src="/test.webp" alt="" width={100} height={100} style={{ width: "100%", height: "100%" }} />
                   </div>
                 </div>
               </div>
               <hr className="my-5"></hr>
               <div className="w-full flex flex-row gap-5">
+                <Link className="underline" href="">Ver</Link>
                 <Link className="underline" href="">Consulta los estandares</Link>
                 <Link className="underline" href="">Elimina</Link>
               </div>

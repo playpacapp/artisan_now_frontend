@@ -63,10 +63,7 @@ export const LoginPage = () => {
       <form
         className="relative w-full md:w-[70%] lg:w-[60%] xl:w-[50%] 2xl:w-[30%] flex flex-col items-center justify-center px-10 py-10 gap-y-5"
         onSubmit={handleSubmit}
-      >
-        <div className="w-full h-[30px] mb-5 flex justify-center">
-          <Logo width={200} />
-        </div>
+      >        
         <h1 className="text-center text-x text-900 leading-snug tracking-tight text-gray-600 lg:text-2xl lg:leading-tight xl:text-4xl xl:leading-tight">
           Login
         </h1>
