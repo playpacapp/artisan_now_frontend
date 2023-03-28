@@ -131,3 +131,52 @@ div.user-image {
     }
   }
 }
+
+.message-channel {
+  border-right: solid 1px var(--color-gray-300);
+  background-color: var(--color-white);
+  width: 30%;
+  height: calc(100vh - 139px);
+
+  .header {
+    padding: 25px 10px 23px 15px;;
+    border-bottom: solid 1px var(--color-gray-300);
+  }
+
+  .list {
+    padding: 10px 10px 10px 10px;
+    height: calc(100vh - 139px);
+    overflow-y: auto;
+
+    .item {
+      width: 100%;
+      padding: 10px 25px 10px 15px;
+      border-bottom: solid 1px var(--color-gray-300);
+    }
+  }
+
+
+}
+
+.message-content {
+  background-color: var(--color-white);
+  width: 70%;
+  height: calc(100vh - 139px);
+
+  .header {
+    padding: 20px 10px 20px 15px;;
+    border-bottom: solid 1px var(--color-gray-300);
+  }
+
+  .content {
+    padding: 10px 10px 10px 10px;
+    height: calc(100vh - 150px);
+    overflow-y: scroll;
+  }
+
+  .chat {
+    width: 100%;
+    border-top: solid 1px var(--color-gray-300);
+    padding: 10px 10px 10px 10px;
+  }
+}

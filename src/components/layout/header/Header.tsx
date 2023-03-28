@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 
-import { Wrapper } from "../../ui";
+import { Container, Wrapper } from "../../ui";
 import { useTranslations } from "next-intl";
 import { Logo } from "../../ui/Logo";
 import { NavMenu } from "./NavMenu";
@@ -20,9 +20,9 @@ export const Header = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Wrapper className="">
-        <header className="fixed top-0 z-20 w-full">
-          <div className="w-full border-b bg-white">
+      <Wrapper className="relative">
+        <div className="w-full bg-white fixed top-0 z-20 border-b">
+          <header className="w-full">
             <div className="flex w-full h-full justify-content items-center relative px-5 md:px-20 py-2 md:py-4">
               <div className="Logo">
                 <Logo />
@@ -32,12 +32,12 @@ export const Header = () => {
                 <NavMenu />
               </nav>
             </div>
-          </div>
-        </header>
+          </header>
+        </div>
+
       </Wrapper>
       {router.asPath !== homeUrl && (
-        <Wrapper className="relative">
-          <div className="w-full bg-white h-[61px]"></div>
+        <Wrapper className="relative mt-[69px]">
         </Wrapper>
       )}
     </>

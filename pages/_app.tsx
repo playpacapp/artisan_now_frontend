@@ -4,6 +4,7 @@ import type { AppProps } from "next/app";
 import { Provider, useSelector } from "react-redux";
 import { store } from "@/src/store";
 import { ToastContainer } from "react-toastify";
+//import LazyLoad from 'react-lazyload';
 
 import "@/styles/globals.scss";
 import "@/styles/component.ui.scss";
@@ -21,14 +22,14 @@ const LOCALES_MAP = {
 
 function MyApp({ Component, pageProps }: AppProps) {
 
-  const {locale} = useSelector((state:any)=>state.locales);
+  const { locale } = useSelector((state: any) => state.locales);
   const messages = LOCALES_MAP[locale as "en" | "es"]
 
   return (
-     <NextIntlProvider locale={locale} messages={messages}>
-      <Component {...pageProps} />
-       <ToastContainer />
-     </NextIntlProvider>
+    <NextIntlProvider locale={locale} messages={messages}>
+        <Component {...pageProps} />
+      <ToastContainer />
+    </NextIntlProvider>
   );
 }
 

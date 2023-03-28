@@ -74,7 +74,19 @@ h5 {
 
 span {
     font-size: 1rem;
-    font-weight: 300;
+    font-weight: 500;
+    text-align: left;
+    // line-height: 1.2rem;
+    color: var(--color-gray-900);
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+span.light {
+    font-size: 1rem;
+    font-weight: 400;
     text-align: left;
     // line-height: 1.2rem;
     color: var(--color-gray-900);
@@ -85,11 +97,9 @@ span {
 }
 
 p {
-    font-size    : 1.25rem;
-    line-height  : 1.75rem;
     text-align   : left;
     color        : var(--color-gray);
-    margin-bottom: 1rem;
+    margin-bottom: 0.6rem;
 }
 
 label {
@@ -119,4 +129,13 @@ textarea {
 
 Link {
     text-decoration: underline;
+}
+
+ol {
+    padding-top: 7px;
+    padding-bottom: 5px;
+
+    li {
+        margin-bottom: 2px;
+    }
 }

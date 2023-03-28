@@ -7,15 +7,15 @@ import { Wrapper } from "./Wrapper";
 export const Copyright: FC = (props: any) => {
   const t = useTranslations("footer");
   return (
-    <div className="absolute h-[8vmax] lg:h-[5vmax] bottom-0 border-t px-5 py-3 w-full bg-white flex items-center justify-center">
-      <p
+    <div className="absolute h-[70px] bottom-0 border-t px-5 py-3 w-full bg-white flex items-center justify-center">
+      <span
         className="text-sm"
         {...props}
       >
         {t("copyright")}
         <Link href={homeUrl} className="text-400">ArtisanNow</Link> {new Date().getFullYear()}
         {"."}
-      </p>
+      </span>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useState } from "react";
 import { RiSearchLine } from "react-icons/ri";
-
+import Image from "next/image"
 import { Input, Wrapper, CategoriesBar, CourseContainer, Tab, Container, Button } from "../../ui";
 
 
@@ -24,14 +24,16 @@ export function ArtisanDashboardPage() {
               <Button className="text-end h-fit" label="Crear una nueva experiencia" />
             </div>
             <div className="flex flex-col px-5 py-7 rounded-xl shadow-lg border border-gray-300">
-              <div className="flex flex-row items-center gap-x-10">
+              <div className="flex flex-row items-center justify-between gap-x-10">
                 <div className="flex flex-col">
                   <span className="border w-fit px-3 py-1 border-l-[5px] border-brown-600 rounded-md mb-3">Experiencia rechazada</span>
                   <h3>Compatimos la mesa?</h3>
                   <p className="text-gray-600 mb-10">Al parecer, tu experiencia no cumple nuestros estandares. Consulta nuestros estandares de calidad y envianos una idea nueva.</p>
                 </div>
                 <div className="w-fit">
-                  <div className="border-2 w-[250px] h-[150px] rounded-lg"></div>
+                  <div className="border-2 w-[250px] h-[150px] rounded-lg">
+                  <Image className=""  src="/test.webp" alt="" width={100} height={100} style={{width:"100%", height:"100%"}} />
+                  </div>
                 </div>
               </div>
               <hr className="my-5"></hr>

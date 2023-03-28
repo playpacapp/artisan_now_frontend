@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useState } from "react";
 import { Wrapper, Container, Tab, Button, DateRangePicker, CustomeRadioGroup, LineChart } from "../../ui";
+import Image from "next/image"
 
 
 const Reservations = () => {
@@ -15,14 +16,16 @@ const Reservations = () => {
           {/* <Button className="text-end h-fit" label="Crear una nueva experiencia" /> */}
         </div>
         <div className="flex flex-col px-5 py-7 rounded-xl shadow-lg border border-gray-300">
-          <div className="flex flex-row items-center gap-x-10">
+          <div className="flex flex-row items-center justify-between gap-x-10">
             <div className="flex flex-col">
               <h3>{t("reservations.share-table")}</h3>
               <p className="text-gray-600 mb-10">{t("reservations.share-table-description")}</p>
               <span>date and hour</span>
             </div>
             <div className="w-fit">
-              <div className="border-2 w-[250px] h-[150px] rounded-lg"></div>
+              <div className="border-2 w-[250px] h-[150px] rounded-lg">
+                <Image className=""  src="/test.webp" alt="" width={100} height={100} style={{width:"100%", height:"100%"}} />
+              </div>
             </div>
           </div>
           <hr className="my-5"></hr>
@@ -41,14 +44,16 @@ const Reservations = () => {
           {/* <Button className="text-end h-fit" label="Crear una nueva experiencia" /> */}
         </div>
         <div className="flex flex-col px-5 py-7 rounded-xl shadow-lg border border-gray-300">
-          <div className="flex flex-row items-center gap-x-10">
+          <div className="flex flex-row items-center justify-between gap-x-10">
             <div className="flex flex-col">
               <span className="border w-fit px-3 py-1 border-l-[5px] border-brown-600 rounded-md mb-3">Experiencia rechazada</span>
               <h3>{t("reservations.confirmed-title")}</h3>
               <p className="text-gray-600 mb-10">{t("reservations.confirmed-description")}</p>
             </div>
             <div className="w-fit">
-              <div className="border-2 w-[250px] h-[150px] rounded-lg"></div>
+              <div className="border-2 w-[250px] h-[150px] rounded-lg">
+              <Image className=""  src="/test.webp" alt="" width={100} height={100} style={{width:"100%", height:"100%"}} />
+              </div>
             </div>
           </div>
           <hr className="my-5"></hr>
