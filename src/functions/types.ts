@@ -7,8 +7,8 @@ export type menuItemType = {
 export type courseInfo = {
     imageUrl: string;
     courseName: string;
+    hostName: string;
     destination: string;
-    artisanName?: string;
     episode?: number;
     duration?: number;
     categories?: string[];

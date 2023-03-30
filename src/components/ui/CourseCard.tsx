@@ -3,10 +3,16 @@ import Image from "next/image";
 import { Icon } from "./Icon";
 import { IoPlayCircleOutline } from "react-icons/io5"
 import { courseInfo } from "@/src/functions";
+import {OnlineIcon, DestinationIcon, PlayIcon} from "./customIcons"
 
-export const CourseCard: FC<{ course: courseInfo, className?: string, kind: string }> = (props) => {
-  const { imageUrl, courseName, destination, artisanName, episode, duration, categories, price = "0" } = props.course;
+
+export const CourseCard: FC<{ course: courseInfo, className?: string, kind: string, artisanName:string }> = (props) => {
+  
+  const { imageUrl, courseName, hostName, destination, episode, duration, categories, price = "0" } = props.course;
   const kind: string = props.kind
+  const artisanName: string = props.artisanName
+  const svgUrl = (kind == 'online') ? OnlineIcon : DestinationIcon
+  
   return (
     <a href={`/user/course/detail?kind=${kind}`} aria-hidden={true}>
       <div className={`flex flex-col max-w-sm h-fit rounded-[lg] border shadow-lg hover:shadow-xl hover:opacity-[0.9] ${props.className}`}>
@@ -23,8 +29,14 @@ export const CourseCard: FC<{ course: courseInfo, className?: string, kind: stri
             placeholder="blur"
           />
           {kind != "tourist" && 
-            <div className="absolute left-[calc(50%-24px)] top-[calc(50%-24px)] z-[50]">
-            <Icon className="play" icon={IoPlayCircleOutline} size={48} />
+            <div className="absolute left-[calc(50%-24px)] top-[calc(50%-24px)] z-[50] bg-white rounded-md">
+              <Image                
+                src={PlayIcon}
+                width="32"
+                height="32"
+                alt="ICON"
+              />
+            {/* <Icon className="play" icon={IoPlayCircleOutline} size={48} /> */}
           </div>
           }          
           {kind == "live" &&
@@ -42,22 +54,21 @@ export const CourseCard: FC<{ course: courseInfo, className?: string, kind: stri
             <h5 className="truncate">
               {courseName}
             </h5>
+            <span className="">{hostName}</span>
             <span className="">{destination}</span>
+            <div className="flex flex-row gap-1 items-center mt-2">
+              <Image
+                src={svgUrl}
+                width="24"
+                height="24"
+                alt="ICON"
+              />
+              <span className="">{artisanName}</span>
+              <span className=" ml-[2rem] text-600 text-gray-900">${price} USD</span>
+            </div>
 
-            {kind == "course" &&
+            {kind == "online" &&
               <>
-                <div className="flex flex-row gap-1 items-center mt-2">
-                  <Image
-                    src="/image/icon/experiences.png"
-                    blurDataURL={"/image/icon/experiences.png"}
-                    width="24"
-                    height="24"
-                    alt="ICON"
-                    placeholder="blur"
-                  />
-                  <span className="">{artisanName}</span>
-                  <span className="ml-[2rem] text-600 text-gray-900">${price} USD</span>
-                </div>
                 <div className="flex flex-row gap-10">
                   <span>episode {episode}</span>
                   <span>duration {duration}</span>

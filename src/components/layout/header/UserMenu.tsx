@@ -27,7 +27,6 @@ export const UserMenu: FC = () => {
     { name: t("messages"), link: userMessagesUrl },
     { name: t("user.online"), link: userOnlineUrl },
     { name: t("user.trips"), link: userTripsUrl },
-    { name: t("user.favorite"), link: userFavoriteUrl },    
     { name: t("setting"), link: userSettingUrl },
     { name: t("user.manage"), link: userToArtisanUrl },
     { name: t("logout"), link: logoutUrl },

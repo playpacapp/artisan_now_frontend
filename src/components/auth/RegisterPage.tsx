@@ -88,28 +88,7 @@ export const RegisterPage = () => {
             />
             <Input type="password" placeholder="Confirm Password" />
           </div>
-          <div className="w-full flex flex-col px-5">
-            <div className="w-full flex flex-row space-x-3 items-start">
-              <input
-                id="user-mode"
-                name="usermode"
-                type="checkbox"
-                //value={user.usermode}
-                onChange={handleChange}
-              />
-              <label className="-mt-[6px]" htmlFor="user-mode">Allow users to purchase online courses through the platform</label>
-            </div>
-            <div className="w-full flex flex-row space-x-3 items-start mt-4">
-              <input
-                id="artisan-mode"
-                name="artisanmode"
-                type="checkbox"
-                //value={user.artisanmode}
-                onChange={handleChange}
-              />
-              <label className="-mt-[6px]" htmlFor="artisan-mode">Allow artisan to upload and manage online courses through the platform</label>
-            </div>
-          </div>
+         
           <div className="w-fit">
             <Button
               className="w-[150px] relative"

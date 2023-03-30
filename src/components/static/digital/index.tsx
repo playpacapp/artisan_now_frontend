@@ -22,7 +22,7 @@ export default function DigitalPage() {
   ];
 
   return (
-    <>
+    <div className="digital">
       <Wrapper>
         <Container className="w-full flex justify-center">
           <h1 className="w-3/4">{t("title")}</h1>
@@ -62,6 +62,6 @@ export default function DigitalPage() {
           </div>
         </Container>
       </Wrapper>
-    </>
+    </div>
   );
 }

@@ -22,8 +22,7 @@ export const Input: FC<Props> = (props) => {
         <Icon className="absolute left-4 z-10" icon={icon} />
       )}
       <input
-        id = {id}
-        className="leading-none rounded-3xl text-left text-gray-600 px-10 py-3 w-full border border-gray-400 outline-none"
+        id = {id} className="leading-none rounded-3xl text-left text-gray-600 px-10 py-3 w-full border border-gray-400 outline-none"
         type={type}
         placeholder={placeholder}
         name={name}
