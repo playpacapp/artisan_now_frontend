@@ -23,8 +23,6 @@ const FAQ: FC<{ title: string; content: string }> = ({ title, content }) => {
 };
 
 export default function FAQPage() {
-  const t = useTranslations("faq");
-
   return (
     <>
       <FAQ title="faq-1.title" content="faq-1.content" />

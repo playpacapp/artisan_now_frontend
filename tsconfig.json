@@ -28,9 +28,9 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx", "src/store/index.js", "pages/api/auth/login.js", "pages/api/auth/login.js", "pages/api/auth/register.js", "pages/api/auth/register.js",
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
   ]
 }

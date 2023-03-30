@@ -3,31 +3,38 @@ import {
   DropdownItem,
   logoutUrl,
   userFavoriteUrl,
-  userManageUrl,
+  userToArtisanUrl,
   userMessagesUrl,
   userOnlineUrl,
   userSettingUrl,
   userState,
   userTripsUrl,
+  VAR_STR_USER,
+  AuthState,
 } from "@/src/functions";
+import { authSelector } from "@/src/store";
+import { useTranslations } from "next-intl";
 import { FC } from "react";
 import { useSelector } from "react-redux";
 import { PageLink } from "../../ui/PageLink";
 
-const dropdownItems: DropdownItem[] = [
-  { name: "Messages", link: userMessagesUrl },
-  { name: "Online Experiences", link: userOnlineUrl },
-  { name: "Trips", link: userTripsUrl },
-  { name: "Favorites List", link: userFavoriteUrl },
-  { name: "Manage Experiences", link: userManageUrl },
-  { name: "Account Settings", link: userSettingUrl },
-  { name: "Logout", link: logoutUrl },
-];
+
 
 export const UserMenu: FC = () => {
-  const authUser = useSelector((state: userState) => state.authentication);
+  const t = useTranslations("menu");
 
-  if (!authUser.loggedIn || authUser.user?.permission !== "user") {
+  const dropdownItems: DropdownItem[] = [
+    { name: t("messages"), link: userMessagesUrl },
+    { name: t("user.online"), link: userOnlineUrl },
+    { name: t("user.trips"), link: userTripsUrl },
+    { name: t("setting"), link: userSettingUrl },
+    { name: t("user.manage"), link: userToArtisanUrl },
+    { name: t("logout"), link: logoutUrl },
+  ];
+  
+  const auth: AuthState = useSelector((state: any) => state.auth);
+  
+  if (!auth.loggedIn || auth.role !== VAR_STR_USER ) {
     return null;
   }
 

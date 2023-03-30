@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "email": "artisan.test@gmail.com",
+    "password": "123",
+    "permission": ["user", "artisan"]
+  },
+  {
+    "id": 2,
+    "email": "artisan1.test@gmail.com",
+    "password": "123",
+    "permission": ["user", "artisan"]
+  },
+  {
+    "id": 3,
+    "email": "artisan3.test@gmail.com",
+    "password": "123",
+    "permission": ["user", "artisan"]
+  }
+]

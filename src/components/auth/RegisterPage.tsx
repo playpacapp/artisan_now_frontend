@@ -2,12 +2,14 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "next/router";
 import { Copyright } from "../ui/Copyright";
 
-import { Button, Input, LinkButton, Wrapper } from "../ui/index";
+import { Button, Input, LinkButton, PageLink, Wrapper } from "../ui/index";
 import { Logo } from "../ui/Logo";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { userActions } from "@/src/store/actions";
-import { AuthInfo, loginUrl } from "@/src/functions";
+import { AlertState, AuthInfo, loginUrl, User, VAR_STR_ARTISAN, VAR_STR_USER } from "@/src/functions";
+import { Checkbox } from "@nextui-org/react";
+import Link from "next/link";
+import { errorAlert, register } from "@/src/store";
 
 interface RootState {
   registration: {
@@ -16,51 +18,46 @@ interface RootState {
   };
 }
 
-const initUserState = {
-  username: "",
+const initUserState: User = {
+  email: "",
   password: "",
-  permission: undefined,
+  permission: [],
 };
 
-export function RegisterPage() {
+
+export const RegisterPage = () => {
+
   const router = useRouter()
-  const permission = "user"
-  const [user, setUser] = useState<AuthInfo>(initUserState)
-  const [submitted, setSubmitted] = useState<boolean>(false)
-
-  const registering = useSelector(
-    (state: RootState) => state.registration.registering
-  );
-
-  const registered = useSelector(
-    (state: RootState) => state.registration.registered
-  );
-
   const dispatch = useDispatch();
 
-  // reset login status
-  useEffect(() => {    
-    dispatch(userActions.logout())
-  }, []);
+  const [user, setUser] = useState<User>(initUserState)
+  const [submitted, setSubmitted] = useState<boolean>(false)
 
-  useEffect(() => {    
-    registered && router.push(loginUrl)
-  }, [registered]);
+  const registering = useSelector((state:any) => state.auth.registering)
+  const registered = useSelector((state:any) => state.auth.registered)
 
-  
+  useEffect(() => {
+    if (registered) router.push(loginUrl)
+  }, [registered])
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setUser((user) => ({ ...user, [name]: value }))
   }
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     setSubmitted(true)
-    user.permission = permission
-    if (user.username && user.password && user.permission) {
-      dispatch<any>(userActions.register(user))
+    user.permission = [VAR_STR_USER, VAR_STR_ARTISAN]
+    if (user.email && user.password && user.permission) {
+
+      try {
+        await dispatch<any>(register(user));
+
+      } catch (err: any) {
+        errorAlert(err);
+      }
     }
   }
 
@@ -70,10 +67,7 @@ export function RegisterPage() {
         <form
           onSubmit={handleSubmit}
           className="relative w-full md:w-[70%] lg:w-[60%] xl:w-[50%] 2xl:w-[30%] flex flex-col items-center justify-center px-10 py-10 gap-y-5"
-        >
-          <div className="w-full h-[30px] mb-5 flex justify-center">
-            <Logo width={200} />
-          </div>
+        >          
           <h1 className="text-center text-x text-900 leading-snug tracking-tight text-gray-600 lg:text-2xl lg:leading-tight xl:text-4xl xl:leading-tight">
             Register
           </h1>
@@ -81,8 +75,8 @@ export function RegisterPage() {
             <Input
               type="email"
               placeholder="Enter you Email"
-              name="username"
-              value={user.username}
+              name="email"
+              value={user.email}
               onChange={handleChange}
             />
             <Input
@@ -94,19 +88,22 @@ export function RegisterPage() {
             />
             <Input type="password" placeholder="Confirm Password" />
           </div>
+         
           <div className="w-fit">
             <Button
-              className="w-[150px]"
+              className="w-[150px] relative"
               label="Register"
               disabled={registering}
               isSubmitting={registering}
             />
           </div>
+
           <div className="w-full flex flex-wrap justify-center items-center gap-4">
             <span>Do you have a account?</span>
-            <LinkButton label="Login" link={loginUrl} />
+            <Link className="underline" href={loginUrl}> Login </Link>
           </div>
         </form>
+        
         <Copyright />
       </Wrapper>
     </>

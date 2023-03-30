@@ -1,13 +1,11 @@
-import { courseInfo } from "@/src/functions";
 import { useTranslations } from "next-intl";
-import { useSelector } from "react-redux";
 import Image from "next/image"
+import courses from "@/public/course.json"
 
 import {
   Wrapper,
   CourseContainer,
   Container,
-  CourseDetail,
   Icon,
   Button,
 } from "../../ui";
@@ -16,7 +14,6 @@ import ReactPlayer from "react-player";
 
 export function CourseDetailPage() {
   const t = useTranslations("user.course");
-  const { courses } = useSelector((state: any) => state.courseSlice)
   return (
     <>
       <Wrapper>
@@ -29,9 +26,6 @@ export function CourseDetailPage() {
                 loop={true}
                 controls={true}
               />
-              <div className="absolute left-[calc(50%-24px)] top-[calc(50%-24px)]">
-                <Icon className="play" icon={IoPlayCircleOutline} size={48} />
-              </div>
             </div>
             <div className="flex flex-col h-fit gap-5">
               <h4 className="">

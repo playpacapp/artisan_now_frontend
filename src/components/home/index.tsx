@@ -2,33 +2,36 @@ import { useTranslations } from "next-intl";
 import { Container } from "../ui/Container";
 import { RiSearchLine } from "react-icons/ri";
 
+import courses from "@/public/course.json"
+
 import {
   ImageContent,
   SocialLink,
   Input,
   Button,
-  ImageCard,
   Wrapper,
   CategoriesBar,
   CourseContainer,
-} from "../ui/index";
+} from "../ui";
 import { useSelector } from "react-redux";
-import { userCourseUrl, userState } from "@/src/functions";
+import { artisanDashboardUrl, AuthState, userDashboardUrl, VAR_STR_ADMIN, VAR_STR_ARTISAN, VAR_STR_USER } from "@/src/functions";
 import { useRouter } from "next/router";
+import { authSelector } from "@/src/store";
 
 const HomeContent = () => {
   const t = useTranslations("home");
   const router = useRouter();
-  const authUser = useSelector((state: userState) => state.authentication);
+  const auth: AuthState = useSelector((state: any) => state.auth);
 
-  if (authUser.loggedIn) {
-    switch (authUser.user?.permission) {
-      case "user":
-        if (router.asPath !== userCourseUrl) router.push(userCourseUrl);
+  if (auth.loggedIn) {
+    switch (auth.role) {
+      case VAR_STR_USER:
+        if (router.asPath !== userDashboardUrl) router.push(userDashboardUrl);
         break;
-      case "artisan":
+      case VAR_STR_ARTISAN:
+        if (router.asPath !== artisanDashboardUrl) router.push(artisanDashboardUrl);
         break;
-      case "admin":
+      case VAR_STR_ADMIN:
         break;
     }
   }
@@ -37,17 +40,19 @@ const HomeContent = () => {
     <>
       <Wrapper className="inset-0 p-0">
         <div className="w-full h-[100vh] p-0 bg-[url('/hero.jpg')] bg-cover bg-center bg-no-repeat">
-          <div className="block sticky left-[50%] top-[30%] lg:px-10 lg:py-20 sm:px-5 sm:py-10">
-            <h1 className="text-3xl font-bold text-white md:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight">
-              {t("hero-title")}
-            </h1>
-            <p className="text-center py-5 text-xl leading-normal text-white lg:text-xl xl:text-2xl">
-              {t("hero-description")}
-            </p>
-            <div className="flex justify-center space-x-6 mt-20">
-              <Button label={t("buttons.experiences")} />
-              <Button label={t("buttons.online-experiences")} />
-            </div>
+          <div className="w-full h-full flex flex-wrap items-center justify-center lg:px-10 lg:py-20 sm:px-5 sm:py-10 my-auto">
+            <div>
+              <h1 className="text-3xl font-bold text-white md:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight">
+                {t("hero-title")}
+              </h1>
+              <p className="text-center py-5 text-xl leading-normal text-white lg:text-xl xl:text-2xl">
+                {t("hero-description")}
+              </p>
+              <div className="flex justify-center space-x-6 mt-20">
+                <Button label={t("buttons.experiences")} />
+                <Button label={t("buttons.online-experiences")} />
+              </div>
+            </div>            
           </div>
         </div>
       </Wrapper>
@@ -105,7 +110,7 @@ const HomeContent = () => {
                 icon={RiSearchLine}
               />
             </div>
-            <CourseContainer />
+            <CourseContainer courses={courses} artisanName="Online Experiences" />
           </div>
         </Container>
       </Wrapper>

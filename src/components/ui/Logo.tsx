@@ -2,11 +2,12 @@ import { FC } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { homeUrl } from "@/src/functions";
+import Link from "next/link";
 
 export const Logo: FC<{link?: string; width?: number}> = ({link=homeUrl, width=135}) => {
   const router = useRouter()
   return (
-    <button onClick={()=>{router.asPath!==homeUrl && router.push(link)}} className="flex-none items-center cursor-pointer">
+    <Link href={link} className="flex-none items-center cursor-pointer">
       <Image
         src="/logo.png"
         blurDataURL="/logo.png"
@@ -15,6 +16,6 @@ export const Logo: FC<{link?: string; width?: number}> = ({link=homeUrl, width=1
         alt="artisanNow"
         placeholder="blur"
       />
-    </button>
+    </Link>
   );
 };

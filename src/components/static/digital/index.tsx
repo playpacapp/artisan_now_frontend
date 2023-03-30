@@ -22,18 +22,18 @@ export default function DigitalPage() {
   ];
 
   return (
-    <>
+    <div className="digital">
       <Wrapper>
         <Container className="w-full flex justify-center">
           <h1 className="w-3/4">{t("title")}</h1>
         </Container>
       </Wrapper>
       <Wrapper>
-        <div className="w-full h-[50vh] bg-[url('/image/digital/creadora_digital.jpg')] bg-cover bg-center bg-no-repeat"></div>
+        <div className="w-full h-[70vh] bg-[url('/image/digital/creadora_digital.jpg')] bg-cover bg-center bg-no-repeat"></div>
       </Wrapper>
 
       <Wrapper>
-        <Container className="grid grid-cols-1 items-start md:grid-cols-2 gap-4 place-content-stretch">
+        <Container className="grid grid-cols-1 items-start md:grid-cols-2 gap-10 place-content-stretch">
           <div className="">
             <h2 className="">{t("block.left.title")}</h2>
             <p className="">{t("block.left.content")}</p>
@@ -51,19 +51,17 @@ export default function DigitalPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 items-start justify-center gap-6">
             {parts.map((item, key) => {
               return (
-                <>
                   <ImageContent
                     url={item.url}
                     size={128}
                     key={key}
                     label={t(item.description)}
                   />
-                </>
               );
             })}
           </div>
         </Container>
       </Wrapper>
-    </>
+    </div>
   );
 }

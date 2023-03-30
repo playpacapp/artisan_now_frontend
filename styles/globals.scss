@@ -18,6 +18,14 @@ body {
     --color-white-500: #FFFFFF50;
     --color-white-700: #FFFFFF70;
     --color-white-900: #FFFFFF90;
+
+    --color-brown-900: #AA5E3F;
+    --color-brown-700: #BD6C4C;
+    --color-brown-600: #C2785B;
+    --color-brown-300: #D39D88;
+    --color-brown-200: #E2C2B6;
+    --color-brown-100: #EEDAD3;
+    --color-brown-50:  #f2e9e4;
 }
 
 //text-center text-4xl font-bold leading-snug tracking-tight text-white lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight
@@ -52,11 +60,16 @@ h3 {
 
 h4 {
     font-size  : 1.25rem;
-    font-weight: 400;
+    font-weight: 500;
     text-align : left;
-    line-height: 2rem;
+    line-height: 1.5rem;
     color      : var(--color-gray);
     padding: 2px 0px 2px 0px;
+}
+
+h5 {
+    font-size: 1.15rem;
+    font-weight: 500;
 }
 
 span {
@@ -71,12 +84,26 @@ span {
     white-space: nowrap;
 }
 
+span.light {
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: left;
+    // line-height: 1.2rem;
+    color: var(--color-gray-900);
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 p {
-    font-size    : 1.5rem;
-    line-height  : 2rem;
     text-align   : left;
     color        : var(--color-gray);
-    margin-bottom: 1rem;
+    margin-bottom: 0.6rem;
+}
+
+label {
+    color: var(--color-gray-900);
 }
 
 input {
@@ -97,5 +124,18 @@ textarea {
 
     &:focus {
         border: solid 1px var(--color-gray-900);
+    }
+}
+
+Link {
+    text-decoration: underline;
+}
+
+ol {
+    padding-top: 7px;
+    padding-bottom: 5px;
+
+    li {
+        margin-bottom: 2px;
     }
 }

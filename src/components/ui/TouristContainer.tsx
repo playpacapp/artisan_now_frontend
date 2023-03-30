@@ -2,7 +2,7 @@ import { courseInfo } from "@/src/functions";
 import { FC } from "react";
 import { CourseCard } from "./CourseCard";
 
-export const TouristContainer: FC<{courses:courseInfo[]}> = ({courses}) => {
+export const TouristContainer: FC<{ courses: courseInfo[], artisanName: string }> = ({courses, artisanName}) => {
 
   const className = `w-full grid place-items-stretch 
                       grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 
@@ -13,7 +13,7 @@ export const TouristContainer: FC<{courses:courseInfo[]}> = ({courses}) => {
     <div className={`${className}`}>
       {courses && courses.map((item: courseInfo, index) => (
         // eslint-disable-next-line react/jsx-key
-        <CourseCard key={index} className="course-card" kind="tourist" course={item} />
+        <CourseCard key={index} className="course-card" kind="tourist" artisanName={artisanName}  course={item} />
       ))}
     </div>
   );

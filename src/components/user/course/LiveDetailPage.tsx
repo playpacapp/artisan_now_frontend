@@ -1,7 +1,6 @@
 import { useTranslations } from "next-intl";
-import { useSelector } from "react-redux";
 import ReactPlayer from 'react-player'
-
+import courses from "@/public/course.json"
 import {
   Wrapper,
   CourseContainer,
@@ -13,7 +12,6 @@ import {
 
 export function LiveDetailPage() {
   const t = useTranslations("user.course");
-  const { courses } = useSelector((state: any) => state.courseSlice)
   return (
     <>
       <Wrapper>

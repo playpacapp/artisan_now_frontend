@@ -1,16 +1,16 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
-import { FC, useEffect } from "react";
+import { FC } from "react";
 import ReactCountryFlag from "react-country-flag";
 import { Fragment, useState } from "react";
-import { useRouter } from "next/router";
 import { VscAccount, VscChevronDown, VscMenu } from "react-icons/vsc";
 import { Popover, Transition } from "@headlessui/react";
 import { useTranslations } from "next-intl";
-import { Icon, LinkButton } from "../../ui";
-import { userState, menuItemType, digitalUrl } from "@/src/functions";
+import { Icon } from "../../ui";
+import { digitalUrl, AuthState } from "@/src/functions";
 import { useDispatch, useSelector } from "react-redux";
 import { HomeMenu, UserMenu, ArtisanMenu, AdminMenu } from ".";
-import { setLocale } from "@/src/store/reducers/locale.reducer";
+import { setLocale } from "@/src/store";
+import { PageLink } from "../../ui";
 
 type CountryCode = {
   [key: string]: string;
@@ -23,18 +23,17 @@ const countryCode: CountryCode = {
 
 export const NavMenu: FC = () => {
   const t = useTranslations("header");
-  const router = useRouter();
   const dispatch = useDispatch();
-  const auth = useSelector((state: userState) => state.authentication);
-  const { locale } = useSelector((state: any) => state.localeSlice)
+  
+  const auth: AuthState = useSelector((state: any) => state.auth);
+  console.log({auth})
+  const { locale } = useSelector((state:any)=>state.locales)
+
   return (
     <>
       <div className="hidden md:flex md:flex-1 md:items-center md:justify-end md:space-x-6">
-        <LinkButton
-          link={digitalUrl}
-          label={t("digital-creator")}
-        />
-        <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
+        <PageLink actionLink={digitalUrl} label={t("digital-creator")} />
+        <span className="h-6 w-px bg-gray-200" />
       </div>
 
       <Popover.Group className="lg:flex lg:gap-x-12">
@@ -112,7 +111,7 @@ export const NavMenu: FC = () => {
             leaveFrom="opacity-100 translate-y-0"
             leaveTo="opacity-0 translate-y-1"
           >
-            <Popover.Panel className="absolute w-[180px] px-0 py-2 right-0 top-full z-10 mt-3 overflow-hidden bg-white shadow-lg">
+            <Popover.Panel className="absolute w-[200px] px-0 py-2 right-0 top-full z-10 mt-3 overflow-hidden bg-white shadow-lg">
               {auth.loggedIn && (
                 <div className="cursor-default relative group bg-gray-100 grid items-center justify-center gap-x-3 px-3 py-1 text-sm text-gray-600 border-b">
                   <div className="w-full py-1">
@@ -120,7 +119,7 @@ export const NavMenu: FC = () => {
                       {auth.user?.firstname}
                     </div>
                     <p className="user-info">
-                      {auth.user?.username}
+                      {auth.user?.email}
                     </p>
                   </div>
                 </div>

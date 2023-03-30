@@ -1,5 +1,4 @@
 .mtrade-loading {
-
   &.fullscreen {
     position       : absolute;
     inset          : 0;
@@ -36,8 +35,8 @@
 }
 
 .mtrade-spinner {
-  width            : 32px;
-  height           : 32px;
+  width            : 24px;
+  height           : 24px;
   border-top-color : #ffffff;
   border-left-color: #ffffff;
 
@@ -108,5 +107,87 @@ div.user-image {
   cursor: pointer;
   &:hover {
     color: var(--color-white);
+  }
+}
+
+.underline {
+  text-decoration: underline;
+  &:hover {
+   color: var(--color-brown-900);
+  }
+}
+
+.custom-date-picker {
+  &>div {
+    &>input, &>button {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    &>div:last-child {
+      opacity: 1 !important;
+      display: block !important;
+      position: relative !important;
+    }
+  }
+}
+
+.message-channel {
+  border-right: solid 1px var(--color-gray-300);
+  background-color: var(--color-white);
+  width: 30%;
+  height: calc(100vh - 139px);
+
+  .header {
+    padding: 25px 10px 23px 15px;;
+    border-bottom: solid 1px var(--color-gray-300);
+  }
+
+  .list {
+    padding: 10px 10px 10px 10px;
+    height: calc(100vh - 139px);
+    overflow-y: auto;
+
+    .item {
+      width: 100%;
+      padding: 10px 25px 10px 15px;
+      border-bottom: solid 1px var(--color-gray-300);
+    }
+  }
+
+
+}
+
+.message-content {
+  background-color: var(--color-white);
+  width: 70%;
+  height: calc(100vh - 139px);
+
+  .header {
+    padding: 20px 10px 20px 15px;;
+    border-bottom: solid 1px var(--color-gray-300);
+  }
+
+  .content {
+    padding: 10px 10px 10px 10px;
+    height: calc(100vh - 150px);
+    overflow-y: scroll;
+  }
+
+  .chat {
+    width: 100%;
+    border-top: solid 1px var(--color-gray-300);
+    padding: 10px 10px 10px 10px;
+  }
+}
+
+.digital {
+  p {
+    
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 400;
+    color: var(--color-gray-900);
+    margin-bottom: 20px;
   }
 }
